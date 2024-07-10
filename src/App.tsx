@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import wanderwaysLogo from './wanderWaysLogo.svg';
 import './App.scss';
-import { Dashboard } from './components/dashboard/dasboard';
+import { Home } from './components/home/home';
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
+      <Home />
     </div>
   );
 }
