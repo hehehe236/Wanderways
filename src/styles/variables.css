@@ -1,0 +1,39 @@
+:root {
+    /* Colors Gray*/
+    --primary-text: #101828;
+    --secondary-text: #989898;
+    --stroke: #e7e7e6;
+    --background: #fafafa;
+    --white: #ffffff;
+
+    /* Colors Main*/
+    --primary: #6377e2;
+    --secondary: #e7ecfa;
+
+    /* Colors Other*/
+    --blue-label: #6377e2;
+    --green-success: #5bad77;
+    --yellow-warning: #e9bc7e;
+    --red-error: #e97e80;
+
+    /* Fonts */
+    --title_font_bold: 600 40px/48px 'Urbanist', sans-serif;
+    --display_font_bold: 600 24px/32px 'Urbanist', sans-serif;
+
+    --headline1_bold: bold 24px/32px 'Urbanist', sans-serif;
+    --headline2_bold: bold 16px/20px 'Urbanist', sans-serif;
+    --headline3_bold: bold 14px/20px 'Urbanist', sans-serif;
+
+    --body1_font_bold: 600 18px/22px 'Urbanist', sans-serif;
+    --body2_font_bold: 600 16px/19px 'Urbanist', sans-serif;
+    --body3_font_bold: normal 16px/19px 'Urbanist', sans-serif;
+    --body4_font_bold: normal 14px/17px 'Urbanist', sans-serif;
+
+    /* transition */
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* breakpoints */
+    --mobile: 320px;
+    --tablet: 768px;
+    --desktop: 1440px;
+}

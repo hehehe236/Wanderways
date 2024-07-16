@@ -1,0 +1,22 @@
+.section {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}

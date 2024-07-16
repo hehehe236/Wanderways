@@ -1,0 +1,36 @@
+.title_font_bold {
+    font: var(--title_font_bold);
+}
+.display_font_bold {
+    font: var(--display_font_bold);
+}
+.headline1_bold {
+    font: var(--headline1_bold);
+}
+.headline2_bold {
+    font: var(--headline2_bold);
+}
+.headline3_bold {
+    font: var(--headline3_bold);
+}
+.body1_font_bold {
+    font: var(--body1_font_bold);
+}
+.body2_font_bold {
+    font: var(--body2_font_bold);
+}
+.body3_font_bold {
+    font: var(--body3_font_bold);
+}
+.body4_font_bold {
+    font: var(--body4_font_bold);
+}
+.color_primary {
+    color: var(--primary-text);
+}
+.color_secondary {
+    color: var(--secondary-text);
+}
+.color_white {
+    color: var(--white);
+}

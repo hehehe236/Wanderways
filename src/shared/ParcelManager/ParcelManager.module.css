@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 20px;
+    background-color: var(--secondary);
+    width: 100%;
+}
+
+.text {
+    font: var(--body2_font_bold);
+}
+
+.container_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}

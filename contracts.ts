@@ -1,20 +1,20 @@
-type MessageCategory = 'Information' | 'ApplicationError' | 'ServerError';
+type MessageCategory = "Information" | "ApplicationError" | "ServerError";
 
-interface Message {
+type Message = {
     msg: string;
     code: number;
     category: MessageCategory;
-    data: JSON;
+    data: JSON
 }
 
-interface ResponseBase {
-    messages: [];
-    success: boolean;
+type ResponseBase = {
+    messages: [],
+    success: boolean
 }
 
 // ------ Domain types ------
 
-interface UserCar {
+type UserCar = {
     userId: number;
     brand: string;
     model: string;
@@ -22,26 +22,26 @@ interface UserCar {
     licensePlate: string;
 }
 
-interface UserCars {
+type UserCars = {
     cars: UserCar[];
 }
 
-type DrivingExperience = 'Beginner' | 'Intermediate' | 'Expert';
+type DrivingExperience = "Beginner" | "Intermediate" | "Expert";
 
-interface Address {
+type Address = {
     country: string;
     city: string;
     street: string;
 }
 
-interface ParcelRecepientSender {
+type ParcelRecepientSender = {
     name: string;
     lastName: string;
     phoneNumber: string;
     email: string;
 }
 
-interface Parcel {
+type Parcel = {
     senderId: number;
     details: string;
     shippingAddress: Address;
@@ -54,7 +54,7 @@ interface Parcel {
     recipient: ParcelRecepientSender;
 }
 
-interface Ride {
+type Ride = {
     status: string;
     departureAddress: Address;
     arrivalAddress: Address;
@@ -70,38 +70,38 @@ interface Ride {
 // ------ API -------
 
 // [POST] api/login
-interface Login {
+type Login = {
     userName: string;
     password: string;
 }
 
 // [POST] api/signup
-interface SignUp {
+type SignUp = {
     userName: string;
     password: string;
 }
 
 // [POST] api/signup/restorepassword
-interface RestorePassword {
+type RestorePassword = {
     userName: string;
 }
 
 // [POST] api/signout
 
-interface ChangePassword {
+type ChangePassword = {
     password: string;
     newPassword: string;
 }
 
 // [POST&PUT] api/profile
-interface Profile {
+type Profile = {
     userId: number;
     name: string;
     lastName: string;
     profilePicture: string;
 }
 
-interface EditProfile {
+type EditProfile = {
     userId: number;
     name: string;
     lastName: string;
@@ -109,36 +109,36 @@ interface EditProfile {
     drivingExperience: DrivingExperience;
 }
 
-type EditProfileRequest = Profile & {};
+type EditProfileRequest = Profile & {}
 
 // [POST&PUT] api/profile/email
-interface EditEmail {
+type EditEmail = {
     userName: string;
     password: string;
 }
 
-type EditEmailRequest = EditEmail & {};
+type EditEmailRequest = EditEmail & {}
 
 // [POST&PUT] api/profile/password
 
-interface EditPassword {
+type EditPassword = {
     password: string;
     newPassword: string;
 }
 
-type EditPasswordRequest = EditPassword & {};
+type EditPasswordRequest = EditPassword & {}
 
 // [GET] api/parcels/{userId}
 
-interface Parcels {
+type Parcels = {
     parcels?: Parcel[];
 }
 
-type GetParcelsResponse = Parcels & {};
+type GetParcelsResponse = Parcels & {}
 
 // [GET] api/parcels/getbyid/{parcelId}
 
-interface DriverDeliveryRequest {
+type DriverDeliveryRequest = {
     driverId: number;
 }
 
@@ -146,32 +146,32 @@ type GetParcel = Parcel & {
     parcellId: number;
     driverId?: number;
     requests?: DriverDeliveryRequest[];
-};
+}
 
-type GetParcelResponse = Parcel & {};
+type GetParcelResponse = Parcel & {}
 
 // [GET] api/rides/{userId}
 
-interface Rides {
+type Rides = {
     rides: Ride[];
 }
 
-type GetRidesResponse = Rides & {};
+type GetRidesResponse = Rides & {}
 
 // [GET] api/rides/getbyid/{rideId}
 
-interface AcceptedParcel {
+type AcceptedParcel = {
     parcelId: number;
 }
 
-interface DeliveryRequests {
+type DeliveryRequests = {
     parcelId: number;
 }
 
-type GetRideResponse = Ride & {};
+type GetRideResponse = Ride & {}
 
 // [POST] api/parcels
-interface AddParcelRequest {
+type AddParcelRequest = {
     senderId: number;
     details: string;
     shippingAddress: Address;
@@ -182,10 +182,10 @@ interface AddParcelRequest {
     recipient: ParcelRecepientSender;
 }
 
-type AddParcelResponse = ResponseBase & {};
+type AddParcelResponse = ResponseBase & {}
 
 // [POST] api/rides
-interface AddRideRequest {
+type AddRideRequest = {
     driverId: number;
     departureAddress: Address;
     arrivalAddress: Address;
@@ -193,98 +193,98 @@ interface AddRideRequest {
     carId?: number;
 }
 
-type AddRideResponse = ResponseBase & {};
+type AddRideResponse = ResponseBase & {}
 
 // [POST] api/rides/{driverId}/vehicle
 
-interface AddVehicleRequest {
+type AddVehicleRequest = {
     modelName: string;
     carType: string;
     idNumber: string;
 }
 
-type AddVehicleResponse = ResponseBase & {};
+type AddVehicleResponse = ResponseBase & {}
 
 // [GET] api/rides/{driverId}/vehicles
 
-interface GetVehiclesRequest {
+type GetVehiclesRequest = {
     driverId: number;
 }
 
-interface GetVehiclesResponse {
+type GetVehiclesResponse = {
     vehicles: UserCar[];
 }
 
 // [GET] api/rides/find
 
-interface GetAvailableRidesRequest {
+type GetAvailableRidesRequest = {
     departureAddress: Address;
     arrivalAddress: Address;
     departureDate: Date;
 }
 
-interface GetAvailableRidesResponse {
+type GetAvailableRidesResponse = {
     rides: Ride[];
 }
 
 // [POST] api/rides/{rideId}/request
 
-interface RequestDeliveryRequest {
+type RequestDeliveryRequest = {
     parcelId: number;
     cost: number;
 }
 
-type RequestDeliveryResponse = ResponseBase & {};
+type RequestDeliveryResponse = ResponseBase & {}
 
 // [GET] api/parcels/find
 
-interface GetAvailableParcelsRequest {
+type GetAvailableParcelsRequest = {
     shippingAddress: Address;
     deliveryAddress: Address;
     shippingDate: Date;
 }
 
-interface GetAvailableParcelsResponse {
+type GetAvailableParcelsResponse = {
     parcels: Parcel[];
 }
 
 // [POST] api/parcels/{parcelId}/request
 
-interface RequestParcelDeliveryRequest {
+type RequestParcelDeliveryRequest = {
     driverId: number;
     cost: number;
 }
 
-type RequestParcelDeliveryResponse = ResponseBase & {};
+type RequestParcelDeliveryResponse = ResponseBase & {}
 
 // [POST] api/rides/{rideId}/accept
 
-interface AcceptDeliveryRequest {
+type AcceptDeliveryRequest = {
     parcelId: number;
 }
 
-type AcceptDeliveryResponse = ResponseBase & {};
+type AcceptDeliveryResponse = ResponseBase & {}
 
 // [POST] api/rides/{rideId}/cancel
 
-interface CancelDeliveryRequest {
+type CancelDeliveryRequest = {
     parcelId: number;
 }
 
-type CancelDeliveryResponse = ResponseBase & {};
+type CancelDeliveryResponse = ResponseBase & {}
 
 // [POST] api/parsels/{parcelId}/accept
 
-interface AcceptParcelRequest {
+type AcceptParcelRequest = {
     driverId: number;
 }
 
-type AcceptParcelResponse = ResponseBase & {};
+type AcceptParcelResponse = ResponseBase & {}
 
 // [POST] api/parsels/{parcelId}/cancel
 
-interface CancelParcelRequest {
+type CancelParcelRequest = {
     driverId: number;
 }
 
-type CancelParcelResponse = ResponseBase & {};
+type CancelParcelResponse = ResponseBase & {}

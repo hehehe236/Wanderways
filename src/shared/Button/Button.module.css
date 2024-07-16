@@ -1,0 +1,36 @@
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag {
+    display: flex;
+    width: 100px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    color: var(--white);
+}
+
+.tag_blue {
+    background: var(--blue-label);
+}
+
+.tag_green {
+    background: var(--green-success);
+}
+
+.tag_yellow {
+    background: var(--yellow-warning);
+}
+
+.tag_white {
+    background: var(--white);
+}
+
+.tag_red {
+    background: var(--red-error);
+}

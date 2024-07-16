@@ -1,0 +1,49 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 24px;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+}
+.container_wheel {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: var(--secondary);
+}
+
+.wheel {
+    stroke: var(--primary);
+}
+
+.container_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone {
+    color: var(--secondary-text);
+    font: var(--font-body-s);
+    font-weight: 600;
+}
+
+.container_phone {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+.icon_phone {
+    fill: var(--white);
+}

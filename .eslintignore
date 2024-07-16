@@ -1,0 +1,10 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+build
+dist
+node_modules
+.github
+
+src/contracts.ts
