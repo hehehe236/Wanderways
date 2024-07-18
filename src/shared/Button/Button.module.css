@@ -4,33 +4,24 @@
     justify-content: center;
 }
 
-.tag {
+.tab {
     display: flex;
-    width: 100px;
-    padding: 4px 16px;
+    padding: 10px 0;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    border-radius: 100px;
-    color: var(--white);
+    flex: 1 0 0;
+    align-self: stretch;
 }
 
-.tag_blue {
-    background: var(--blue-label);
+
+.tab_size {
+     width: 176px;
 }
 
-.tag_green {
-    background: var(--green-success);
+.background_secondary {
+    background-color: var(--secondary);
 }
 
-.tag_yellow {
-    background: var(--yellow-warning);
-}
-
-.tag_white {
-    background: var(--white);
-}
-
-.tag_red {
-    background: var(--red-error);
+.background_white {
+    background-color: var(--white);
 }

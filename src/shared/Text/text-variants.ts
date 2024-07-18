@@ -21,5 +21,10 @@ export const textVariants = cva(cls.text, {
             secondary: cls.color_secondary,
             white: cls.color_white,
         },
+        variant: {
+            left: cls.variant_left,
+            right: cls.variant_right,
+            center: cls.variant_center,
+        }
     },
 });

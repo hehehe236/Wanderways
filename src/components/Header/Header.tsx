@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 import cls from './Header.module.css';
 
-import Logo from '@/shared/svg/Logo.svg';
-import Avatar from '@/shared/svg/Avatar.png';
+import Logo from '/images/Logo.svg';
+import Avatar from '/images/Avatar.png';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 

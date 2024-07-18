@@ -5,7 +5,7 @@ import cls from './ParcelManager.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Link } from 'react-router-dom';
 
-type ParcelManagerProps = {
+export type ParcelManagerProps = {
     text: string;
     icon: React.ReactNode;
     path: string;

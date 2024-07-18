@@ -27,10 +27,16 @@
     --body1_font_bold: 600 18px/22px 'Urbanist', sans-serif;
     --body2_font_bold: 600 16px/19px 'Urbanist', sans-serif;
     --body3_font_bold: normal 16px/19px 'Urbanist', sans-serif;
-    --body4_font_bold: normal 14px/17px 'Urbanist', sans-serif;
+    --body4_font_bold: 500 14px/17px 'Urbanist', sans-serif;
+
+    /* Shadow */
+    --shadow: 0 0 20px 0 rgba(16, 24, 40, 0.08);
 
     /* transition */
     --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Width Card Ride */
+    --cart-ride-width: 0px;
 
     /* breakpoints */
     --mobile: 320px;

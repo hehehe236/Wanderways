@@ -8,19 +8,15 @@ export const parcelApi = createApi({
     }),
     tagTypes: ['Parcel'],
     endpoints: (builder) => ({
-        getParcelDetails: builder.query({
-            query: (): string => `/parcel-details`,
+        getParcels: builder.query({
+            query: (): string => `/api/parcels`,
             providesTags: ['Parcel'],
         }),
-        getAddress: builder.query({
-            query: (): string => `/address`,
-            providesTags: ['Parcel'],
-        }),
-        getCarrier: builder.query({
-            query: (): string => `/carrier`,
+        getRides: builder.query({
+            query: (): string => `/api/rides`,
             providesTags: ['Parcel'],
         }),
     }),
 });
 
-export const { useGetParcelDetailsQuery, useGetAddressQuery, useGetCarrierQuery } = parcelApi;
+export const { useGetParcelsQuery, useGetRidesQuery } = parcelApi;

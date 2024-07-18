@@ -3,7 +3,7 @@ import cls from './AddressDelivery.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Location } from '@/shared/svg/Location.tsx';
 
-type Address = {
+export type Address = {
     city: string;
     street: string;
     isNotLast: boolean;

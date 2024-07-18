@@ -1,11 +1,11 @@
 import { type TextVariants, textVariants } from './text-variants.ts';
 import { ComponentPropsWithRef } from 'react';
 
-type TextProps = ComponentPropsWithRef<'p'> & TextVariants;
+export type TextProps = ComponentPropsWithRef<'p'> & TextVariants;
 
-const Text = ({ children, size, color, className, ...props }: TextProps) => {
+const Text = ({ children, size, color, variant, className, ...props }: TextProps) => {
     return (
-        <p {...props} className={textVariants({ size, color, className })}>
+        <p {...props} className={textVariants({ size, color, variant, className })}>
             {children}
         </p>
     );

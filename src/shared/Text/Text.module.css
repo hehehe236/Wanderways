@@ -25,6 +25,7 @@
 .body4_font_bold {
     font: var(--body4_font_bold);
 }
+
 .color_primary {
     color: var(--primary-text);
 }
@@ -33,4 +34,14 @@
 }
 .color_white {
     color: var(--white);
+}
+
+.variant_left {
+    text-align: left;
+}
+.variant_right {
+    text-align: right;
+}
+.variant_center {
+    text-align: center;
 }

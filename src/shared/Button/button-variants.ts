@@ -6,20 +6,15 @@ export type ButtonVariants = VariantProps<typeof buttonVariants>;
 export const buttonVariants = cva(cls.button, {
     variants: {
         size: {
-            small: cls.small,
-            medium: cls.medium,
-            large: cls.large,
+            tab: cls.tab_size,
         },
         variant: {
             icon: cls.icon,
-            tag: cls.tag,
+            tab: cls.tab,
         },
-        tag: {
-            blue: cls.tag_blue,
-            red: cls.tag_red,
-            green: cls.tag_green,
-            yellow: cls.tag_yellow,
-            white: cls.tag_white,
+        background: {
+            secondary: cls.background_secondary,
+            white: cls.background_white,
         },
     },
 });

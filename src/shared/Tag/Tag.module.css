@@ -1,0 +1,30 @@
+.tag {
+    display: flex;
+    width: 100px;
+    padding: 4px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    color: var(--white);
+}
+
+.background_blue {
+    background-color: var(--blue-label);
+}
+
+.background_green {
+    background-color: var(--green-success);
+}
+
+.background_yellow {
+    background-color: var(--yellow-warning);
+}
+
+.background_white {
+    background-color: var(--white);
+}
+
+.background_red {
+    background-color: var(--red-error);
+}
