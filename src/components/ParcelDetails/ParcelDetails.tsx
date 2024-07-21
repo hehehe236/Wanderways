@@ -1,29 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import cls from './ParcelDetails.module.css';
 
 import { Text } from '@/shared/Text/Text.tsx';
 import { ParcelFilled } from '@/shared/svg/ParcelFilled';
 import { Hgryvnia } from '@/shared/svg/Hgryvnia.tsx';
-import { Button } from '@/shared/Button/Button.tsx';
-import { AppDispatch } from '@/store/store.tsx';
+import { Tag } from '@/shared/Tag/Tag.tsx';
+import { Dot } from '@/shared/svg/Dot.tsx';
 
-import cls from './ParcelDetails.module.css';
+export type ParcelDetailsProps = {
+    details: string;
+    status: 'In Transit' | 'Failed' | 'Delivered' | 'New';
+    price: number;
+}
 
-import { useGetParcelDetailsQuery } from '@/store/services/parcelService';
-import { saveParcelDetails, selectParcelDetails } from '@/store/features/parcelDetailsSlice.ts';
-
-export const ParcelDetails = () => {
-    const { data, isLoading: isLoadingParcelDetails } = useGetParcelDetailsQuery({});
-    const dispatch: AppDispatch = useDispatch();
-    const parcelInfo = useSelector(selectParcelDetails);
-
-    useEffect(() => {
-        if (data) {
-            dispatch(saveParcelDetails(data));
-        }
-    }, [data, dispatch]);
-
-    if (isLoadingParcelDetails) return <div>Loading...</div>;
+export const ParcelDetails = (props: ParcelDetailsProps) => {
+    const { details, status, price } = props;
 
     return (
         <section className={cls.container}>
@@ -31,13 +21,13 @@ export const ParcelDetails = () => {
                 <ParcelFilled addStyle={cls.icon} />
             </div>
             <div className={cls.container_text}>
-                <Text text={parcelInfo?.name} addStyle={cls.title} />
-                <div className={cls.status}>
-                    <Button type={'button'} text={parcelInfo?.status} addStyle={cls.button} />
-                    <div className={cls.dot}></div>
-                    <div className={cls.price}>
+                <Text variant={"left"} size={'headline1_bold'} color={'primary'}>{details}</Text>
+                <div className={cls.container_status}>
+                    <Tag text={status} background={status} />
+                    <Dot addStyle={cls.icon_dot}/>
+                    <div className={cls.container_price}>
                         <Hgryvnia addStyle={cls.icon_hryvnia} />
-                        <span className={cls.count}>{parcelInfo?.deliveryCost}</span>
+                        <Text variant={'left'} size={'body2_font_bold'} color={'secondary'}>{price}</Text>
                     </div>
                 </div>
             </div>

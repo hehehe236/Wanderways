@@ -2,13 +2,15 @@ import cls from './Carrier.module.css';
 import { Wheel } from '@/shared/svg/Wheel.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Phone } from '@/shared/svg/Phone.tsx';
+import { Button } from '@/shared/Button/Button.tsx';
 
-import { useGetCarrierQuery } from '@/store/services/parcelService.ts';
+export type CarrierProps = {
+    name: string;
+    phoneNumber: string;
+}
 
-export const Carrier = () => {
-    const { data: carrier, isLoading } = useGetCarrierQuery({});
-
-    if (isLoading) return <div>Loading...</div>;
+export const Carrier = (props: CarrierProps) => {
+    const {name, phoneNumber} = props;
 
     return (
         <section className={cls.container}>
@@ -16,15 +18,15 @@ export const Carrier = () => {
                 <Wheel addStyle={cls.wheel} />
             </div>
             <div className={cls.container_text}>
-                <Text text={carrier.name} addStyle={cls.name} />
+                <Text size={'headline2_bold'} color={'primary'}>{name}</Text>
                 <div>
                     <span className={cls.phone}>Driver | </span>
-                    <span className={cls.phone}>{carrier.phoneNumber}</span>
+                    <span className={cls.phone}>{phoneNumber}</span>
                 </div>
             </div>
-            <button type={'button'} className={cls.container_phone}>
+            <Button type={'button'} variant={'icon'} className={cls.container_phone}>
                 <Phone addStyle={cls.icon_phone} />
-            </button>
+            </Button>
         </section>
     );
 };

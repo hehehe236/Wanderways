@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import cls from './Home.module.scss';
+import cls from './Home.module.css';
 import { ParcelHandler } from '@/components/ParcelHandler/ParcelHandler.tsx';
 import { Tabs } from '@/components/Tabs/Tabs.tsx';
 import { ParcelList } from '@/components/ParcelList/ParcelList.tsx';

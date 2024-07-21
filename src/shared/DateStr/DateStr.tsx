@@ -1,5 +1,4 @@
 import { Text } from '@/shared/Text/Text.tsx';
-import cls from './DateStr.module.css';
 
 export const DateStr = ({ date }: { date: string }) => {
     const dateStr: Date = new Date(date);
@@ -14,5 +13,5 @@ export const DateStr = ({ date }: { date: string }) => {
         .toLocaleDateString('en-US', options)
         .replace(' at ', ', ');
 
-    return <Text text={formattedDate} addStyle={cls.text} />;
+    return <Text size={"body2_font_bold"} color={'primary'} >{formattedDate}</Text>
 };

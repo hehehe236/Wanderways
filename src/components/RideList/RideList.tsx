@@ -6,28 +6,37 @@ import { Ride } from '@/components/Ride/Ride.tsx';
 import { RideProps } from '@/components/Ride/types.ts';
 import cls from './RideList.module.css';
 
-import { useGetRidesQuery } from '@/store/services/parcelService.ts';
+import { useGetRidesQuery } from '@/store/services/rideService.ts';
 
 export const RideList = () => {
-    const { data, isLoading} = useGetRidesQuery({});
+    const { data, isLoading } = useGetRidesQuery({});
 
-    if (isLoading) return <Loader/>;
+    if (isLoading) return <Loader />;
 
     return (
         <SimpleBar style={{ maxHeight: 500 }}>
             <ul className={cls.container}>
-                {data?.map(({driverId, details, departureAddress, arrivalAddress, cost, status}: RideProps) => (
-                    <li key={driverId}>
-                        <Ride
-                            details={details}
-                            departureAddress={departureAddress}
-                            arrivalAddress={arrivalAddress}
-                            cost={cost}
-                            status={status}
-                        />
-                    </li>
-                ))}
+                {data?.map(
+                    ({
+                        driverId,
+                        details,
+                        departureAddress,
+                        arrivalAddress,
+                        cost,
+                        status,
+                    }: RideProps) => (
+                        <li key={driverId}>
+                            <Ride
+                                details={details}
+                                departureAddress={departureAddress}
+                                arrivalAddress={arrivalAddress}
+                                cost={cost}
+                                status={status}
+                            />
+                        </li>
+                    )
+                )}
             </ul>
         </SimpleBar>
-    )
-}
+    );
+};

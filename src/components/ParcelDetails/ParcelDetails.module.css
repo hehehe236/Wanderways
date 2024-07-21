@@ -1,77 +1,52 @@
 .container {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     width: 100%;
-}
-
-.title {
-    color: var(--primary-text);
-    font: var(--font-body-xl);
+    margin-bottom: 24px;
 }
 
 .container_icon {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    align-items: center;
+    width: 65px;
+    height: 65px;
+    padding: 13px 13px 12px 12px;
+    flex-shrink: 0;
     background: var(--secondary);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .icon {
     fill: var(--primary);
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
 }
 
 .container_text {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.button {
-    min-width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--primary);
-    color: var(--white);
-    font: var(--font-body-s);
-    border-radius: 24px;
-    padding: 4px;
-}
-
-.status {
-    display: flex;
-    justify-content: left;
-    align-items: center;
     gap: 8px;
 }
 
-.dot {
-    background-color: var(--secondary-text);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+.container_status {
+    display: flex;
+    align-items: center;
+}
+
+.container_price {
+    display: flex;
+    align-items: center;
+}
+
+.icon_dot {
+    margin: 0 12px;
 }
 
 .icon_hryvnia {
-    width: 14px;
-    height: 14px;
     stroke: var(--secondary-text);
     stroke-width: 2;
+    width: 16px;
+    height: 16px;
 }
 
-.price {
-    display: flex;
-    align-items: center;
-    color: var(--secondary-text);
-    font: var(--font-body-xl);
-}
-
-.count {
-    color: var(--secondary-text);
-    font: var(--font-body-m);
-}

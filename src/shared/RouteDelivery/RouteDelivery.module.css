@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.container_address {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.icon {
+    stroke: var(--primary);
+}

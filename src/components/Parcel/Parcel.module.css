@@ -4,6 +4,17 @@
     border-radius: 20px;
     background-color: var(--white);
     box-shadow: var(--shadow);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.container:hover {
+    box-shadow: 0 0 20px 0 rgba(16, 24, 40, 0.15);
+}
+
+.container:active,
+.container:focus {
+    box-shadow: 4px 4px 20px 4px rgba(16, 24, 40, 0.08);
+    transform: scale(0.95);
 }
 
 .address_status {
@@ -66,5 +77,5 @@
 
 .hgryvnia {
     stroke: var(--secondary-text);
-    stroke-width: 1.5;
+    stroke-width: 2;
 }

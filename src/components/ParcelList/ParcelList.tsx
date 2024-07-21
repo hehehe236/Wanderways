@@ -19,6 +19,7 @@ export const ParcelList = () => {
                 {data?.map(({senderId, details, shippingAddress, deliveryAddress, cost, status}: ParcelProps) => (
                     <li key={senderId}>
                         <Parcel
+                            senderId={senderId}
                             details={details}
                             shippingAddress={shippingAddress}
                             deliveryAddress={deliveryAddress}

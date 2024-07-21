@@ -10,10 +10,17 @@ import { Tag } from '@/shared/Tag/Tag.tsx';
 import { Hgryvnia } from '@/shared/svg/Hgryvnia.tsx';
 
 export const Parcel = (props: ParcelProps) => {
-    const { details, shippingAddress, deliveryAddress, cost, status } = props;
+    const {
+        senderId,
+        details,
+        shippingAddress,
+        deliveryAddress,
+        cost,
+        status
+    } = props;
 
     return (
-        <Link to={"#"}>
+        <Link to={`/parcel/${senderId}`} state={'qweeert'}>
             <button className={cls.container}>
                 <div className={cls.address_status}>
                     <div className={cls.address}>

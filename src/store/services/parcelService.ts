@@ -12,11 +12,11 @@ export const parcelApi = createApi({
             query: (): string => `/api/parcels`,
             providesTags: ['Parcel'],
         }),
-        getRides: builder.query({
-            query: (): string => `/api/rides`,
+        getParcelById: builder.query({
+            query: (parcelId): string => `/api/parcels/${parcelId}`,
             providesTags: ['Parcel'],
         }),
     }),
 });
 
-export const { useGetParcelsQuery, useGetRidesQuery } = parcelApi;
+export const { useGetParcelsQuery, useGetParcelByIdQuery } = parcelApi;
