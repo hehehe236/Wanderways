@@ -1,4 +1,4 @@
-export const Location = ({ addStyle }: { addStyle?: string }) => {
+export const IconLocation = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='24'

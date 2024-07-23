@@ -1,4 +1,4 @@
-export const PackagingArrowUp = ({ addStyle }: { addStyle?: string }) => {
+export const IconPackagingArrowUp = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='24'

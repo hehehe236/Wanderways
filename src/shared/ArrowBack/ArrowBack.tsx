@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import cls from './ArrowBack.module.css';
 import { Button } from '@/shared/Button/Button.tsx';
-import { ArrowLeft } from '@/shared/svg/ArrowLeft.tsx';
+import { IconArrowLeft } from '@/shared/svg/IconArrowLeft.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 
 export const ArrowBack = () => {
@@ -13,11 +13,13 @@ export const ArrowBack = () => {
     };
 
     return (
-        <Button type="button" variant={'icon'} className={cls.container} onClick={handleClick}>
+        <Button type='button' variant={'icon'} className={cls.container} onClick={handleClick}>
             <div className={cls.container_icon}>
-                <ArrowLeft />
+                <IconArrowLeft />
             </div>
-            <Text size={'body2_font_bold'} color={'primary'}>Back</Text>
+            <Text size={'body2_font_bold'} color={'primary'}>
+                Back
+            </Text>
         </Button>
     );
 };

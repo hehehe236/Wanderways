@@ -1,4 +1,4 @@
-export const Wheel = ({ addStyle }: { addStyle?: string }) => {
+export const IconWheel = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='24'

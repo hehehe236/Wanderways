@@ -1,4 +1,4 @@
-export const Hgryvnia = ({ addStyle }: { addStyle?: string }) => {
+export const IconHgryvnia = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='14'

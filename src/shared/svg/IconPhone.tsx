@@ -1,4 +1,4 @@
-export const Phone = ({ addStyle }: { addStyle?: string }) => {
+export const IconPhone = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='24'

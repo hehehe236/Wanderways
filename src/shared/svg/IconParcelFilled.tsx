@@ -1,4 +1,4 @@
-export const ParcelFilled = ({ addStyle }: { addStyle?: string }) => {
+export const IconParcelFilled = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='24'

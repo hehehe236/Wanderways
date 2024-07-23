@@ -1,4 +1,4 @@
-export const Delivery = ({ addStyle }: { addStyle?: string }) => {
+export const IconDelivery = ({ addStyle }: { addStyle?: string }) => {
     return (
         <svg
             width='24'

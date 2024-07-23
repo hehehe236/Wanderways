@@ -2,7 +2,7 @@ export type Address = {
     country: string;
     city: string;
     street: string;
-}
+};
 
 export type RideProps = {
     driverId?: number;
@@ -13,5 +13,6 @@ export type RideProps = {
     arrivalDate?: Date;
     carId?: number;
     cost: number;
-    status: 'In Transit' | 'Failed' | 'Delivered' | 'New' ;
-}
+    status?: 'In Transit' | 'Failed' | 'Delivered' | 'New';
+    children?: React.ReactNode;
+};
