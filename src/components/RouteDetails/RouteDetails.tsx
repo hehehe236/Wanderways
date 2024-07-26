@@ -22,7 +22,7 @@ export const RouteDetails = (props :RouteDetailsProps) => {
     } = props;
 
     return (
-        <section className={cls.section}>
+        <>
             <div className={cls.container}>
                 <ul className={cls.list}>
                     <li>
@@ -38,6 +38,6 @@ export const RouteDetails = (props :RouteDetailsProps) => {
                 shippingDate={shippingDate}
                 deliveryDate={deliveryDate}
             />
-        </section>
+        </>
     );
 };

@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import { parcelDetailsSlice } from './features/parcelDetailsSlice.ts';
 import { parcelApi } from '../store/services/parcelService.ts';
 import { rideApi } from '@/store/services/rideService.ts';
+import { optionReducer } from './features/optionSlice.ts';
 
 export const store = configureStore({
     reducer: {
-        parcelDetails: parcelDetailsSlice.reducer,
         [parcelApi.reducerPath]: parcelApi.reducer,
         [rideApi.reducerPath]: rideApi.reducer,
+        option: optionReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

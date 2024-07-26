@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import cls from './Home.module.css';
 import { ParcelHandler } from '@/components/ParcelHandler/ParcelHandler.tsx';
 import { Tabs } from '@/components/Tabs/Tabs.tsx';
 import { ParcelList } from '@/components/ParcelList/ParcelList.tsx';
 import { RideList } from '@/components/RideList/RideList.tsx';
+import { selectVisibleParcelList } from '@/store/features/optionSlice.ts';
+
 
 const Home = () => {
-    const [isParcel, setIsParcel] = useState(true);
-    const getIsParcel = () => setIsParcel(!isParcel);
+    const isVisibleParcelList = useSelector(selectVisibleParcelList);
 
     return (
         <main className={cls.container}>
             <ParcelHandler />
-            <Tabs getIsParcel={getIsParcel}/>
-            {isParcel ? <ParcelList/> : <RideList/>}
+            <Tabs />
+            {isVisibleParcelList ? <ParcelList/> : <RideList/>}
         </main>
     );
 };

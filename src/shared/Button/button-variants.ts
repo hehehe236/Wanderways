@@ -11,10 +11,12 @@ export const buttonVariants = cva(cls.button, {
         variant: {
             icon: cls.icon,
             tab: cls.tab,
+            submit: cls.submit,
         },
         background: {
             secondary: cls.background_secondary,
             white: cls.background_white,
+            primary: cls.background_primary,
         },
     },
 });

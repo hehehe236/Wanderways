@@ -1,11 +1,6 @@
 .container {
-    width: 100%;
     display: flex;
     align-items: center;
-    border-radius: 20px;
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-    padding: 16px;
     gap: 16px;
 }
 .container_wheel {

@@ -12,10 +12,11 @@ export type RecipientSenderInfoProps = {
     phoneRecipient: string;
     nameSender: string;
     phoneSender: string;
+    variant: 'parcel' | 'ride';
 };
 
 export const RecipientSenderInfo = (props: RecipientSenderInfoProps) => {
-    const { nameRecipient, phoneRecipient, nameSender, phoneSender } = props;
+    const { nameRecipient, phoneRecipient, nameSender, phoneSender, variant } = props;
     const [isOpenRecipient, setIsOpenRecipient] = useState(false);
     const [isOpenSender, setIsOpenSender] = useState(false);
 
@@ -23,7 +24,7 @@ export const RecipientSenderInfo = (props: RecipientSenderInfoProps) => {
     const handleClickSender = () => setIsOpenSender(!isOpenSender);
 
     return (
-        <section className={cls.section}>
+        <>
             <div className={cls.container_title}>
                 <Text size={'headline2_bold'} color={'primary'}>
                     Recipient
@@ -40,23 +41,27 @@ export const RecipientSenderInfo = (props: RecipientSenderInfoProps) => {
             {isOpenRecipient && (
                 <RecepientInfo variant={'Recipient'} name={nameRecipient} phone={phoneRecipient} />
             )}
-            <div className={cls.line} />
-            <div className={cls.container_title}>
-                <Text size={'headline2_bold'} color={'primary'}>
-                    Sender
-                </Text>
-                <Button
-                    type={'button'}
-                    variant={'icon'}
-                    className={cls.button}
-                    onClick={handleClickSender}
-                >
-                    {isOpenSender ? <IconArrow2Down /> : <IconArrow2Right />}
-                </Button>
-            </div>
-            {isOpenSender && (
-                <RecepientInfo variant={'Sender'} name={nameSender} phone={phoneSender} />
+            {variant === 'ride' && (
+                <>
+                    <div className={cls.line} />
+                    <div className={cls.container_title}>
+                        <Text size={'headline2_bold'} color={'primary'}>
+                            Sender
+                        </Text>
+                        <Button
+                            type={'button'}
+                            variant={'icon'}
+                            className={cls.button}
+                            onClick={handleClickSender}
+                        >
+                            {isOpenSender ? <IconArrow2Down /> : <IconArrow2Right />}
+                        </Button>
+                    </div>
+                    {isOpenSender && (
+                        <RecepientInfo variant={'Sender'} name={nameSender} phone={phoneSender} />
+                    )}
+                </>
             )}
-        </section>
+        </>
     );
 };

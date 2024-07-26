@@ -1,19 +1,18 @@
-import cls from './ParcelDetails.module.css';
-
-import { Text } from '@/shared/Text/Text.tsx';
+import cls from './ParcelDetailsInfo.module.css';
 import { IconParcelFilled } from '@/shared/svg/IconParcelFilled.tsx';
-import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
+import { Text } from '@/shared/Text/Text.tsx';
 import { Tag } from '@/shared/Tag/Tag.tsx';
 import { IconDot } from '@/shared/svg/IconDot.tsx';
+import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
 
-export type ParcelDetailsProps = {
-    details: string;
+export type ParcelDetailsInfoProps = {
+    type: string;
     status: 'In Transit' | 'Failed' | 'Delivered' | 'New';
     price: number;
 };
 
-export const ParcelDetails = (props: ParcelDetailsProps) => {
-    const { details, status, price } = props;
+export const ParcelDetailsInfo = (props: ParcelDetailsInfoProps) => {
+    const { type, status, price } = props;
 
     return (
         <section className={cls.container}>
@@ -22,7 +21,7 @@ export const ParcelDetails = (props: ParcelDetailsProps) => {
             </div>
             <div className={cls.container_text}>
                 <Text variant={'left'} size={'headline1_bold'} color={'primary'}>
-                    {details}
+                    {type}
                 </Text>
                 <div className={cls.container_status}>
                     <Tag text={status} background={status} />

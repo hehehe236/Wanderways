@@ -13,7 +13,7 @@ export const Carrier = (props: CarrierProps) => {
     const { name, phoneNumber } = props;
 
     return (
-        <section className={cls.container}>
+        <div className={cls.container}>
             <div className={cls.container_wheel}>
                 <IconWheel addStyle={cls.wheel} />
             </div>
@@ -29,6 +29,6 @@ export const Carrier = (props: CarrierProps) => {
             <Button type={'button'} variant={'icon'} className={cls.container_phone}>
                 <IconPhone addStyle={cls.icon_phone} />
             </Button>
-        </section>
+        </div>
     );
 };

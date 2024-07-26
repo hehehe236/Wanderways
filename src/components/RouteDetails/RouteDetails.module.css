@@ -1,16 +1,9 @@
-.section {
-    width: 100%;
-    background-color: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-}
-
 .container {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 16px;
+    padding-bottom: 16px;
     border-bottom: 1px solid var(--stroke);
 }
 
@@ -23,8 +16,8 @@
 
 .line {
     position: absolute;
-    top: 62px;
-    left: -5px;
+    top: 50px;
+    left: -20px;
     width: 55px;
     transform: rotate(-90deg);
     background-color: var(--primary);

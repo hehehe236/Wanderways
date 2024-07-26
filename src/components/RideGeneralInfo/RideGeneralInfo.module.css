@@ -8,12 +8,12 @@
 }
 
 .container:hover {
-    box-shadow: 0 0 20px 0 rgba(16, 24, 40, 0.15);
+    box-shadow: 0 6px 0 0 rgba(16, 24, 40, 0.15);
 }
 
 .container:active,
 .container:focus {
-    box-shadow: 4px 4px 20px 4px rgba(16, 24, 40, 0.08);
+    box-shadow: 0 6px 0 0 rgba(16, 24, 40, 0.15);
     transform: scale(0.95);
 }
 
@@ -21,24 +21,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
-}
-
-.address {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-right: 4px;
-}
-
-.arrow_icon {
-    stroke: var(--secondary-text);
 }
 
 .product_info {
     position: relative;
     display: flex;
     align-items: center;
+    margin-top: 24px;
 }
 
 .container_icon {
@@ -78,4 +67,15 @@
 .hgryvnia {
     stroke: var(--secondary-text);
     stroke-width: 2;
+}
+
+.wrap_text {
+    width: calc(var(--cart-ride-width) - 100px);
+}
+
+.name {
+    text-align: start;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

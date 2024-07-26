@@ -1,0 +1,10 @@
+.address {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 4px;
+}
+
+.arrow_icon {
+    stroke: var(--secondary-text);
+}

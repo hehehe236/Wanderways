@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout';
 
 const Home = lazy(async () => await import('./pages/Home/Home'));
 const Parcel = lazy(async () => await import('./pages/Parcel/Parcel'));
+const Ride = lazy(async () => await import('./pages/Ride/Ride'));
 
 export const App = () => {
     return (
@@ -11,7 +12,8 @@ export const App = () => {
             <Routes>
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path={`parcel/:id`} element={<Parcel />} />
+                    <Route path={'parcel/:id'} element={<Parcel />} />
+                    <Route path={'ride/:id'} element={<Ride />} />
                 </Route>
             </Routes>
         </BrowserRouter>

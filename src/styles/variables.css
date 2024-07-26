@@ -30,7 +30,7 @@
     --body4_font_bold: 500 14px/17px 'Urbanist', sans-serif;
 
     /* Shadow */
-    --shadow: 0 0 20px 0 rgba(16, 24, 40, 0.08);
+    --shadow: 0 4px 2px 0 rgba(16, 24, 40, 0.08);
 
     /* transition */
     --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);

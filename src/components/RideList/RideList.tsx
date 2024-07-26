@@ -1,41 +1,44 @@
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 
-import { Loader } from '@/shared/Loader/Loader.tsx';
-import { Ride } from '@/components/Ride/Ride.tsx';
-import { RideProps } from '@/components/Ride/types.ts';
-import { Tag } from '@/shared/Tag/Tag.tsx';
 import cls from './RideList.module.css';
+import { Loader } from '@/shared/Loader/Loader.tsx';
+import { Tag } from '@/shared/Tag/Tag.tsx';
+import { RideListProps } from '@/components/RideList/type.ts';
+import useListHeight from '@/hooks/useListHeight.ts';
+import { RideGeneralInfo } from '@/components/RideGeneralInfo/RideGeneralInfo.tsx';
 
 import { useGetRidesQuery } from '@/store/services/rideService.ts';
 
 export const RideList = () => {
     const { data, isLoading } = useGetRidesQuery({});
 
+    const { listRef, listHeight } = useListHeight(data);
+
     if (isLoading) return <Loader />;
 
     return (
-        <SimpleBar style={{ maxHeight: 500 }}>
-            <ul className={cls.container}>
+        <SimpleBar style={{ maxHeight: listHeight }}>
+            <ul className={cls.container} ref={listRef}>
                 {data?.map(
                     ({
                         driverId,
-                        details,
                         departureAddress,
                         arrivalAddress,
-                        cost,
                         status,
-                    }: RideProps) => (
+                         totalCost,
+                         parcelsTypes,
+                    }: RideListProps) => (
                         <li key={driverId}>
-                            <Ride
-                                details={details}
+                            <RideGeneralInfo
+                                driverId={driverId}
                                 departureAddress={departureAddress}
                                 arrivalAddress={arrivalAddress}
-                                cost={cost}
-                                status={status}
+                                totalCost={totalCost}
+                                type={`${parcelsTypes?.join(', ')}`}
                             >
                                 <Tag text={status} background={status} />
-                            </Ride>
+                            </RideGeneralInfo>
                         </li>
                     )
                 )}

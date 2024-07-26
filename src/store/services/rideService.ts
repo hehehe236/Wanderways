@@ -12,7 +12,19 @@ export const rideApi = createApi({
             query: (): string => `/api/rides`,
             providesTags: ['Ride'],
         }),
+        getRideById: builder.query({
+            query: (rideId): string => `/api/rides/${rideId}`,
+            providesTags: ['Ride'],
+        }),
+        getRideAcceptedParcels: builder.query({
+            query: (rideId): string => `/api/rides/${rideId}/accepted`,
+            providesTags: ['Ride'],
+        }),
     }),
 });
 
-export const { useGetRidesQuery } = rideApi;
+export const {
+    useGetRidesQuery,
+    useGetRideByIdQuery,
+    useGetRideAcceptedParcelsQuery
+} = rideApi;
