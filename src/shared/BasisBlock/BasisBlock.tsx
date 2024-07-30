@@ -6,6 +6,7 @@ export type BasisBlockProps = {
 }
 
 export const BasisBlock = ({children}: BasisBlockProps) => {
+
     return (
         <div className={cls.container} >
             {children}

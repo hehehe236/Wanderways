@@ -1,6 +1,7 @@
 import { Text } from '@/shared/Text/Text.tsx';
 
 export const DateStr = ({ date }: { date: string }) => {
+    if(!date) return null;
     const dateStr: Date = new Date(date);
     const options: Intl.DateTimeFormatOptions = {
         month: 'long',

@@ -5,8 +5,8 @@ import { IconLocation } from '@/shared/svg/IconLocation.tsx';
 import { IconBigDot } from '@/shared/svg/IconBigDot.tsx';
 
 export type RouteDeliveryProps = {
-    city: string;
-    street: string;
+    city?: string;
+    street?: string;
 };
 
 export const RouteDelivery = ({ city, street }: RouteDeliveryProps) => {

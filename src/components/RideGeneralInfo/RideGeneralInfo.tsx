@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import cls from '@/components/RideGeneralInfo/RideGeneralInfo.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
@@ -7,28 +8,24 @@ import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
 import { IconArrow2Right } from '@/shared/svg/IconArrow2Right.tsx';
 import useElementWidth from '@/hooks/useElementWidth.ts';
 import { AddressDelivery } from '@/shared/AddressDelivery/AddressDelivery.tsx';
-import { RideGeneralInfoProps } from '@/components/RideGeneralInfo/type.ts';
+import { Tag } from '@/shared/Tag/Tag.tsx';
+import { Ride } from '@/store/features/ride/types.ts';
+import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 
-export const RideGeneralInfo = (props: RideGeneralInfoProps) => {
-    const {
-        driverId,
-        type,
-        totalCost,
-        departureAddress,
-        arrivalAddress,
-        children
-    } = props;
+export const RideGeneralInfo = ({ rideId}: { rideId: number}) => {
+    const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) => selectRideById(state, rideId));
+    if(!ride) return null;
 
     const buttonRef = useElementWidth();
 
     return (
-        <Link to={`/ride/${driverId}`} >
+        <Link to={`/ride/${rideId}`} state={rideId}>
             <button className={cls.container} ref={buttonRef}>
                 <div className={cls.address_status}>
-                    <AddressDelivery deliveryAddress={departureAddress.city} shippingAddress={arrivalAddress.city}/>
-                    {children}
+                    <AddressDelivery deliveryAddress={ride.departureAddress.city} shippingAddress={ride.arrivalAddress.city}/>
+                    <Tag text={ride.status} background={ride.status} />
                 </div>
-                {(totalCost !== 0 && type.length !== 0) && (
+                {(ride.totalCost !== 0 && ride.parcelsTypes.length !== 0) && (
                     <div className={cls.product_info}>
                         <div className={cls.container_icon}>
                             <IconParcelFilled addStyle={cls.parcel_icon} />
@@ -36,11 +33,11 @@ export const RideGeneralInfo = (props: RideGeneralInfoProps) => {
                         <div className={cls.name_price}>
                             <div className={cls.wrap_text}>
                                 <Text size={'headline2_bold'} color={'primary'} className={cls.name}>
-                                    {type}
+                                    {ride.parcelsTypes.join(', ')}
                                 </Text>
                             </div>
                             <Text size={'body4_font_bold'} color={'secondary'} className={cls.price}>
-                                <IconHgryvnia addStyle={cls.hgryvnia} /> {totalCost}
+                                <IconHgryvnia addStyle={cls.hgryvnia} /> {ride.totalCost}
                             </Text>
                         </div>
                         <IconArrow2Right addStyle={cls.arrow2right_icon} />

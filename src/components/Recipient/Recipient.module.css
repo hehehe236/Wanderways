@@ -1,3 +1,13 @@
+.container_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.line {
+    border-top: 1px solid var(--stroke);
+}
+
 .container {
     padding: 0 16px;
 }

@@ -7,7 +7,6 @@ import { ParcelList } from '@/components/ParcelList/ParcelList.tsx';
 import { RideList } from '@/components/RideList/RideList.tsx';
 import { selectVisibleParcelList } from '@/store/features/optionSlice.ts';
 
-
 const Home = () => {
     const isVisibleParcelList = useSelector(selectVisibleParcelList);
 

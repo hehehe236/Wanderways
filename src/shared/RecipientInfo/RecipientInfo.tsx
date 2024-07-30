@@ -1,21 +1,20 @@
-import cls from './RecepientInfo.module.css';
+import cls from './RecipientInfo.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { IconPhone } from '@/shared/svg/IconPhone.tsx';
 
-export type RecepientInfoProps = {
-    variant: 'Recipient' | 'Sender';
+export type RecipientInfoProps = {
     name: string;
     phone: string;
 };
 
-export const RecepientInfo = (props: RecepientInfoProps) => {
-    const { variant, name, phone } = props;
+export const RecipientInfo = (props: RecipientInfoProps) => {
+    const { name, phone } = props;
 
     return (
         <>
             <div className={cls.name}>
                 <Text size={'body4_font_bold'} color={'secondary'} className={cls.recipient}>
-                    {variant}
+                    Name
                 </Text>
                 <Text size={'body4_font_bold'} color={'primary'}>
                     {name}

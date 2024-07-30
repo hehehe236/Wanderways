@@ -3,12 +3,16 @@ import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 
 import { parcelApi } from '../store/services/parcelService.ts';
 import { rideApi } from '@/store/services/rideService.ts';
 import { optionReducer } from './features/optionSlice.ts';
+import { parcelReducer } from '@/store/features/parcel/parcelSlice.ts';
+import { rideReducer } from '@/store/features/ride/rideSlice.ts';
 
 export const store = configureStore({
     reducer: {
         [parcelApi.reducerPath]: parcelApi.reducer,
         [rideApi.reducerPath]: rideApi.reducer,
         option: optionReducer,
+        parcel: parcelReducer,
+        ride: rideReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

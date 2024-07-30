@@ -3,11 +3,13 @@ import { IconArrowRight } from '@/shared/svg/IconArrowRight.tsx';
 import cls from './DateDelivery.module.css';
 
 export type DateDeliveryProps = {
-    shippingDate: string;
-    deliveryDate: string;
+    shippingDate?: string;
+    deliveryDate?: string;
 };
 
 export const DateDelivery = ({ shippingDate, deliveryDate }: DateDeliveryProps) => {
+    if(!shippingDate || !deliveryDate) return null;
+
     return (
         <div className={cls.container}>
             <DateStr date={shippingDate} />

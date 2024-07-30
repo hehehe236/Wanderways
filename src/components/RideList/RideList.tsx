@@ -1,17 +1,20 @@
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
+import { useSelector } from 'react-redux';
 
 import cls from './RideList.module.css';
 import { Loader } from '@/shared/Loader/Loader.tsx';
-import { Tag } from '@/shared/Tag/Tag.tsx';
-import { RideListProps } from '@/components/RideList/type.ts';
 import useListHeight from '@/hooks/useListHeight.ts';
 import { RideGeneralInfo } from '@/components/RideGeneralInfo/RideGeneralInfo.tsx';
 
 import { useGetRidesQuery } from '@/store/services/rideService.ts';
+import { RideGeneralInfoType } from '@/store/features/ride/types.ts';
+import { selectRides } from '@/store/features/ride/rideSlice.ts';
 
 export const RideList = () => {
     const { data, isLoading } = useGetRidesQuery({});
+
+    const rides: RideGeneralInfoType[] = useSelector(selectRides);
 
     const { listRef, listHeight } = useListHeight(data);
 
@@ -20,24 +23,14 @@ export const RideList = () => {
     return (
         <SimpleBar style={{ maxHeight: listHeight }}>
             <ul className={cls.container} ref={listRef}>
-                {data?.map(
+                {rides.map(
                     ({
-                        driverId,
-                        departureAddress,
-                        arrivalAddress,
-                        status,
-                         totalCost,
-                         parcelsTypes,
-                    }: RideListProps) => (
-                        <li key={driverId}>
+                         rideId,
+                    }: RideGeneralInfoType) => (
+                        <li key={rideId}>
                             <RideGeneralInfo
-                                driverId={driverId}
-                                departureAddress={departureAddress}
-                                arrivalAddress={arrivalAddress}
-                                totalCost={totalCost}
-                                type={`${parcelsTypes?.join(', ')}`}
+                                rideId={rideId}
                             >
-                                <Tag text={status} background={status} />
                             </RideGeneralInfo>
                         </li>
                     )

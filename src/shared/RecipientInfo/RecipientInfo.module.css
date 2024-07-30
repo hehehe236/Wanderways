@@ -1,0 +1,27 @@
+.container {
+    padding: 0 16px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    margin-top: 22px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.phone {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.recipient {
+    width: 112px;
+}
+
+.icon_phone {
+    fill: var(--primary);
+    margin-left: auto;
+}
+

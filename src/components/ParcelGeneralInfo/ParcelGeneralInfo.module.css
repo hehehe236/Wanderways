@@ -3,7 +3,7 @@
     padding: 16px;
     border-radius: 20px;
     background-color: var(--white);
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 2px 0 rgba(16, 24, 40, 0.08);
     transition: box-shadow var(--transition), transform var(--transition);
 }
 

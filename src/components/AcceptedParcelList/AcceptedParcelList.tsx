@@ -1,37 +1,26 @@
+import { useSelector } from 'react-redux';
+
 import cls from './AcceptedParcelList.module.css'
 import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
 import { AcceptedParcel } from '@/components/AcceptedParcel/AcceptedParcel.tsx';
+import { useLocation } from 'react-router-dom';
+import { Ride } from '@/store/features/ride/types.ts';
+import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 
-export const AcceptedParcelList = (props: any) => {
-    const {
-        shipStreet,
-        shipCity,
-        delivStreet,
-        delivCity,
-        shippingDate,
-        deliveryDate,
-        acceptedParcels
-    } = props
-    
+export const AcceptedParcelList = () => {
+    const {state: rideId} = useLocation();
+    const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
+        selectRideById(state, rideId)
+    );
+    if (!ride) return null;
+
     return (
         <ul className={cls.container}>
-            {acceptedParcels.map(({type, details, cost, recipient, sender}, i: number) => {
+            {ride.acceptedParcelList?.map(({parcelId}) => {
                 return (
-                    <li key={`${i}${sender}`}>
+                    <li key={parcelId}>
                         <BasisBlock>
-                            <AcceptedParcel
-                                type={type}
-                                details={details}
-                                shipStreet={shipStreet}
-                                shipCity={shipCity}
-                                delivStreet={delivStreet}
-                                delivCity={delivCity}
-                                shippingDate={shippingDate}
-                                deliveryDate={deliveryDate}
-                                cost={cost}
-                                recipient={recipient}
-                                sender={sender}
-                            />
+                            <AcceptedParcel parcelId={parcelId}/>
                         </BasisBlock>
                     </li>
                 )

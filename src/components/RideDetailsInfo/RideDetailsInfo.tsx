@@ -1,22 +1,26 @@
+import { useSelector } from 'react-redux';
+
 import cls from './RideDetailsInfo.module.css';
 import { IconParcelFilled } from '@/shared/svg/IconParcelFilled.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Tag } from '@/shared/Tag/Tag.tsx';
 import { IconDot } from '@/shared/svg/IconDot.tsx';
 import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
+import { useLocation } from 'react-router-dom';
+import { Ride } from '@/store/features/ride/types.ts';
+import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 
-export type RideDetailsInfoProps = {
-    type: string;
-    status: 'In Transit' | 'Failed' | 'Delivered' | 'New';
-    totalCost: number;
-};
+export const RideDetailsInfo = () => {
+    const {state: rideId} = useLocation();
 
-export const RideDetailsInfo = (props: RideDetailsInfoProps) => {
-    const { type, status, totalCost} = props;
+    const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
+        selectRideById(state, rideId)
+    );
+    if (!ride) return null;
 
-    const nameTypes = type === '0'
+    const nameTypes = ride.parcelsTypes.length === 0
         ? 'No parcels'
-        : type === '1' ? `${type} parcel` : `${type} parcels`;
+        : ride.parcelsTypes.length === 1 ? `${ride.parcelsTypes.length} parcel` : `${ride.parcelsTypes.length} parcels`;
 
     return (
         <section className={cls.container}>
@@ -28,14 +32,14 @@ export const RideDetailsInfo = (props: RideDetailsInfoProps) => {
                     {nameTypes}
                 </Text>
                 <div className={cls.container_status}>
-                    <Tag text={status} background={status} />
+                    <Tag text={ride.status} background={ride.status} />
                     {nameTypes !== 'No parcels' && (
                         <>
                             <IconDot addStyle={cls.icon_dot} />
                             <div className={cls.container_price}>
                                 <IconHgryvnia addStyle={cls.icon_hryvnia} />
                                 <Text variant={'left'} size={'body2_font_bold'} color={'secondary'}>
-                                    {totalCost}
+                                    {ride.totalCost}
                                 </Text>
                             </div>
                         </>
