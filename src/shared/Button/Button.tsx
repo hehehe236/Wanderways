@@ -3,7 +3,15 @@ import { type ButtonVariants, buttonVariants } from './button-variants.ts';
 
 export type ButtonProps = ComponentPropsWithRef<'button'> & ButtonVariants;
 
-const Button = ({ children, type, size, variant, background, className, ...props }: ButtonProps) => {
+const Button = ({
+    children,
+    type,
+    size,
+    variant,
+    background,
+    className,
+    ...props
+}: ButtonProps) => {
     return (
         <button
             type={type}

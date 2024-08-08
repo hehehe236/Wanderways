@@ -7,8 +7,8 @@ import { useLocation } from 'react-router-dom';
 import { selectRideAcceptedParcels } from '@/store/features/ride/rideSlice.ts';
 import { Ride, RideAcceptedParcels } from '@/store/features/ride/types.ts';
 
-export const RideRouteDetails = ({parcelId}: { parcelId: number }) => {
-    const {state: rideId} = useLocation();
+export const RideRouteDetails = ({ parcelId }: { parcelId: number }) => {
+    const { state: rideId } = useLocation();
     const acceptedParcel: RideAcceptedParcels | undefined = useSelector((state: { ride: Ride[] }) =>
         selectRideAcceptedParcels(state, rideId, parcelId)
     );
@@ -19,11 +19,17 @@ export const RideRouteDetails = ({parcelId}: { parcelId: number }) => {
             <div className={cls.container}>
                 <ul className={cls.list}>
                     <li>
-                        <RouteDelivery city={acceptedParcel.departureAddress.city} street={acceptedParcel.departureAddress.street}/>
+                        <RouteDelivery
+                            city={acceptedParcel.departureAddress.city}
+                            street={acceptedParcel.departureAddress.street}
+                        />
                     </li>
-                    <li className={cls.line}/>
+                    <li className={cls.line} />
                     <li>
-                        <RouteDelivery city={acceptedParcel.arrivalAddress.city} street={acceptedParcel.arrivalAddress.street}/>
+                        <RouteDelivery
+                            city={acceptedParcel.arrivalAddress.city}
+                            street={acceptedParcel.arrivalAddress.street}
+                        />
                     </li>
                 </ul>
             </div>

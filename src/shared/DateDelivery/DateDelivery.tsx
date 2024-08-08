@@ -8,7 +8,7 @@ export type DateDeliveryProps = {
 };
 
 export const DateDelivery = ({ shippingDate, deliveryDate }: DateDeliveryProps) => {
-    if(!shippingDate || !deliveryDate) return null;
+    if (!shippingDate || !deliveryDate) return null;
 
     return (
         <div className={cls.container}>

@@ -4,11 +4,10 @@
     z-index: 10;
     width: 100%;
     background-color: var(--background);
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 768px;
+    max-width: calc(768px - 32px);
     margin: 0 auto 24px auto;
     padding: 16px 16px 0 16px;
 }
@@ -17,7 +16,6 @@
     align-items: center;
     gap: 8px;
 }
-
 .text {
     font: var(--display_font_bold);
     font-weight: 600;

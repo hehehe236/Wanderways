@@ -12,7 +12,7 @@ import { useGetParcelsQuery } from '@/store/services/parcelService.ts';
 import { selectParcels } from '@/store/features/parcel/parcelSlice.ts';
 
 export const ParcelList = () => {
-    const {data, isLoading } = useGetParcelsQuery({});
+    const { data, isLoading } = useGetParcelsQuery({});
     const parcels: ParcelGeneralInfoType[] = useSelector(selectParcels);
 
     const { listRef, listHeight } = useListHeight(data);
@@ -22,15 +22,11 @@ export const ParcelList = () => {
     return (
         <SimpleBar style={{ maxHeight: listHeight }}>
             <ul className={cls.container} ref={listRef}>
-                {parcels.map(
-                    ({
-                        parcelId
-                    }: ParcelGeneralInfoType ) => (
-                        <li key={parcelId}>
-                            <ParcelGeneralInfo parcelId={parcelId}/>
-                        </li>
-                    )
-                )}
+                {parcels.map(({ parcelId }: ParcelGeneralInfoType) => (
+                    <li key={parcelId}>
+                        <ParcelGeneralInfo parcelId={parcelId} />
+                    </li>
+                ))}
             </ul>
         </SimpleBar>
     );

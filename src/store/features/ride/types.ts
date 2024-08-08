@@ -2,21 +2,21 @@ export type Address = {
     street: string;
     city: string;
     country: string;
-}
+};
 
 export type Recipient = {
     name: string;
     lastName: string;
     phoneNumber: string;
     emailAddress: string;
-}
+};
 
 export type Sender = {
     name: string;
     lastName: string;
     phoneNumber: string;
     emailAddress: string;
-}
+};
 
 export type RideAcceptedParcels = {
     rideId: number;
@@ -30,7 +30,7 @@ export type RideAcceptedParcels = {
     arrivalDate: string;
     sender: Sender;
     recipient: Recipient;
-}
+};
 
 export type RideGeneralInfoType = {
     driverId: number;
@@ -42,7 +42,7 @@ export type RideGeneralInfoType = {
     departureDate?: string;
     arrivalAddress: Address;
     arrivalDate?: string;
-    acceptedParcelList?: RideAcceptedParcels[]
-}
+    acceptedParcelList?: RideAcceptedParcels[];
+};
 
 export type Ride = RideGeneralInfoType;

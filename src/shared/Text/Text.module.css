@@ -35,7 +35,12 @@
 .color_white {
     color: var(--white);
 }
-
+.color_red {
+    color: var(--red-error);
+}
+.color_blue {
+    color: var(--blue-label);
+}
 .variant_left {
     text-align: left;
 }

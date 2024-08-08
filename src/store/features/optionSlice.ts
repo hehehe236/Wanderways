@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type InitialStateOption = {
-    isVisibleParcelList: boolean,
-}
+    isVisibleParcelList: boolean;
+};
 
 const initialState: InitialStateOption = {
     isVisibleParcelList: true,

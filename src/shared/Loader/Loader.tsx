@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 import ClipLoader from 'react-spinners/ClimbingBoxLoader';
-import cls from './Loader.module.css'
+import cls from './Loader.module.css';
 
 const override: CSSProperties = {
     display: 'block',
@@ -9,7 +9,7 @@ const override: CSSProperties = {
 
 export const Loader = () => {
     return (
-        <div className={cls['sweet-loading']} >
+        <div className={cls['sweet-loading']}>
             <ClipLoader
                 color='#6377e2'
                 cssOverride={override}
@@ -20,5 +20,3 @@ export const Loader = () => {
         </div>
     );
 };
-
-

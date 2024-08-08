@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+    margin-bottom: 10px;
+}
+
+.line {
+    min-height: 54px;
+    width: 2px;
+    border-radius: 5px;
+    background-color: var(--primary);
+}
+
+.icon {
+    stroke: var(--primary);
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}

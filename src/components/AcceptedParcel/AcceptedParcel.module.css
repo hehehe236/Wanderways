@@ -5,7 +5,7 @@
 }
 
 .icon_parcel {
-    fill: var(--primary)
+    fill: var(--primary);
 }
 
 .container_type {
@@ -30,6 +30,7 @@
     display: flex;
     align-items: center;
 }
+
 .icon_hgryvnia {
     stroke: var(--primary-text);
     stroke-width: 2px;

@@ -6,7 +6,7 @@ import { Loader } from '@/shared/Loader/Loader.tsx';
 const Layout = () => {
     return (
         <>
-            <Suspense fallback={<Loader/>}>
+            <Suspense fallback={<Loader />}>
                 <Header />
                 <Outlet />
             </Suspense>

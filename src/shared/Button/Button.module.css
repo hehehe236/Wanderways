@@ -23,7 +23,11 @@
 }
 
 .tab_size {
-     width: 176px;
+    width: 176px;
+}
+
+.submit_size {
+    width: 100%;
 }
 
 .background_secondary {

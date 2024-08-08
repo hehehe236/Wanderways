@@ -9,18 +9,17 @@ import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
 import { useLocation } from 'react-router-dom';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
+import { getTypeParcel } from '@/utils/getTypeParcel.ts';
 
 export const RideDetailsInfo = () => {
-    const {state: rideId} = useLocation();
+    const { state: rideId } = useLocation();
 
     const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
         selectRideById(state, rideId)
     );
     if (!ride) return null;
 
-    const nameTypes = ride.parcelsTypes.length === 0
-        ? 'No parcels'
-        : ride.parcelsTypes.length === 1 ? `${ride.parcelsTypes.length} parcel` : `${ride.parcelsTypes.length} parcels`;
+    const nameTypes = getTypeParcel(ride.parcelsTypes.length);
 
     return (
         <section className={cls.container}>
@@ -43,9 +42,9 @@ export const RideDetailsInfo = () => {
                                 </Text>
                             </div>
                         </>
-                    )
-                    }
+                    )}
                 </div>
             </div>
-        </section>)
-}
+        </section>
+    );
+};

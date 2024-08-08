@@ -9,10 +9,10 @@ export type ParcelManagerProps = {
     text: string;
     icon: React.ReactNode;
     path: string;
-}
+};
 export const ParcelManager = ({ text, icon, path }: ParcelManagerProps) => {
     return (
-        <Link to={path}>
+        <Link to={path} state={{ tokenId: 1 }}>
             <button className={cls.container} type={'button'}>
                 <div className={cls.container_icon}>{icon}</div>
                 <Text size={'body2_font_bold'} color={'primary'}>

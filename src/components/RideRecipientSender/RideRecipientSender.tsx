@@ -11,11 +11,11 @@ import { Ride, RideAcceptedParcels } from '@/store/features/ride/types.ts';
 import { useSelector } from 'react-redux';
 import { selectRideAcceptedParcels } from '@/store/features/ride/rideSlice.ts';
 
-export const RideRecipientSender = ({parcelId}: { parcelId: number }) => {
+export const RideRecipientSender = ({ parcelId }: { parcelId: number }) => {
     const [isOpenRecipient, setIsOpenRecipient] = useState(false);
     const [isOpenSender, setIsOpenSender] = useState(false);
 
-    const {state: rideId} = useLocation();
+    const { state: rideId } = useLocation();
     const acceptedParcel: RideAcceptedParcels | undefined = useSelector((state: { ride: Ride[] }) =>
         selectRideAcceptedParcels(state, rideId, parcelId)
     );
@@ -45,25 +45,25 @@ export const RideRecipientSender = ({parcelId}: { parcelId: number }) => {
                     phone={acceptedParcel.recipient.phoneNumber}
                 />
             )}
-                    <div className={cls.line} />
-                    <div className={cls.container_title}>
-                        <Text size={'headline2_bold'} color={'primary'}>
-                            Sender
-                        </Text>
-                        <Button
-                            type={'button'}
-                            variant={'icon'}
-                            className={cls.button}
-                            onClick={handleClickSender}
-                        >
-                            {isOpenSender ? <IconArrow2Down /> : <IconArrow2Right />}
-                        </Button>
-                    </div>
-                    {isOpenSender && (
-                        <RecipientInfo
-                            name={`${acceptedParcel.sender.name} ${acceptedParcel.sender.lastName}`}
-                            phone={acceptedParcel.sender.phoneNumber}
-                        />
+            <div className={cls.line} />
+            <div className={cls.container_title}>
+                <Text size={'headline2_bold'} color={'primary'}>
+                    Sender
+                </Text>
+                <Button
+                    type={'button'}
+                    variant={'icon'}
+                    className={cls.button}
+                    onClick={handleClickSender}
+                >
+                    {isOpenSender ? <IconArrow2Down /> : <IconArrow2Right />}
+                </Button>
+            </div>
+            {isOpenSender && (
+                <RecipientInfo
+                    name={`${acceptedParcel.sender.name} ${acceptedParcel.sender.lastName}`}
+                    phone={acceptedParcel.sender.phoneNumber}
+                />
             )}
         </>
     );

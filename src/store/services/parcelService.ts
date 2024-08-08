@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from '@/utils/const.ts';
 
 export const parcelApi = createApi({
@@ -10,13 +10,20 @@ export const parcelApi = createApi({
     endpoints: (builder) => ({
         getParcels: builder.query({
             query: (): string => `/api/parcels`,
-            providesTags: ['Parcel'],
+            keepUnusedDataFor: 0,
         }),
         getParcelById: builder.query({
             query: (parcelId): string => `/api/parcels/${parcelId}`,
-            providesTags: ['Parcel'],
+            keepUnusedDataFor: 0,
+        }),
+        createParcel: builder.mutation({
+            query: (newParcel): FetchArgs => ({
+                url: '/api/parcels',
+                method: 'POST',
+                body: newParcel,
+            }),
         }),
     }),
 });
 
-export const { useGetParcelsQuery, useGetParcelByIdQuery } = parcelApi;
+export const { useGetParcelsQuery, useGetParcelByIdQuery, useCreateParcelMutation } = parcelApi;

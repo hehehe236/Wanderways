@@ -1,12 +1,12 @@
 /**
- * useListHeight - кастомний React хук для визначення і відстеження висоти HTML списку (ul).
+ * useListHeight - a custom React hook for determining and tracking the height of an HTML list (ul).
  *
- * Хук приймає `data` як вхідний параметр і повертає референс до списку та його поточну висоту.
- * Висота списку обчислюється як різниця між висотою вікна і верхньою межею елементу списку.
- * Обчислення висоти відбувається при зміні даних `data`, при монтуванні компонента та при зміні розміру вікна.
+ * The hook takes `data` as an input parameter and returns a reference to the list and its current height.
+ * The list height is calculated as the difference between the window height and the top edge of the list element.
+ * The height calculation happens when the `data` changes, upon component mounting, and when the window is resized.
  *
- * @param {any} data - Дані, які використовуються для оновлення висоти списку.
- * @returns {{ listRef: React.RefObject<HTMLUListElement>, listHeight: number }} Референс до елементу списку та його висота.
+ * @param {any} data - The data used to update the list height.
+ * @returns {{ listRef: React.RefObject<HTMLUListElement>, listHeight: number }} A reference to the list element and its height.
  *
  * @example
  * ```tsx
@@ -18,22 +18,24 @@
  *   const { listRef, listHeight } = useListHeight(myData);
  *
  *   useEffect(() => {
- *     // Оновлення даних
+ *     // Updating data
  *     setMyData([...newData]);
  *   }, []);
  *
  *   return (
- *     <ul ref={listRef} style={{ height: `${listHeight}px` }}>
- *       /* елементи списку */
- // *     </ul>
- // *   );
- // * };
- // * ```
- // */
-
+ *     <ul ref={listRef} style={{ maxHeight: listHeight }}>
+ *       {myData.map((item, index) => (
+ *         <li key={index}>{item}</li>
+ *       ))}
+ *     </ul>
+ *   );
+ * };
+ * ```
+ */
 
 import { useRef, useEffect, useState } from 'react';
 
+// eslint-disable-next-line
 const useListHeight = (data: any) => {
     const listRef = useRef<HTMLUListElement | null>(null);
     const [listHeight, setListHeight] = useState<number>(0);
@@ -56,6 +58,6 @@ const useListHeight = (data: any) => {
     }, []);
 
     return { listRef, listHeight };
-}
+};
 
 export default useListHeight;

@@ -5,6 +5,7 @@
     --stroke: #e7e7e6;
     --background: #fafafa;
     --white: #ffffff;
+    --overlay: rgba(16, 24, 40, 0.2);
 
     /* Colors Main*/
     --primary: #6377e2;
@@ -31,15 +32,32 @@
 
     /* Shadow */
     --shadow: 0 0 20px 0 rgba(16, 24, 40, 0.08);
+    --shadow-input: 0 0 0 4px rgba(231, 236, 250, 0.5);
 
-    /* transition */
+    /* Transition */
     --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Width Card Ride */
     --cart-ride-width: 0px;
 
-    /* breakpoints */
+    /* Z-index */
+    --z-index-modal: 10px;
+
+    /* Breakpoints */
     --mobile: 320px;
     --tablet: 768px;
     --desktop: 1440px;
+
+    /*Styles for toast*/
+    --toastify-icon-color-info: #ffffff;
+    --toastify-icon-color-success: #ffffff;
+    --toastify-icon-color-warning: #ffffff;
+    --toastify-icon-color-error: #ffffff;
+    --toastify-font-family: 'Urbanist', sans-serif;
+    --toastify-color-progress-info: #ffffff;
+    --toastify-color-progress-success: #ffffff;
+    --toastify-color-progress-warning: #ffffff;
+    --toastify-color-progress-error: #ffffff;
+    --toastify-toast-min-height: 46px;
+    --toastify-toast-width: 360px;
 }

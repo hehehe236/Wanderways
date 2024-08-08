@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.container_phone {
+    border-radius: 15px;
+    transition: box-shadow var(--transition);
+}
+
+.container_phone:hover {
+    box-shadow: var(--shadow-input);
+}
+
+.error {
+    position: absolute;
+    bottom: -20px;
+    color: var(--red-error);
+}
+
+.label {
+    display: block;
+    margin-bottom: 6px;
+}

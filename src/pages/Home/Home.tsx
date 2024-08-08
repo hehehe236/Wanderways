@@ -14,7 +14,7 @@ const Home = () => {
         <main className={cls.container}>
             <ParcelHandler />
             <Tabs />
-            {isVisibleParcelList ? <ParcelList/> : <RideList/>}
+            {isVisibleParcelList ? <ParcelList /> : <RideList />}
         </main>
     );
 };

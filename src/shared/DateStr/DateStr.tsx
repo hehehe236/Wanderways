@@ -1,7 +1,7 @@
 import { Text } from '@/shared/Text/Text.tsx';
 
 export const DateStr = ({ date }: { date: string }) => {
-    if(!date) return null;
+    if (!date) return null;
     const dateStr: Date = new Date(date);
     const options: Intl.DateTimeFormatOptions = {
         month: 'long',
@@ -14,5 +14,9 @@ export const DateStr = ({ date }: { date: string }) => {
         .toLocaleDateString('en-US', options)
         .replace(' at ', ', ');
 
-    return <Text size={"body2_font_bold"} color={'primary'} >{formattedDate}</Text>
+    return (
+        <Text size={'body2_font_bold'} color={'primary'}>
+            {formattedDate}
+        </Text>
+    );
 };

@@ -1,0 +1,14 @@
+.datePickerWrapper {
+    position: relative;
+}
+
+.label:after {
+    content: ' *';
+    color: var(--primary-text);
+}
+
+.placeholder {
+    position: absolute;
+    top: 36px;
+    left: 10px;
+}

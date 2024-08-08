@@ -1,0 +1,32 @@
+.container_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.container_list_select {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.block_address {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 13px;
+}
+
+.container_phone {
+    /* Styles for react-international-phone */
+    --react-international-phone-height: 41px;
+    --react-international-phone-font-size: 20px;
+    --react-international-phone-text-color: black;
+    --react-international-phone-border-color: var(--stroke);
+    --react-international-phone-border-radius: 15px;
+}
+
+.btn {
+    margin-bottom: 24px;
+}

@@ -11,7 +11,7 @@ import { Parcel } from '@/store/features/parcel/types.ts';
 import { selectParcelById } from '@/store/features/parcel/parcelSlice.ts';
 
 export const ParcelDetailsInfo = () => {
-    const {state: parcelId} = useLocation();
+    const { state: parcelId } = useLocation();
     const parcel: Parcel | undefined = useSelector((state: { parcel: Parcel[] }) =>
         selectParcelById(state, parcelId)
     );

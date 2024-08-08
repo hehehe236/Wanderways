@@ -10,21 +10,17 @@ export const rideApi = createApi({
     endpoints: (builder) => ({
         getRides: builder.query({
             query: (): string => `/api/rides`,
-            providesTags: ['Ride'],
+            keepUnusedDataFor: 0,
         }),
         getRideById: builder.query({
             query: (rideId): string => `/api/rides/${rideId}`,
-            providesTags: ['Ride'],
+            keepUnusedDataFor: 0,
         }),
         getRideAcceptedParcels: builder.query({
             query: (rideId): string => `/api/rides/${rideId}/accepted`,
-            providesTags: ['Ride'],
+            keepUnusedDataFor: 0,
         }),
     }),
 });
 
-export const {
-    useGetRidesQuery,
-    useGetRideByIdQuery,
-    useGetRideAcceptedParcelsQuery
-} = rideApi;
+export const { useGetRidesQuery, useGetRideByIdQuery, useGetRideAcceptedParcelsQuery } = rideApi;

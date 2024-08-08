@@ -12,9 +12,11 @@ import { Tag } from '@/shared/Tag/Tag.tsx';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 
-export const RideGeneralInfo = ({ rideId}: { rideId: number}) => {
-    const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) => selectRideById(state, rideId));
-    if(!ride) return null;
+export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
+    const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
+        selectRideById(state, rideId)
+    );
+    if (!ride) return null;
 
     const buttonRef = useElementWidth();
 
@@ -22,21 +24,32 @@ export const RideGeneralInfo = ({ rideId}: { rideId: number}) => {
         <Link to={`/ride/${rideId}`} state={rideId}>
             <button className={cls.container} ref={buttonRef}>
                 <div className={cls.address_status}>
-                    <AddressDelivery deliveryAddress={ride.departureAddress.city} shippingAddress={ride.arrivalAddress.city}/>
+                    <AddressDelivery
+                        deliveryAddress={ride.departureAddress.city}
+                        shippingAddress={ride.arrivalAddress.city}
+                    />
                     <Tag text={ride.status} background={ride.status} />
                 </div>
-                {(ride.totalCost !== 0 && ride.parcelsTypes.length !== 0) && (
+                {ride.totalCost !== 0 && ride.parcelsTypes.length !== 0 && (
                     <div className={cls.product_info}>
                         <div className={cls.container_icon}>
                             <IconParcelFilled addStyle={cls.parcel_icon} />
                         </div>
                         <div className={cls.name_price}>
                             <div className={cls.wrap_text}>
-                                <Text size={'headline2_bold'} color={'primary'} className={cls.name}>
+                                <Text
+                                    size={'headline2_bold'}
+                                    color={'primary'}
+                                    className={cls.name}
+                                >
                                     {ride.parcelsTypes.join(', ')}
                                 </Text>
                             </div>
-                            <Text size={'body4_font_bold'} color={'secondary'} className={cls.price}>
+                            <Text
+                                size={'body4_font_bold'}
+                                color={'secondary'}
+                                className={cls.price}
+                            >
                                 <IconHgryvnia addStyle={cls.hgryvnia} /> {ride.totalCost}
                             </Text>
                         </div>
@@ -45,5 +58,5 @@ export const RideGeneralInfo = ({ rideId}: { rideId: number}) => {
                 )}
             </button>
         </Link>
-    )
-}
+    );
+};

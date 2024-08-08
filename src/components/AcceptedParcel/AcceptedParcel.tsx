@@ -10,8 +10,8 @@ import { selectRideAcceptedParcels } from '@/store/features/ride/rideSlice.ts';
 import { RideRouteDetails } from '@/components/RideRouteDetails/RideRouteDetails.tsx';
 import { RideRecipientSender } from '@/components/RideRecipientSender/RideRecipientSender.tsx';
 
-export const AcceptedParcel = ({parcelId}: { parcelId: number }) => {
-    const {state: rideId} = useLocation();
+export const AcceptedParcel = ({ parcelId }: { parcelId: number }) => {
+    const { state: rideId } = useLocation();
     const acceptedParcel: RideAcceptedParcels | undefined = useSelector((state: { ride: Ride[] }) =>
         selectRideAcceptedParcels(state, rideId, parcelId)
     );
@@ -21,13 +21,17 @@ export const AcceptedParcel = ({parcelId}: { parcelId: number }) => {
         <ul className={cls.container}>
             <li className={cls.container_type}>
                 <IconParcelFilled addStyle={cls.icon_parcel} />
-                <Text size={'body1_font_bold'} color={'primary'}>{acceptedParcel.type}</Text>
+                <Text size={'body1_font_bold'} color={'primary'}>
+                    {acceptedParcel.type}
+                </Text>
             </li>
             <li>
-                <Text size={'body4_font_bold'} color={'secondary'}>{acceptedParcel.details}</Text>
+                <Text size={'body4_font_bold'} color={'secondary'}>
+                    {acceptedParcel.details}
+                </Text>
             </li>
             <li>
-                <RideRouteDetails parcelId={parcelId}/>
+                <RideRouteDetails parcelId={parcelId} />
             </li>
             <li>
                 <RideRecipientSender parcelId={parcelId} />
@@ -35,15 +39,21 @@ export const AcceptedParcel = ({parcelId}: { parcelId: number }) => {
             <li className={cls.submit_delivery}>
                 <div className={cls.container_price}>
                     <div className={cls.price}>
-                        <IconHgryvnia addStyle={cls.icon_hgryvnia}/>
-                        <Text size={'body2_font_bold'} color={'primary'}>{acceptedParcel.cost}</Text>
+                        <IconHgryvnia addStyle={cls.icon_hgryvnia} />
+                        <Text size={'body2_font_bold'} color={'primary'}>
+                            {acceptedParcel.cost}
+                        </Text>
                     </div>
-                    <Text size={'body4_font_bold'} color={'secondary'}>Price</Text>
+                    <Text size={'body4_font_bold'} color={'secondary'}>
+                        Price
+                    </Text>
                 </div>
                 <Button variant={'submit'} background={'primary'}>
-                    <Text size={'body2_font_bold'} color={'white'}>Confirm delivery</Text>
+                    <Text size={'body2_font_bold'} color={'white'}>
+                        Confirm delivery
+                    </Text>
                 </Button>
             </li>
         </ul>
     );
-}
+};

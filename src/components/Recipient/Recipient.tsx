@@ -13,7 +13,7 @@ import { RecipientInfo } from '@/shared/RecipientInfo/RecipientInfo.tsx';
 
 export const Recipient = () => {
     const [isOpenRecipient, setIsOpenRecipient] = useState(false);
-    const {state: parcelId} = useLocation();
+    const { state: parcelId } = useLocation();
     const parcel: Parcel | undefined = useSelector((state: { parcel: Parcel[] }) =>
         selectParcelById(state, parcelId)
     );
@@ -43,5 +43,5 @@ export const Recipient = () => {
                 />
             )}
         </>
-    )
-}
+    );
+};

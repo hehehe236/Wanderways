@@ -6,11 +6,7 @@ import { IconDelivery } from '@/shared/svg/IconDelivery.tsx';
 export const ParcelHandler = () => {
     return (
         <section className={cls.container}>
-            <ParcelManager
-                text={'Send parcel'}
-                icon={<IconPackagingArrowUp />}
-                path={'/send-parcel'}
-            />
+            <ParcelManager text={'Send parcel'} icon={<IconPackagingArrowUp />} path={'/parcel'} />
             <ParcelManager
                 text={'Deliver parcel'}
                 icon={<IconDelivery />}

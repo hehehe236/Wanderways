@@ -1,10 +1,10 @@
 /**
- * useElementWidth - кастомний React хук для відстеження ширини елемента та встановлення CSS змінної для ширини.
+ * useElementWidth - a custom React hook for tracking the width of an element and setting a CSS variable for width.
  *
- * Цей хук використовує `useRef` для створення референсу до HTML елемента і `useEffect` для встановлення обробника подій.
- * При монтуванні компонента і при зміні розміру вікна, ширина елемента буде оновлюватися і встановлюватися в CSS змінну '--cart-ride-width'.
+ * This hook uses `useRef` to create a reference to an HTML element and `useEffect` to set up an event handler.
+ * Upon component mounting and when the window is resized, the element's width will be updated and set in the CSS variable '--cart-ride-width'.
  *
- * @returns {React.RefObject<HTMLButtonElement>} Референс до HTMLButtonElement, який можна прив'язати до елемента.
+ * @returns {React.RefObject<HTMLButtonElement>} A reference to an HTMLButtonElement that can be attached to the element.
  *
  * @example
  * ```tsx

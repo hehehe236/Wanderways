@@ -10,13 +10,13 @@ import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
 import { ParcelDetailsInfo } from '@/components/ParcelDetailsInfo/ParcelDetailsInfo.tsx';
 import { useGetParcelByIdQuery } from '@/store/services/parcelService.ts';
 import { selectParcelById } from '@/store/features/parcel/parcelSlice.ts';
-import { Parcel as ParcelType} from '@/store/features/parcel/types.ts';
+import { Parcel as ParcelType } from '@/store/features/parcel/types.ts';
 import { Recipient } from '@/components/Recipient/Recipient.tsx';
 
 const Parcel = () => {
     const { id } = useParams();
-    const {state: parcelId} = useLocation();
-    const {isLoading } = useGetParcelByIdQuery(id, {skip: !id});
+    const { state: parcelId } = useLocation();
+    const { isLoading } = useGetParcelByIdQuery(id, { skip: !id });
 
     const parcel: ParcelType | undefined = useSelector((state: { parcel: ParcelType[] }) =>
         selectParcelById(state, parcelId)
@@ -24,16 +24,16 @@ const Parcel = () => {
 
     if (!parcel) return null;
 
-    if (isLoading) return <Loader/>;
+    if (isLoading) return <Loader />;
 
     return (
         <main className={cls.container}>
-            <ArrowBack/>
+            <ArrowBack />
             <ParcelDetailsInfo />
             <ul className={cls.container_list}>
                 <li>
                     <BasisBlock>
-                        <ParcelRouteDetails/>
+                        <ParcelRouteDetails />
                     </BasisBlock>
                 </li>
                 {parcel.driver && (
@@ -45,7 +45,7 @@ const Parcel = () => {
                 )}
                 <li>
                     <BasisBlock>
-                        <Recipient/>
+                        <Recipient />
                     </BasisBlock>
                 </li>
             </ul>

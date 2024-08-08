@@ -1,0 +1,16 @@
+.label {
+    margin-bottom: 6px;
+}
+
+.label:after {
+    content: ' *';
+    color: var(--primary-text);
+}
+
+.container {
+    position: relative;
+}
+
+.error {
+    position: absolute;
+}

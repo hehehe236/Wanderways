@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.icon {
+    fill: var(--green-success);
+    width: 100px;
+    height: 100px;
+    margin-bottom: 24px;
+}
+
+.title {
+    margin-bottom: 8px;
+}
+
+.text {
+    margin-bottom: 32px;
+}
+
+.btn_find,
+.btn_close {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 16px;
+    transition: background-color var(--transition);
+}
+
+.btn_find:hover {
+    background-color: var(--primary);
+    opacity: 0.5;
+}
+
+.btn_close:hover {
+    background-color: var(--secondary);
+    opacity: 0.5;
+}
+
+.text_btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}

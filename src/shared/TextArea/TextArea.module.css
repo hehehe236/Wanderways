@@ -1,0 +1,33 @@
+.label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.textarea {
+    position: relative;
+    resize: none;
+    width: 100%;
+    border: 1px solid var(--stroke);
+    border-radius: 15px;
+    padding: 10px 14px;
+    background-color: var(--white);
+    overflow: auto;
+}
+
+.error {
+    position: absolute;
+}
+
+.textarea::placeholder {
+    font: var(--body3_font_bold);
+    color: var(--secondary-text);
+}
+
+.textarea:focus {
+    outline: 1px solid var(--primary);
+    box-shadow: none;
+}
+
+.textarea:hover {
+    box-shadow: var(--shadow-input);
+}
