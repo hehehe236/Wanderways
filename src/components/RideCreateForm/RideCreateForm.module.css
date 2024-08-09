@@ -1,0 +1,28 @@
+.block_address {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 13px;
+}
+
+.container_list_select {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btn {
+    margin-bottom: 24px;
+    transition: background-color var(--transition) opacity var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary);
+    opacity: 0.5;
+}
+
+.choose_vehicle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 24px 0 16px 0;
+}

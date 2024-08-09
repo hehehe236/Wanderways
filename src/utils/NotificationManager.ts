@@ -5,11 +5,6 @@ class NotificationManager {
 
     private toastId = 'toastId';
 
-    private ERROR_MESSAGE = 'Should choose a phone or email';
-    private SUCCESS_MESSAGE = 'This is a success message';
-    private INFO_MESSAGE = 'This is an info message';
-    private WARNING_MESSAGE = 'This is a warning message';
-
     private BORDER_RADIUS = '20px';
     private TEXT_COLOR = '#ffffff';
 
@@ -27,8 +22,8 @@ class NotificationManager {
         return NotificationManager.instance;
     }
 
-    showError() {
-        toast.error(this.ERROR_MESSAGE, {
+    showError(message: string) {
+        toast.error(message, {
             toastId: this.toastId,
             style: {
                 background: this.BACKGROUND_COLOR_ERROR,
@@ -38,8 +33,8 @@ class NotificationManager {
         });
     }
 
-    showSuccess() {
-        toast.success(this.SUCCESS_MESSAGE, {
+    showSuccess(message: string) {
+        toast.success(message, {
             toastId: this.toastId,
             style: {
                 background: this.BACKGROUND_COLOR_SUCCESS,
@@ -49,8 +44,8 @@ class NotificationManager {
         });
     }
 
-    showInfo() {
-        toast.info(this.INFO_MESSAGE, {
+    showInfo(message: string) {
+        toast.info(message, {
             toastId: this.toastId,
             style: {
                 background: this.BACKGROUND_COLOR_INFO,
@@ -59,8 +54,8 @@ class NotificationManager {
             },
         });
     }
-    showWarning() {
-        toast.warn(this.WARNING_MESSAGE, {
+    showWarning(message: string) {
+        toast.warn(message, {
             toastId: this.toastId,
             style: {
                 background: this.BACKGROUND_COLOR_WARNING,

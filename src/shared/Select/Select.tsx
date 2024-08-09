@@ -5,16 +5,22 @@ import { ControllerRenderProps, FieldError, FieldErrorsImpl, Merge } from 'react
 import cls from './Select.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import {
-    FormInputType,
+    ParcelFormInputType,
     OptionSelectType,
-} from '@/components/ParcelCreateForm/ParcelCreateForm.tsx';
+} from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
+import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
 
 export type SelectType = {
     options: OptionSelectType[];
     placeholder: ReactElement | string;
     label: string;
     error: Merge<FieldError, FieldErrorsImpl<{ label: string; value: string }>> | undefined;
-    field: ControllerRenderProps<FormInputType>;
+    field:
+        | ControllerRenderProps<
+              ParcelFormInputType,
+              'deliveryAddress' | 'shippingAddress' | 'selectType'
+          >
+        | ControllerRenderProps<RideFormInputType, 'deliveryAddress'>;
 };
 
 export const Select = (props: SelectType) => {

@@ -1,0 +1,16 @@
+.container {
+    position: relative;
+}
+
+.list_cars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.error {
+    position: absolute;
+    top: -18px;
+    left: 16px;
+}

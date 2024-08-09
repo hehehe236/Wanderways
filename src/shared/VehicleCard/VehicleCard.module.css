@@ -1,0 +1,20 @@
+.container_icon_car {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: var(--primary);
+    margin-bottom: 12px;
+}
+
+.modelName {
+    margin-bottom: 4px;
+}
+
+.selected {
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+}

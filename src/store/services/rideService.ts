@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from '@/utils/const.ts';
 
 export const rideApi = createApi({
@@ -20,7 +20,19 @@ export const rideApi = createApi({
             query: (rideId): string => `/api/rides/${rideId}/accepted`,
             keepUnusedDataFor: 0,
         }),
+        createRide: builder.mutation({
+            query: (newRide): FetchArgs => ({
+                url: '/api/rides',
+                method: 'POST',
+                body: newRide,
+            }),
+        }),
     }),
 });
 
-export const { useGetRidesQuery, useGetRideByIdQuery, useGetRideAcceptedParcelsQuery } = rideApi;
+export const {
+    useGetRidesQuery,
+    useGetRideByIdQuery,
+    useGetRideAcceptedParcelsQuery,
+    useCreateRideMutation,
+} = rideApi;

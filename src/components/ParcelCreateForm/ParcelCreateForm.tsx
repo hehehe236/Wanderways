@@ -26,23 +26,9 @@ import { Modal } from '@/shared/Modal/Modal.tsx';
 import { ParcelCreateSuccess } from '@/components/ParcelCreateSuccess/ParcelCreateSuccess.tsx';
 import { DatePicker } from '@/shared/DatePicker/DatePicker.tsx';
 import notification from '@/utils/NotificationManager.ts';
+import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 
-export type OptionSelectType = {
-    label: string;
-    value: string;
-};
-
-export type FormInputType = {
-    selectType: OptionSelectType;
-    detailsParcel?: string;
-    deliveryAddress: OptionSelectType;
-    shippingAddress: OptionSelectType;
-    recipientName: string;
-    recipientLastName?: string;
-    recipientEmail?: string;
-    recipientPhone?: string;
-    deliveryDate: Date;
-};
+const ERROR_MESSAGE = 'Should choose a phone or email';
 
 export const ParcelCreateForm = () => {
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -51,7 +37,7 @@ export const ParcelCreateForm = () => {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormInputType>({
+    } = useForm<ParcelFormInputType>({
         resolver: yupResolver(ValidateSchemaParcelCreateForm),
         mode: 'onSubmit',
     });
@@ -59,9 +45,9 @@ export const ParcelCreateForm = () => {
 
     const handleModal = () => setIsOpenModal((prevState) => !prevState);
 
-    const onSubmit: SubmitHandler<FormInputType> = (data) => {
+    const onSubmit: SubmitHandler<ParcelFormInputType> = (data) => {
         if (data.recipientPhone === '+380' && !data.recipientEmail) {
-            notification.showError();
+            notification.showError(ERROR_MESSAGE);
             return;
         }
 

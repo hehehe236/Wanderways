@@ -29,4 +29,10 @@
 
 .btn {
     margin-bottom: 24px;
+    transition: background-color var(--transition) opacity var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary);
+    opacity: 0.5;
 }
