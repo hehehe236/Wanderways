@@ -26,12 +26,12 @@ export const DatePicker = ({ field, error }: DatePickerProps) => {
 
     return (
         <div className={cls.datePickerWrapper}>
-            <Text size={'headline3_bold'} color={'primary'} className={cls.label}>
+            <Text size='headline3_bold' color='primary' className={cls.label}>
                 Delivery time
             </Text>
             <DatePickerLib
                 showTimeSelect
-                popperPlacement={'top'}
+                popperPlacement='top'
                 dateFormat='MMMM d, yyyy h:mm aa'
                 timeIntervals={30}
                 isClearable
@@ -41,13 +41,13 @@ export const DatePicker = ({ field, error }: DatePickerProps) => {
                 ref={datePickerRef}
             />
             {error && (
-                <Text size={'body4_font_bold'} color={'red'} className={cls.error}>
+                <Text size='body4_font_bold' color='red' className={cls.error}>
                     {error.message}
                 </Text>
             )}
             {!field.value && (
                 <div className={cls.placeholder} onClick={handleClickPlaceholder}>
-                    <Placeholder icon={<IconClock />} text={'From'} />
+                    <Placeholder icon={<IconClock />} text='From' />
                 </div>
             )}
         </div>

@@ -7,7 +7,7 @@ const ParcelCreate = () => {
     return (
         <div className={cls.container}>
             <ArrowBack />
-            <Text size={'headline1_bold'} color={'primary'} className={cls.title}>
+            <Text size='headline1_bold' color='primary' className={cls.title}>
                 Send parcel
             </Text>
             <ParcelCreateForm />

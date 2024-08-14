@@ -10,11 +10,11 @@ export type AddressDeliveryProps = {
 export const AddressDelivery = ({ shippingAddress, deliveryAddress }: AddressDeliveryProps) => {
     return (
         <div className={cls.address}>
-            <Text size={'body1_font_bold'} color={'primary'} variant={'left'}>
+            <Text size='body1_font_bold' color='primary' variant='left'>
                 {shippingAddress}
             </Text>
             <IconArrowRight addStyle={cls.arrow_icon} />
-            <Text size={'body1_font_bold'} color={'primary'} variant={'left'}>
+            <Text size='body1_font_bold' color='primary' variant='left'>
                 {deliveryAddress}
             </Text>
         </div>

@@ -23,7 +23,7 @@ export const Carrier = () => {
                 <IconWheel addStyle={cls.wheel} />
             </div>
             <div className={cls.container_text}>
-                <Text size={'headline2_bold'} color={'primary'}>
+                <Text size='headline2_bold' color='primary'>
                     {`${parcel.driver?.name} ${parcel.driver?.lastName}`}
                 </Text>
                 <div>
@@ -31,7 +31,7 @@ export const Carrier = () => {
                     <span className={cls.phone}>{parcel.driver?.phoneNumber}</span>
                 </div>
             </div>
-            <Button type={'button'} variant={'icon'} className={cls.container_phone}>
+            <Button type='button' variant='icon' className={cls.container_phone}>
                 <IconPhone addStyle={cls.icon_phone} />
             </Button>
         </div>

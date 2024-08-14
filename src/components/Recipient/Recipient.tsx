@@ -24,12 +24,12 @@ export const Recipient = () => {
     return (
         <>
             <div className={cls.container_title}>
-                <Text size={'headline2_bold'} color={'primary'}>
+                <Text size='headline2_bold' color='primary'>
                     Recipient
                 </Text>
                 <Button
-                    type={'button'}
-                    variant={'icon'}
+                    type='button'
+                    variant='icon'
                     className={cls.button}
                     onClick={handleClickRecipient}
                 >

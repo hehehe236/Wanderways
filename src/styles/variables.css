@@ -18,17 +18,17 @@
     --red-error: #e97e80;
 
     /* Fonts */
-    --title_font_bold: 600 40px/48px 'Urbanist', sans-serif;
-    --display_font_bold: 600 24px/32px 'Urbanist', sans-serif;
+    --title-font-bold: 600 40px/48px 'Urbanist', sans-serif;
+    --display-font-bold: 600 24px/32px 'Urbanist', sans-serif;
 
-    --headline1_bold: bold 24px/32px 'Urbanist', sans-serif;
-    --headline2_bold: bold 16px/20px 'Urbanist', sans-serif;
-    --headline3_bold: bold 14px/20px 'Urbanist', sans-serif;
+    --headline1-bold: bold 24px/32px 'Urbanist', sans-serif;
+    --headline2-bold: bold 16px/20px 'Urbanist', sans-serif;
+    --headline3-bold: bold 14px/20px 'Urbanist', sans-serif;
 
-    --body1_font_bold: 600 18px/22px 'Urbanist', sans-serif;
-    --body2_font_bold: 600 16px/19px 'Urbanist', sans-serif;
-    --body3_font_bold: normal 16px/19px 'Urbanist', sans-serif;
-    --body4_font_bold: 500 14px/17px 'Urbanist', sans-serif;
+    --body1-font-bold: 600 18px/22px 'Urbanist', sans-serif;
+    --body2-font-bold: 600 16px/19px 'Urbanist', sans-serif;
+    --body3-font-bold: normal 16px/19px 'Urbanist', sans-serif;
+    --body4-font-bold: 500 14px/17px 'Urbanist', sans-serif;
 
     /* Shadow */
     --shadow: 0 0 20px 0 rgba(16, 24, 40, 0.08);

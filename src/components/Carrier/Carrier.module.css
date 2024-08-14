@@ -3,6 +3,7 @@
     align-items: center;
     gap: 16px;
 }
+
 .container_wheel {
     width: 40px;
     height: 40px;
@@ -26,7 +27,7 @@
 
 .phone {
     color: var(--secondary-text);
-    font: var(--body4_font_bold);
+    font: var(--body4-font-bold);
     font-weight: 500;
 }
 

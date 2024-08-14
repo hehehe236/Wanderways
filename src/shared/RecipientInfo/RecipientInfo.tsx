@@ -13,18 +13,18 @@ export const RecipientInfo = (props: RecipientInfoProps) => {
     return (
         <>
             <div className={cls.name}>
-                <Text size={'body4_font_bold'} color={'secondary'} className={cls.recipient}>
+                <Text size='body4_font_bold' color='secondary' className={cls.recipient}>
                     Name
                 </Text>
-                <Text size={'body4_font_bold'} color={'primary'}>
+                <Text size='body4_font_bold' color='primary'>
                     {name}
                 </Text>
             </div>
             <div className={cls.phone}>
-                <Text size={'body4_font_bold'} color={'secondary'} className={cls.recipient}>
+                <Text size='body4_font_bold' color='secondary' className={cls.recipient}>
                     Phone number
                 </Text>
-                <Text size={'body4_font_bold'} color={'primary'}>
+                <Text size='body4_font_bold' color='primary'>
                     {phone}
                 </Text>
                 <IconPhone addStyle={cls.icon_phone} />

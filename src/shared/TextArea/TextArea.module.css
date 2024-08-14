@@ -19,7 +19,7 @@
 }
 
 .textarea::placeholder {
-    font: var(--body3_font_bold);
+    font: var(--body3-font-bold);
     color: var(--secondary-text);
 }
 

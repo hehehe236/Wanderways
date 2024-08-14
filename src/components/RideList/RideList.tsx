@@ -22,10 +22,10 @@ export const RideList = () => {
 
     return (
         <SimpleBar style={{ maxHeight: listHeight }}>
-            <ul className={cls.container} ref={listRef}>
+            <ul className={cls.container} ref={listRef} data-testid='rides-list'>
                 {rides.map(({ rideId }: RideGeneralInfoType) => (
                     <li key={rideId}>
-                        <RideGeneralInfo rideId={rideId}></RideGeneralInfo>
+                        <RideGeneralInfo rideId={rideId} />
                     </li>
                 ))}
             </ul>

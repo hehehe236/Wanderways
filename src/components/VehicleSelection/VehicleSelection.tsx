@@ -21,7 +21,7 @@ export const VehicleSelection = (props: VehiclesSelectionProps) => {
             control={control}
             render={({ field }) => (
                 <div className={cls.container}>
-                    <ul className={cls.list_cars}>
+                    <ul className={cls.list_cars} data-testid='vehicle-list'>
                         {vehicles.map((vehicle) => (
                             <li key={vehicle.idNumber}>
                                 <VehicleCard
@@ -36,7 +36,7 @@ export const VehicleSelection = (props: VehiclesSelectionProps) => {
                         ))}
                     </ul>
                     {error && (
-                        <Text size={'body4_font_bold'} color={'red'} className={cls.error}>
+                        <Text size='body4_font_bold' color='red' className={cls.error}>
                             {error.message}
                         </Text>
                     )}

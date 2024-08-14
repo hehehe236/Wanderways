@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.label:after {
+.label::after {
     content: ' *';
     color: var(--primary-text);
 }

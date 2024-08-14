@@ -21,7 +21,7 @@ export const ParcelList = () => {
 
     return (
         <SimpleBar style={{ maxHeight: listHeight }}>
-            <ul className={cls.container} ref={listRef}>
+            <ul className={cls.container} ref={listRef} data-testid='parcels-list'>
                 {parcels.map(({ parcelId }: ParcelGeneralInfoType) => (
                     <li key={parcelId}>
                         <ParcelGeneralInfo parcelId={parcelId} />

@@ -31,7 +31,7 @@ const Parcel = () => {
             <ArrowBack />
             <ParcelDetailsInfo />
             <ul className={cls.container_list}>
-                <li>
+                <li id='parcel-route-details'>
                     <BasisBlock>
                         <ParcelRouteDetails />
                     </BasisBlock>
@@ -43,7 +43,7 @@ const Parcel = () => {
                         </BasisBlock>
                     </li>
                 )}
-                <li>
+                <li id='recipient'>
                     <BasisBlock>
                         <Recipient />
                     </BasisBlock>

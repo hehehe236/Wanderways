@@ -36,7 +36,7 @@ const Ride = () => {
             <ArrowBack />
             <RideDetailsInfo />
             <ul className={cls.container_list}>
-                <li>
+                <li id='ride-route-details'>
                     <BasisBlock>
                         <div className={cls.container_route}>
                             <ul className={cls.list}>
@@ -63,7 +63,7 @@ const Ride = () => {
                 </li>
                 {ride.acceptedParcelList?.length !== 0 && (
                     <li>
-                        <Text size={'headline1_bold'} variant={'left'} color={'primary'}>
+                        <Text size='headline1_bold' variant='left' color='primary'>
                             Accepted parcels
                         </Text>
                     </li>

@@ -29,7 +29,7 @@ export const Phone = (prop: PhoneType) => {
 
     return (
         <div className={cls.container}>
-            <Text size={'headline3_bold'} color={'primary'} className={cls.label}>
+            <Text size='headline3_bold' color='primary' className={cls.label}>
                 {label}
             </Text>
             <div className={cls.container_phone}>
@@ -41,7 +41,7 @@ export const Phone = (prop: PhoneType) => {
                 />
             </div>
             {error && (
-                <Text size={'body4_font_bold'} color={'red'} className={cls.error}>
+                <Text size='body4_font_bold' color='red' className={cls.error}>
                     {error.message}
                 </Text>
             )}

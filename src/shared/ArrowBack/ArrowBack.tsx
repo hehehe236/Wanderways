@@ -13,11 +13,11 @@ export const ArrowBack = () => {
     };
 
     return (
-        <Button type='button' variant={'icon'} className={cls.container} onClick={handleClick}>
+        <Button type='button' variant='icon' className={cls.container} onClick={handleClick}>
             <div className={cls.container_icon}>
                 <IconArrowLeft />
             </div>
-            <Text size={'body2_font_bold'} color={'primary'}>
+            <Text size='body2_font_bold' color='primary'>
                 Back
             </Text>
         </Button>

@@ -18,12 +18,12 @@ export const App = () => {
             <Routes>
                 <Route path='/' element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path={'parcel/:id'} element={<Parcel />} />
-                    <Route path={'ride/:id'} element={<Ride />} />
-                    <Route path={'parcel'} element={<ParcelCreate />} />
-                    <Route path={'ride'} element={<RideCreate />} />
-                    <Route path={'ride/vehicle'} element={<ArrowBack />} />
-                    <Route path={'available-parcels'} element={<AvailableParcels />} />
+                    <Route path='parcel/:id' element={<Parcel />} />
+                    <Route path='ride/:id' element={<Ride />} />
+                    <Route path='parcel' element={<ParcelCreate />} />
+                    <Route path='ride' element={<RideCreate />} />
+                    <Route path='ride/vehicle' element={<ArrowBack />} />
+                    <Route path='available-parcels' element={<AvailableParcels />} />
                 </Route>
             </Routes>
         </BrowserRouter>

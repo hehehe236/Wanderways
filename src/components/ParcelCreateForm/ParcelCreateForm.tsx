@@ -89,10 +89,10 @@ export const ParcelCreateForm = () => {
                                                 placeholder={
                                                     <Placeholder
                                                         icon={<IconSelectType />}
-                                                        text={'Select type'}
+                                                        text='Select type'
                                                     />
                                                 }
-                                                label={'Parcel type'}
+                                                label='Parcel type'
                                                 error={errors.selectType}
                                             />
                                         )}
@@ -101,14 +101,14 @@ export const ParcelCreateForm = () => {
                                 <li>
                                     <TextArea
                                         register={register}
-                                        label={'Details'}
-                                        placeholder={'Anything driver should know about...'}
+                                        label='Details'
+                                        placeholder='Anything driver should know about...'
                                         error={errors.detailsParcel}
                                     />
                                 </li>
                                 <li>
                                     <Controller
-                                        name={'deliveryDate'}
+                                        name='deliveryDate'
                                         control={control}
                                         render={({ field }) => (
                                             <DatePicker field={field} error={errors.deliveryDate} />
@@ -131,8 +131,8 @@ export const ParcelCreateForm = () => {
                                                 <Select
                                                     field={field}
                                                     options={deliveryAddress}
-                                                    placeholder={'Enter address'}
-                                                    label={'Delivery from'}
+                                                    placeholder='Enter address'
+                                                    label='Delivery from'
                                                     error={errors.deliveryAddress}
                                                 />
                                             )}
@@ -146,8 +146,8 @@ export const ParcelCreateForm = () => {
                                                 <Select
                                                     field={field}
                                                     options={shippingAddress}
-                                                    placeholder={'Enter address'}
-                                                    label={'Shipping to'}
+                                                    placeholder='Enter address'
+                                                    label='Shipping to'
                                                     error={errors.shippingAddress}
                                                 />
                                             )}
@@ -162,22 +162,22 @@ export const ParcelCreateForm = () => {
                             <ul className={cls.container_list_select}>
                                 <li>
                                     <Input
-                                        name={'recipientName'}
-                                        type={'text'}
-                                        label={'Recipient name'}
+                                        name='recipientName'
+                                        type='text'
+                                        label='Recipient name'
                                         icon={<IconProfile />}
-                                        placeholder={'Name'}
+                                        placeholder='Name'
                                         error={errors.recipientName}
                                         register={register}
                                     />
                                 </li>
                                 <li>
                                     <Input
-                                        name={'recipientLastName'}
-                                        type={'text'}
-                                        label={'Recipient surname'}
+                                        name='recipientLastName'
+                                        type='text'
+                                        label='Recipient surname'
                                         icon={<IconProfile />}
-                                        placeholder={'Surname'}
+                                        placeholder='Surname'
                                         error={errors.recipientLastName}
                                         register={register}
                                     />
@@ -191,7 +191,7 @@ export const ParcelCreateForm = () => {
                                                 <Phone
                                                     field={field}
                                                     error={errors.recipientPhone}
-                                                    label={'Recipient phone'}
+                                                    label='Recipient phone'
                                                 />
                                             )}
                                         />
@@ -199,11 +199,11 @@ export const ParcelCreateForm = () => {
                                 </li>
                                 <li>
                                     <Input
-                                        name={'recipientEmail'}
-                                        type={'email'}
-                                        label={'Recipient email'}
+                                        name='recipientEmail'
+                                        type='email'
+                                        label='Recipient email'
                                         icon={<IconEmail />}
-                                        placeholder={'Enter email'}
+                                        placeholder='Enter email'
                                         error={errors.recipientEmail}
                                         register={register}
                                     />
@@ -213,13 +213,13 @@ export const ParcelCreateForm = () => {
                     </li>
                 </ul>
                 <Button
-                    variant={'submit'}
-                    type={'submit'}
-                    background={'primary'}
-                    size={'submit'}
+                    variant='submit'
+                    type='submit'
+                    background='primary'
+                    size='submit'
                     className={cls.btn}
                 >
-                    <Text size={'body2_font_bold'} color={'white'}>
+                    <Text size='body2_font_bold' color='white'>
                         Create parcel
                     </Text>
                 </Button>

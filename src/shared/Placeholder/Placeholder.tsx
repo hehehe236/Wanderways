@@ -14,7 +14,7 @@ export const Placeholder = ({ icon, text, addStyle, onClick }: PlaceholderSelect
     return (
         <div className={`${cls.container} + ${addStyle}`} onClick={onClick}>
             {icon}
-            <Text size={'body3_font_bold'} color={'secondary'}>
+            <Text size='body3_font_bold' color='secondary'>
                 {text}
             </Text>
         </div>

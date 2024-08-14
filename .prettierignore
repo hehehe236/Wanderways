@@ -2,6 +2,8 @@
 **/.svn
 **/.hg
 **/node_modules
+**/package.json
+**/package-lock.json
 build
 dist
 node_modules

@@ -19,10 +19,10 @@ export const VehicleCard = (props: VehicleCardProps) => {
                 <div className={cls.container_icon_car} onClick={onClick}>
                     <IconVehicle />
                 </div>
-                <Text size={'body2_font_bold'} color={'primary'} className={cls.modelName}>
+                <Text size='body2_font_bold' color='primary' className={cls.modelName}>
                     {modelName}
                 </Text>
-                <Text size={'body4_font_bold'} color={'secondary'}>
+                <Text size='body4_font_bold' color='secondary'>
                     {carType}
                 </Text>
             </BasisBlock>

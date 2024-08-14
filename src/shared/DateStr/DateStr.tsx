@@ -15,7 +15,7 @@ export const DateStr = ({ date }: { date: string }) => {
         .replace(' at ', ', ');
 
     return (
-        <Text size={'body2_font_bold'} color={'primary'}>
+        <Text size='body2_font_bold' color='primary'>
             {formattedDate}
         </Text>
     );

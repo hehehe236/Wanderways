@@ -62,7 +62,7 @@ export const RideCreateForm = () => {
                         <div className={cls.block_address}>
                             <LocationIconsBlock />
                             <ul className={cls.container_list_select}>
-                                <li>
+                                <li id='deliveryAddress'>
                                     <Controller
                                         name='deliveryAddress'
                                         control={control}
@@ -70,14 +70,14 @@ export const RideCreateForm = () => {
                                             <Select
                                                 field={field}
                                                 options={deliveryAddress}
-                                                placeholder={'Enter address'}
-                                                label={'Delivery from'}
+                                                placeholder='Enter address'
+                                                label='Delivery from'
                                                 error={errors.deliveryAddress}
                                             />
                                         )}
                                     />
                                 </li>
-                                <li>
+                                <li id='shippingAddress'>
                                     <Controller
                                         name='shippingAddress'
                                         control={control}
@@ -85,8 +85,8 @@ export const RideCreateForm = () => {
                                             <Select
                                                 field={field}
                                                 options={shippingAddress}
-                                                placeholder={'Enter address'}
-                                                label={'Shipping to'}
+                                                placeholder='Enter address'
+                                                label='Shipping to'
                                                 error={errors.shippingAddress}
                                             />
                                         )}
@@ -95,9 +95,9 @@ export const RideCreateForm = () => {
                             </ul>
                         </div>
                     </li>
-                    <li>
+                    <li id='deliveryDate'>
                         <Controller
-                            name={'deliveryDate'}
+                            name='deliveryDate'
                             control={control}
                             render={({ field }) => (
                                 <DatePicker field={field} error={errors.deliveryDate} />
@@ -107,20 +107,20 @@ export const RideCreateForm = () => {
                 </ul>
             </BasisBlock>
             <div className={cls.choose_vehicle}>
-                <Text size={'body1_font_bold'} color={'primary'}>
+                <Text size='body1_font_bold' color='primary'>
                     Choose vehicle
                 </Text>
                 <AddNew />
             </div>
-            <VehicleSelection control={control} name={'vehicleId'} error={errors.vehicleId} />
+            <VehicleSelection control={control} name='vehicleId' error={errors.vehicleId} />
             <Button
-                variant={'submit'}
-                type={'submit'}
-                background={'primary'}
-                size={'submit'}
+                variant='submit'
+                type='submit'
+                background='primary'
+                size='submit'
                 className={cls.btn}
             >
-                <Text size={'body2_font_bold'} color={'white'}>
+                <Text size='body2_font_bold' color='white'>
                     Publish ride
                 </Text>
             </Button>

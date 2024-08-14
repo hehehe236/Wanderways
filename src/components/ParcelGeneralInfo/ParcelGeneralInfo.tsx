@@ -36,11 +36,11 @@ export const ParcelGeneralInfo = ({ parcelId }: { parcelId: number }) => {
                     </div>
                     <div className={cls.name_price}>
                         <div className={cls.wrap_text}>
-                            <Text size={'headline2_bold'} color={'primary'} className={cls.name}>
+                            <Text size='headline2_bold' color='primary' className={cls.name}>
                                 {parcel.type}
                             </Text>
                         </div>
-                        <Text size={'body4_font_bold'} color={'secondary'} className={cls.price}>
+                        <Text size='body4_font_bold' color='secondary' className={cls.price}>
                             <IconHgryvnia addStyle={cls.hgryvnia} /> {parcel.cost}
                         </Text>
                     </div>

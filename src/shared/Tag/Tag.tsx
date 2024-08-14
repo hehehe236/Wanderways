@@ -8,7 +8,7 @@ export type TagProps = ComponentPropsWithRef<'div'> & TagVariants & { text?: Tex
 const Tag = ({ text, background, className, ...props }: TagProps) => {
     return (
         <div {...props} className={tagVariants({ background, className })}>
-            <Text size={'body4_font_bold'} color={'white'}>
+            <Text size='body4_font_bold' color='white'>
                 {text}
             </Text>
         </div>

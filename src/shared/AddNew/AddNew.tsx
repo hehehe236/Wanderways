@@ -6,8 +6,8 @@ import { IconAdd } from '@/shared/svg/IconAdd.tsx';
 
 export const AddNew = () => {
     return (
-        <Link to={'vehicle'} className={cls.container}>
-            <Text size={'body2_font_bold'} color={'blue'}>
+        <Link to='vehicle' className={cls.container}>
+            <Text size='body2_font_bold' color='blue'>
                 Add new
             </Text>
             <IconAdd />

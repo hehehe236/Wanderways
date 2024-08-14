@@ -16,20 +16,20 @@ export const TextArea = (props: TextAreaType) => {
 
     return (
         <>
-            <label htmlFor={'detailsParcel'} className={cls.label}>
-                <Text size={'headline3_bold'} color={'primary'} className={cls.label}>
+            <label htmlFor='detailsParcel' className={cls.label}>
+                <Text size='headline3_bold' color='primary' className={cls.label}>
                     {label}
                 </Text>
             </label>
             <textarea
-                id={'detailsParcel'}
+                id='detailsParcel'
                 {...register('detailsParcel')}
                 rows={2}
                 className={cls.textarea}
                 placeholder={placeholder}
             />
             {error && (
-                <Text size={'body4_font_bold'} color={'red'} className={cls.error}>
+                <Text size='body4_font_bold' color='red' className={cls.error}>
                     {error.message}
                 </Text>
             )}

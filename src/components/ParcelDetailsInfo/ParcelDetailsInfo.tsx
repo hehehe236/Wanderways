@@ -19,12 +19,12 @@ export const ParcelDetailsInfo = () => {
     if (!parcel) return null;
 
     return (
-        <section className={cls.container}>
+        <section className={cls.container} id='parcel-details-info'>
             <div className={cls.container_icon}>
                 <IconParcelFilled addStyle={cls.icon} />
             </div>
             <div className={cls.container_text}>
-                <Text variant={'left'} size={'headline1_bold'} color={'primary'}>
+                <Text variant='left' size='headline1_bold' color='primary'>
                     {parcel.type}
                 </Text>
                 <div className={cls.container_status}>
@@ -32,7 +32,7 @@ export const ParcelDetailsInfo = () => {
                     <IconDot addStyle={cls.icon_dot} />
                     <div className={cls.container_price}>
                         <IconHgryvnia addStyle={cls.icon_hryvnia} />
-                        <Text variant={'left'} size={'body2_font_bold'} color={'secondary'}>
+                        <Text variant='left' size='body2_font_bold' color='secondary'>
                             {parcel.cost}
                         </Text>
                     </div>

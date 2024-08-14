@@ -28,22 +28,22 @@ export const Select = (props: SelectType) => {
 
     return (
         <>
-            <label htmlFor='select-type-parcel'>
-                <Text size={'headline3_bold'} color={'primary'} className={cls.label}>
+            <label htmlFor={label}>
+                <Text size='headline3_bold' color='primary' className={cls.label}>
                     {label}
                 </Text>
             </label>
             <ReactSelect
-                id='select-type-parcel'
-                classNamePrefix={'custom-select'}
+                id={label}
+                classNamePrefix='custom-select'
                 className={cls.container}
                 options={options}
                 placeholder={placeholder}
-                menuPlacement={'auto'}
+                menuPlacement='auto'
                 {...field}
             />
             {error && (
-                <Text size={'body4_font_bold'} color={'red'} className={cls.error}>
+                <Text size='body4_font_bold' color='red' className={cls.error}>
                     {error.value?.message}
                 </Text>
             )}

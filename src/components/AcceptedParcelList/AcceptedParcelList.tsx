@@ -15,7 +15,7 @@ export const AcceptedParcelList = () => {
     if (!ride) return null;
 
     return (
-        <ul className={cls.container}>
+        <ul className={cls.container} id='accepted-parcels'>
             {ride.acceptedParcelList?.map(({ parcelId }) => {
                 return (
                     <li key={parcelId}>

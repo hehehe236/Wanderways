@@ -27,8 +27,8 @@ export const Input = (props: InputType) => {
         <div className={cls.container}>
             <label htmlFor={name} className={cls.label}>
                 <Text
-                    size={'headline3_bold'}
-                    color={'primary'}
+                    size='headline3_bold'
+                    color='primary'
                     className={
                         name !== 'recipientLastName' && name !== 'recipientEmail'
                             ? cls.label_name
@@ -59,7 +59,7 @@ export const Input = (props: InputType) => {
                 />
             )}
             {error && (
-                <Text size={'body4_font_bold'} color={'red'} className={cls.error}>
+                <Text size='body4_font_bold' color='red' className={cls.error}>
                     {error.message}
                 </Text>
             )}

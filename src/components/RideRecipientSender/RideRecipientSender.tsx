@@ -27,12 +27,12 @@ export const RideRecipientSender = ({ parcelId }: { parcelId: number }) => {
     return (
         <>
             <div className={cls.container_title}>
-                <Text size={'headline2_bold'} color={'primary'}>
+                <Text size='headline2_bold' color='primary'>
                     Recipient
                 </Text>
                 <Button
-                    type={'button'}
-                    variant={'icon'}
+                    type='button'
+                    variant='icon'
                     className={cls.button}
                     onClick={handleClickRecipient}
                 >
@@ -47,12 +47,12 @@ export const RideRecipientSender = ({ parcelId }: { parcelId: number }) => {
             )}
             <div className={cls.line} />
             <div className={cls.container_title}>
-                <Text size={'headline2_bold'} color={'primary'}>
+                <Text size='headline2_bold' color='primary'>
                     Sender
                 </Text>
                 <Button
-                    type={'button'}
-                    variant={'icon'}
+                    type='button'
+                    variant='icon'
                     className={cls.button}
                     onClick={handleClickSender}
                 >

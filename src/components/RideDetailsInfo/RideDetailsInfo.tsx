@@ -22,12 +22,12 @@ export const RideDetailsInfo = () => {
     const nameTypes = getTypeParcel(ride.parcelsTypes.length);
 
     return (
-        <section className={cls.container}>
+        <section className={cls.container} id='ride-details-info'>
             <div className={cls.container_icon}>
                 <IconParcelFilled addStyle={cls.icon} />
             </div>
             <div className={cls.container_text}>
-                <Text variant={'left'} size={'headline1_bold'} color={'primary'}>
+                <Text variant='left' size='headline1_bold' color='primary'>
                     {nameTypes}
                 </Text>
                 <div className={cls.container_status}>
@@ -37,7 +37,7 @@ export const RideDetailsInfo = () => {
                             <IconDot addStyle={cls.icon_dot} />
                             <div className={cls.container_price}>
                                 <IconHgryvnia addStyle={cls.icon_hryvnia} />
-                                <Text variant={'left'} size={'body2_font_bold'} color={'secondary'}>
+                                <Text variant='left' size='body2_font_bold' color='secondary'>
                                     {ride.totalCost}
                                 </Text>
                             </div>

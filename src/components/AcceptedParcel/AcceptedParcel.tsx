@@ -21,12 +21,12 @@ export const AcceptedParcel = ({ parcelId }: { parcelId: number }) => {
         <ul className={cls.container}>
             <li className={cls.container_type}>
                 <IconParcelFilled addStyle={cls.icon_parcel} />
-                <Text size={'body1_font_bold'} color={'primary'}>
+                <Text size='body1_font_bold' color='primary'>
                     {acceptedParcel.type}
                 </Text>
             </li>
             <li>
-                <Text size={'body4_font_bold'} color={'secondary'}>
+                <Text size='body4_font_bold' color='secondary'>
                     {acceptedParcel.details}
                 </Text>
             </li>
@@ -40,16 +40,16 @@ export const AcceptedParcel = ({ parcelId }: { parcelId: number }) => {
                 <div className={cls.container_price}>
                     <div className={cls.price}>
                         <IconHgryvnia addStyle={cls.icon_hgryvnia} />
-                        <Text size={'body2_font_bold'} color={'primary'}>
+                        <Text size='body2_font_bold' color='primary'>
                             {acceptedParcel.cost}
                         </Text>
                     </div>
-                    <Text size={'body4_font_bold'} color={'secondary'}>
+                    <Text size='body4_font_bold' color='secondary'>
                         Price
                     </Text>
                 </div>
-                <Button variant={'submit'} background={'primary'}>
-                    <Text size={'body2_font_bold'} color={'white'}>
+                <Button variant='submit' background='primary'>
+                    <Text size='body2_font_bold' color='white'>
                         Confirm delivery
                     </Text>
                 </Button>

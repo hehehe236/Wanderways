@@ -37,19 +37,11 @@ export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
                         </div>
                         <div className={cls.name_price}>
                             <div className={cls.wrap_text}>
-                                <Text
-                                    size={'headline2_bold'}
-                                    color={'primary'}
-                                    className={cls.name}
-                                >
+                                <Text size='headline2_bold' color='primary' className={cls.name}>
                                     {ride.parcelsTypes.join(', ')}
                                 </Text>
                             </div>
-                            <Text
-                                size={'body4_font_bold'}
-                                color={'secondary'}
-                                className={cls.price}
-                            >
+                            <Text size='body4_font_bold' color='secondary' className={cls.price}>
                                 <IconHgryvnia addStyle={cls.hgryvnia} /> {ride.totalCost}
                             </Text>
                         </div>

@@ -15,22 +15,22 @@ export const Tabs = () => {
     return (
         <section className={cls.container}>
             <Button
-                variant={'tab'}
-                size={'tab'}
+                variant='tab'
+                size='tab'
                 background={isVisibleParcelList ? 'white' : 'secondary'}
                 onClick={() => handleClick(true)}
             >
-                <Text size={'body2_font_bold'} color={'primary'}>
+                <Text size='body2_font_bold' color='primary'>
                     Parcels
                 </Text>
             </Button>
             <Button
-                variant={'tab'}
-                size={'tab'}
+                variant='tab'
+                size='tab'
                 background={isVisibleParcelList ? 'secondary' : 'white'}
                 onClick={() => handleClick(false)}
             >
-                <Text size={'body2_font_bold'} color={'primary'}>
+                <Text size='body2_font_bold' color='primary'>
                     Rides
                 </Text>
             </Button>

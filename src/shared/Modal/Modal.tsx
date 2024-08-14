@@ -25,7 +25,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
             bodyOpenClassName={cls.block_scroll}
             onAfterClose={() => navigate('/parcel/1', { state: 1 })}
         >
-            <Button variant={'icon'} type='button' className={cls.btn} onClick={() => onClose()}>
+            <Button variant='icon' type='button' className={cls.btn} onClick={() => onClose()}>
                 <IconClose />
             </Button>
             {children}

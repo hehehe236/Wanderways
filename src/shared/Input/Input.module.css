@@ -12,7 +12,7 @@
     margin-bottom: 6px;
 }
 
-.label_name:after {
+.label_name::after {
     content: ' *';
     color: var(--primary-text);
 }
@@ -30,7 +30,7 @@
 }
 
 .input::placeholder {
-    font: var(--body3_font_bold);
+    font: var(--body3-font-bold);
     color: var(--secondary-text);
 }
 
@@ -47,7 +47,7 @@
     position: absolute;
     top: 36px;
     left: 14px;
-    font: var(--body3_font_bold);
+    font: var(--body3-font-bold);
     color: var(--secondary-text);
 }
 
