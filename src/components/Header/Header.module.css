@@ -22,3 +22,19 @@
     font: var(--display-font-bold);
     font-weight: 600;
 }
+
+.container_avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: 1px solid var(--secondary);
+    box-shadow: 0 0 0 4px #e7ecfa;
+    overflow: hidden;
+}
+
+.img {
+    scale: 120%;
+}

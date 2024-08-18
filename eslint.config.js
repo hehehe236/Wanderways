@@ -23,6 +23,7 @@ export default tseslint.config(
             'dist',
             'node_modules',
             'coverage',
+            'playwright-report',
             'eslint.config.js',
             'contracts.ts',
             'playwright.config.ts',

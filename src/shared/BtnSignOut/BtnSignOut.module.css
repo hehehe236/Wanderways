@@ -1,0 +1,34 @@
+.text_btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn {
+    width: 100%;
+    height: 48px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    background-color: var(--secondary);
+    transition: background-color var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary);
+    opacity: 0.5;
+}
+
+.icon_signout {
+    stroke: var(--primary);
+    width: 24px;
+    height: 24px;
+}
+
+.btn:hover .text {
+    color: var(--white);
+}
+
+.btn:hover .icon_signout {
+    stroke: var(--white);
+}

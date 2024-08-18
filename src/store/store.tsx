@@ -5,6 +5,7 @@ import { rideApi } from '@/store/services/rideService.ts';
 import { optionReducer } from './features/optionSlice.ts';
 import { parcelReducer } from '@/store/features/parcel/parcelSlice.ts';
 import { rideReducer } from '@/store/features/ride/rideSlice.ts';
+import { profileReducer } from '@/store/features/profile/profileSlice.ts';
 
 export const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
         option: optionReducer,
         parcel: parcelReducer,
         ride: rideReducer,
+        profile: profileReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

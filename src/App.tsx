@@ -11,6 +11,7 @@ const RideCreate = lazy(async () => await import('./pages/RideCreate/RideCreate'
 const AvailableParcels = lazy(
     async () => await import('./pages/AvailableParcels/AvailableParcels')
 );
+const Profile = lazy(async () => await import('./pages/Profile/Profile'));
 
 export const App = () => {
     return (
@@ -24,6 +25,7 @@ export const App = () => {
                     <Route path='ride' element={<RideCreate />} />
                     <Route path='ride/vehicle' element={<ArrowBack />} />
                     <Route path='available-parcels' element={<AvailableParcels />} />
+                    <Route path='profile' element={<Profile />} />
                 </Route>
             </Routes>
         </BrowserRouter>

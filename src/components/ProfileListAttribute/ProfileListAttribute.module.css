@@ -1,0 +1,7 @@
+.listItem:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--stroke);
+}

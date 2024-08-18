@@ -1,0 +1,36 @@
+.container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+}
+
+.container_avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--secondary);
+    box-shadow: 0 0 0 4px #e7ecfa;
+    overflow: hidden;
+}
+
+.container_icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.img {
+    scale: 120%;
+}
+
+.input {
+    display: none;
+}
