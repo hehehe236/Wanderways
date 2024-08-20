@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Layout from './components/Layout/Layout';
+import LayoutWithoutAvatar from '@/components/LayoutWithoutAvatar/LayoutWithoutAvatar.tsx';
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
 
 const Home = lazy(async () => await import('./pages/Home/Home'));
@@ -12,6 +14,7 @@ const AvailableParcels = lazy(
     async () => await import('./pages/AvailableParcels/AvailableParcels')
 );
 const Profile = lazy(async () => await import('./pages/Profile/Profile'));
+const ProfileGeneral = lazy(async () => await import('./pages/ProfileGeneral/ProfileGeneral'));
 
 export const App = () => {
     return (
@@ -25,7 +28,10 @@ export const App = () => {
                     <Route path='ride' element={<RideCreate />} />
                     <Route path='ride/vehicle' element={<ArrowBack />} />
                     <Route path='available-parcels' element={<AvailableParcels />} />
-                    <Route path='profile' element={<Profile />} />
+                </Route>
+                <Route path='profile' element={<LayoutWithoutAvatar />}>
+                    <Route index element={<Profile />} />
+                    <Route path='general' element={<ProfileGeneral />} />
                 </Route>
             </Routes>
         </BrowserRouter>

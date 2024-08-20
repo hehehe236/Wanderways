@@ -1,4 +1,4 @@
-// @ts-ignore '@types/blob-polyfill' is not in this registry.
+// @ts-expect-error '@types/blob-polyfill' is not in this registry.
 import { File } from 'blob-polyfill';
 
 import { test, expect } from '@playwright/test';

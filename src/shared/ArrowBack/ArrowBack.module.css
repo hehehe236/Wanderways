@@ -1,4 +1,7 @@
 .container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     width: 67px;
     height: 48px;
     padding: 8px 0;
@@ -7,10 +10,4 @@
 
 .container_icon {
     display: flex;
-    width: 32px;
-    height: 32px;
-    padding: 8px 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }

@@ -2,7 +2,7 @@ import { Control, Controller, FieldError, FieldErrorsImpl, Merge } from 'react-h
 
 import cls from './VehicleSelection.module.css';
 import { VehicleCard } from '@/shared/VehicleCard/VehicleCard.tsx';
-import { vehicles } from '@/utils/chooseVehicle.ts';
+import { vehicles } from '@/utils/db/chooseVehicle.ts';
 import { Text } from '@/shared/Text/Text.tsx';
 import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
 

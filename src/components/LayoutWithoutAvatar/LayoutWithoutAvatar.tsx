@@ -1,15 +1,16 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../Header/Header.tsx';
-import { Loader } from '@/shared/Loader/Loader.tsx';
 
-const Layout = () => {
+import { Loader } from '@/shared/Loader/Loader.tsx';
+import { HeaderWithoutAvatar } from '@/components/HeaderWithoutAvatar/HeaderWithoutAvatar.tsx';
+
+const LayoutWithoutAvatar = () => {
     return (
         <Suspense fallback={<Loader />}>
-            <Header />
+            <HeaderWithoutAvatar />
             <Outlet />
         </Suspense>
     );
 };
 
-export default Layout;
+export default LayoutWithoutAvatar;

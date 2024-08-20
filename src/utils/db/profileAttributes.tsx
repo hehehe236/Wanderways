@@ -7,24 +7,29 @@ import { ReactElement } from 'react';
 export type ProfileAttributes = {
     icon: ReactElement;
     text: string;
+    path: string;
 };
 
 const profileAttributes: ProfileAttributes[] = [
     {
         icon: <IconProfile />,
         text: 'Edit profile',
+        path: '/profile/general',
     },
     {
         icon: <IconEmail />,
         text: 'Edit email',
+        path: '/profile/email',
     },
     {
         icon: <IconPassword />,
         text: 'Edit password',
+        path: '/profile/password',
     },
     {
         icon: <IconCar />,
         text: 'My vehicles',
+        path: '/profile/vehicles',
     },
 ];
 

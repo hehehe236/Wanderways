@@ -7,8 +7,8 @@ import { ValidateSchemaRideCreateForm } from '@/components/RideCreateForm/Valida
 import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
 import { LocationIconsBlock } from '@/shared/LocationIconsBlock/LocationIconsBlock.tsx';
 import { Select } from '@/shared/Select/Select.tsx';
-import { deliveryAddress } from '@/utils/deliveryAddress.ts';
-import { shippingAddress } from '@/utils/shippingAddress.ts';
+import { deliveryAddress } from '@/utils/db/deliveryAddress.ts';
+import { shippingAddress } from '@/utils/db/shippingAddress.ts';
 import { DatePicker } from '@/shared/DatePicker/DatePicker.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
