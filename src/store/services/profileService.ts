@@ -15,7 +15,14 @@ export const profileApi = createApi({
                 body: profile,
             }),
         }),
+        editEmail: builder.mutation({
+            query: (email): FetchArgs => ({
+                url: '/api/profile/email',
+                method: 'PUT',
+                body: email,
+            }),
+        }),
     }),
 });
 
-export const { useEditProfileMutation } = profileApi;
+export const { useEditProfileMutation, useEditEmailMutation } = profileApi;

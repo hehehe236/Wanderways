@@ -5,7 +5,7 @@ test.describe('Profile edit page', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/', { waitUntil: 'commit' });
         await page.getByTestId('headerAvatar').click();
-        await page.locator('li').filter({ hasText: 'Edit profile' }).getByRole('button').click();
+        await page.getByRole('link', { name: 'Edit profile' }).click();
     });
 
     test('WhenProfileEditPageLoaded_URLIsCorrect_AndComponentsAreVisible', async ({ page }) => {

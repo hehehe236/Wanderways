@@ -25,6 +25,7 @@ const profileSlice = createSlice({
     initialState,
     selectors: {
         selectProfilePicture: (state) => state.profilePicture,
+        selectProfileEmail: (state) => state.email,
         selectProfileGeneral: createSelector(
             (state: Profile) => state,
             (profile) => ({
@@ -48,9 +49,16 @@ const profileSlice = createSlice({
                 state.phone = payload.phone;
             }
         );
+        builder.addMatcher(
+            profileApi.endpoints.editEmail.matchFulfilled,
+            (state, { payload }: PayloadAction<Profile>) => {
+                state.email = payload.email;
+            }
+        );
     },
 });
 
 export const profileReducer = profileSlice.reducer;
 export const { saveProfilePicture } = profileSlice.actions;
-export const { selectProfilePicture, selectProfileGeneral } = profileSlice.selectors;
+export const { selectProfilePicture, selectProfileGeneral, selectProfileEmail } =
+    profileSlice.selectors;

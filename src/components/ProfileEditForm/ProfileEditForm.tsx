@@ -12,6 +12,7 @@ import { ValidateSchemaProfileEditForm } from '@/components/ProfileEditForm/Vali
 import { useEditProfileMutation } from '@/store/services/profileService.ts';
 import { Loader } from '@/shared/Loader/Loader.tsx';
 import { selectProfileGeneral } from '@/store/features/profile/profileSlice.ts';
+import notification from '@/utils/NotificationManager.ts';
 
 export type ProfileEditFormType = {
     recipientName: string;
@@ -39,13 +40,14 @@ export const ProfileEditForm = () => {
 
     const [editProfile, { isLoading }] = useEditProfileMutation();
 
-    const onSubmit: SubmitHandler<ProfileEditFormType> = (data) => {
-        editProfile({
+    const onSubmit: SubmitHandler<ProfileEditFormType> = async (data) => {
+        const response = await editProfile({
             senderId: 1,
             name: data.recipientName,
             lastName: data.recipientLastName,
             phone: data.recipientPhone,
         });
+        if (response.data) notification.showSuccess('Profile changed successfully');
     };
 
     if (isLoading) return <Loader />;

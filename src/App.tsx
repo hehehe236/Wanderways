@@ -15,6 +15,7 @@ const AvailableParcels = lazy(
 );
 const Profile = lazy(async () => await import('./pages/Profile/Profile'));
 const ProfileGeneral = lazy(async () => await import('./pages/ProfileGeneral/ProfileGeneral'));
+const ProfileEmail = lazy(async () => await import('./pages/ProfileEmail/ProfileEmail'));
 
 export const App = () => {
     return (
@@ -32,6 +33,7 @@ export const App = () => {
                 <Route path='profile' element={<LayoutWithoutAvatar />}>
                     <Route index element={<Profile />} />
                     <Route path='general' element={<ProfileGeneral />} />
+                    <Route path='email' element={<ProfileEmail />} />
                 </Route>
             </Routes>
         </BrowserRouter>
