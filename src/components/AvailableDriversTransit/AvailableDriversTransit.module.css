@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.container_dot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: var(--primary);
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.city {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

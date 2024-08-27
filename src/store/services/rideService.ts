@@ -27,6 +27,10 @@ export const rideApi = createApi({
                 body: newRide,
             }),
         }),
+        getAvailableRides: builder.query({
+            query: (): string => '/api/rides/available',
+            keepUnusedDataFor: 0,
+        }),
     }),
 });
 
@@ -35,4 +39,5 @@ export const {
     useGetRideByIdQuery,
     useGetRideAcceptedParcelsQuery,
     useCreateRideMutation,
+    useGetAvailableRidesQuery,
 } = rideApi;

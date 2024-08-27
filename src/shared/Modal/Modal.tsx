@@ -14,6 +14,7 @@ export type ModalProps = {
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     const navigate = useNavigate();
+    const handleClickIconClose = () => navigate('/parcel/1', { state: 1 });
 
     return (
         <ModalReact
@@ -23,9 +24,8 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
             closeTimeoutMS={250}
             onRequestClose={() => onClose()}
             bodyOpenClassName={cls.block_scroll}
-            onAfterClose={() => navigate('/parcel/1', { state: 1 })}
         >
-            <Button variant='icon' type='button' className={cls.btn} onClick={() => onClose()}>
+            <Button variant='icon' type='button' className={cls.btn} onClick={handleClickIconClose}>
                 <IconClose />
             </Button>
             {children}

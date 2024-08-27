@@ -12,9 +12,9 @@ export const DateDelivery = ({ shippingDate, deliveryDate }: DateDeliveryProps) 
 
     return (
         <div className={cls.container}>
-            <DateStr date={shippingDate} />
+            <DateStr date={shippingDate} size='body2_font_bold' color='primary' />
             <IconArrowRight addStyle={cls.icon} />
-            <DateStr date={deliveryDate} />
+            <DateStr date={deliveryDate} size='body2_font_bold' color='primary' />
         </div>
     );
 };

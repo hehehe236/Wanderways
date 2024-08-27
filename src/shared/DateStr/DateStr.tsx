@@ -1,6 +1,14 @@
 import { Text } from '@/shared/Text/Text.tsx';
+import { TextVariants } from '@/shared/Text/text-variants.ts';
 
-export const DateStr = ({ date }: { date: string }) => {
+export type DateStrProps = {
+    date: string | undefined;
+    size: TextVariants['size'];
+    color: TextVariants['color'];
+};
+
+export const DateStr = (props: DateStrProps) => {
+    const { date, size, color } = props;
     if (!date) return null;
     const dateStr: Date = new Date(date);
     const options: Intl.DateTimeFormatOptions = {
@@ -15,7 +23,7 @@ export const DateStr = ({ date }: { date: string }) => {
         .replace(' at ', ', ');
 
     return (
-        <Text size='body2_font_bold' color='primary'>
+        <Text size={size} color={color}>
             {formattedDate}
         </Text>
     );

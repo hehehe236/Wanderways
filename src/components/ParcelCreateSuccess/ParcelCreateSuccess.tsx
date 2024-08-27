@@ -1,11 +1,22 @@
+import { Link, useNavigate } from 'react-router-dom';
+
 import cls from './ParcelCreateSuccess.module.css';
 import { IconParcelCreateSuccess } from '@/shared/svg/IconParcelCreateSuccess.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconFindDriver } from '@/shared/svg/IconFindDriver.tsx';
 
-export const ParcelCreateSuccess = ({ onClose }: { onClose: () => void }) => {
-    const handleModal = () => onClose();
+export type ParcelCreateSuccessProps = {
+    onClose: () => void;
+    parcelId: number;
+};
+
+export const ParcelCreateSuccess = ({ onClose, parcelId }: ParcelCreateSuccessProps) => {
+    const navigate = useNavigate();
+    const handleModal = () => {
+        onClose();
+        navigate('/parcel/1', { state: 1 });
+    };
 
     return (
         <div className={cls.container} id='modal-parcel-create-success'>
@@ -17,20 +28,16 @@ export const ParcelCreateSuccess = ({ onClose }: { onClose: () => void }) => {
                 Your parcel is ready for delivery. You can find a driver manually or let us find one
                 for you automatically.
             </Text>
-            <Button
-                type='button'
-                variant='submit'
-                background='primary'
-                size='submit'
-                className={cls.btn_find}
-            >
-                <div className={cls.text_btn}>
-                    <IconFindDriver />
-                    <Text size='body2_font_bold' color='white'>
-                        Find driver
-                    </Text>
-                </div>
-            </Button>
+            <Link to='/available-drivers' className={cls.btn_find} state={parcelId}>
+                <Button type='button' variant='submit' background='primary' size='submit'>
+                    <div className={cls.text_btn}>
+                        <IconFindDriver />
+                        <Text size='body2_font_bold' color='white'>
+                            Find driver
+                        </Text>
+                    </div>
+                </Button>
+            </Link>
             <Button
                 type='button'
                 variant='submit'

@@ -1,0 +1,10 @@
+.container_transit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.icon_arrow {
+    stroke: var(--secondary-text);
+}

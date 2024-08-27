@@ -36,6 +36,18 @@ const parcelSlice = createSlice({
                 return updateParcels;
             }
         );
+        builder.addMatcher(
+            parcelApi.endpoints.createParcel.matchFulfilled,
+            (state, { payload }: PayloadAction<Parcel>) => {
+                const updateParcels = state.map((parcel) => {
+                    return parcel.parcelId === payload.parcelId
+                        ? { ...parcel, ...payload }
+                        : parcel;
+                });
+
+                return updateParcels;
+            }
+        );
     },
 });
 

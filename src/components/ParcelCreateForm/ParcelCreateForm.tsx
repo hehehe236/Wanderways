@@ -42,16 +42,16 @@ export const ParcelCreateForm = () => {
         mode: 'onSubmit',
     });
     const [createNewParcel, { isLoading }] = useCreateParcelMutation();
-
+    const [newParcelId, setNewParcelId] = useState(0);
     const handleModal = () => setIsOpenModal((prevState) => !prevState);
 
-    const onSubmit: SubmitHandler<ParcelFormInputType> = (data) => {
+    const onSubmit: SubmitHandler<ParcelFormInputType> = async (data) => {
         if (data.recipientPhone === '+380' && !data.recipientEmail) {
             notification.showError(ERROR_MESSAGE);
             return;
         }
 
-        createNewParcel({
+        const response = await createNewParcel({
             senderId: 1,
             details: data.detailsParcel || '',
             type: data.selectType.value,
@@ -65,6 +65,7 @@ export const ParcelCreateForm = () => {
                 phoneNumber: data.recipientPhone === '+380' ? '' : data.recipientPhone,
             },
         });
+        setNewParcelId(response.data.parcelId);
 
         handleModal();
     };
@@ -225,7 +226,7 @@ export const ParcelCreateForm = () => {
                 </Button>
             </form>
             <Modal isOpen={isOpenModal} onClose={handleModal}>
-                <ParcelCreateSuccess onClose={handleModal} />
+                <ParcelCreateSuccess onClose={handleModal} parcelId={newParcelId} />
             </Modal>
         </>
     );

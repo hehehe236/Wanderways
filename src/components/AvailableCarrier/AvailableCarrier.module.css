@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.container_wheel {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--secondary);
+}
+
+.wheel {
+    stroke: var(--primary);
+}
+
+.vehicle {
+    color: var(--secondary-text);
+    font: var(--body4-font-bold);
+    font-weight: 500;
+}
+
+.container_arrow {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    margin-left: auto;
+    background-color: var(--primary);
+}
+
+.icon_arrow {
+    stroke: var(--white);
+}
