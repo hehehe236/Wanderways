@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.icon_parcel {
+    fill: var(--primary);
+}
+
+.container_type {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.submit_delivery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.icon_hgryvnia {
+    stroke: var(--primary-text);
+    stroke-width: 2px;
+    width: 16px;
+    height: 16px;
+}

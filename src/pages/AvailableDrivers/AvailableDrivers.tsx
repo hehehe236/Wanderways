@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
 import cls from './AvailableDrivers.module.css';
 import { AvailableDriversCount } from '@/components/AvailableDriversCount/AvailableDriversCount.tsx';
-import { AvailableDriversTransit } from '@/components/AvailableDriversTransit/AvailableDriversTransit.tsx';
+import { AvailableDriversRoute } from '@/components/AvailableDriversTransit/AvailableDriversRoute.tsx';
 import { AvailableDriverCard } from '@/components/AvailableDriverCard/AvailableDriverCard.tsx';
 import { useGetAvailableRidesQuery } from '@/store/services/rideService.ts';
 import { Loader } from '@/shared/Loader/Loader.tsx';
@@ -19,8 +19,8 @@ const AvailableDrivers = () => {
     return (
         <main className={cls.container}>
             <ArrowBack />
-            <AvailableDriversCount countDrivers={availableRides.length} />
-            <AvailableDriversTransit parcelId={parcelId} />
+            <AvailableDriversCount countDrivers={availableRides.length} title='Available drivers' />
+            <AvailableDriversRoute parcelId={parcelId} rideId={0} />
             <ul className={cls.container_list} data-testid='availableDriversList'>
                 {availableRides.map(({ driverId, ...ride }: Rider) => {
                     return (

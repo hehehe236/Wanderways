@@ -41,7 +41,7 @@ test.describe('Available drivers page', () => {
         const availableDriversCountComponent = page.getByTestId('availableDriversCount');
         await expect(availableDriversCountComponent).toBeVisible();
 
-        const availableDriversTransit = page.getByTestId('availableDriversTransit');
+        const availableDriversTransit = page.getByTestId('availableDriversRoute');
         await expect(availableDriversTransit).toBeVisible();
 
         const availableDriversList = page.getByTestId('availableDriversList');
