@@ -14,7 +14,7 @@ test.describe('Available parcel page', () => {
             .click();
         await page.getByRole('option', { name: 'Kyivska St, 77, Rivne,' }).click();
         await page.getByRole('textbox').click();
-        await page.getByLabel('Choose Friday, August 30th,').click();
+        await page.getByLabel('Choose Saturday, October 5th,').click();
         await page.getByRole('option', { name: '11:30 AM' }).click();
         await page.getByText('Skoda RoomsterVan').click();
         await page.getByRole('button', { name: 'Publish ride' }).click();

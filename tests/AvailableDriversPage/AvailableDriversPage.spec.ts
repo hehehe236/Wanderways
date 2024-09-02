@@ -8,7 +8,7 @@ test.describe('Available drivers page', () => {
         await page.locator('.custom-select__input-container').first().click();
         await page.getByRole('option', { name: 'Clothing' }).click();
         await page.locator('input[name="deliveryDate"]').click();
-        await page.getByLabel('Choose Friday, August 30th,').click();
+        await page.getByLabel('Choose Saturday, October 5th,').click();
         await page.getByRole('option', { name: '11:30 AM' }).click();
         await page
             .locator(

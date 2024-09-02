@@ -38,9 +38,9 @@ test.describe('Create ride page', () => {
         shippingTo = page.locator('[id="Shipping\\ to"]');
         shippingToOption = page.getByRole('option', { name: 'Nauky St, 99, Poltava,' });
         deliveryDate = page.locator('input[name="deliveryDate"]');
-        deliveryDateLabel = page.getByLabel('Choose Thursday, August 22nd,');
+        deliveryDateLabel = page.getByLabel('Choose Saturday, October 5th,');
         deliveryDateOption = page.getByRole('option', { name: '3:30 PM' });
-        chooseVehicle = page.getByTestId('vehicle-list');
+        chooseVehicle = page.getByText('Skoda RoomsterVan');
         submitBtn = page.getByRole('button', { name: 'Publish ride' });
         toastMessage = page.locator('.Toastify');
         deliveryAddressError = page.locator('#deliveryAddress');
@@ -69,11 +69,11 @@ test.describe('Create ride page', () => {
         await chooseVehicle.first().click();
         await submitBtn.click();
 
-        await page.goto(URL_REDIRECT_AVAILABLE, { waitUntil: 'commit' });
-        await expect(page).toHaveURL(URL_REDIRECT_AVAILABLE);
-
         const toast = toastMessage;
         await expect(toast).toHaveText(MESSAGE_SUCCESS);
+
+        await page.goto(URL_REDIRECT_AVAILABLE, { waitUntil: 'commit' });
+        await expect(page).toHaveURL(URL_REDIRECT_AVAILABLE);
     });
 
     test('WhenFormFillValuesWithoutChooseVehicle_AndSubmit_ToastErrorIsVisible', async () => {
