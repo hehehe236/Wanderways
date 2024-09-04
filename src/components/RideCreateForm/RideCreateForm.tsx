@@ -21,6 +21,7 @@ import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType
 import notification from '@/utils/NotificationManager.ts';
 
 const ERROR_MESSAGE = 'Should choose a vehicle';
+const SUCCESS_MESSAGE = 'Ride successfully published';
 const URL_REDIRECT = '/available-parcels';
 
 export const RideCreateForm = () => {
@@ -35,21 +36,21 @@ export const RideCreateForm = () => {
     const [createNewRide, { isLoading }] = useCreateRideMutation();
     const navigate = useNavigate();
 
-    const onSubmit: SubmitHandler<RideFormInputType> = (data) => {
+    const onSubmit: SubmitHandler<RideFormInputType> = async (data) => {
         if (!data.vehicleId) {
             notification.showError(ERROR_MESSAGE);
             return;
         }
 
-        createNewRide({
+        const response = await createNewRide({
             driverId: 1,
-            deliveryAddress: deserializeAddress(data.deliveryAddress.label),
-            shippingAddress: deserializeAddress(data.shippingAddress.label),
-            deliveryDate: data.deliveryDate,
+            arrivalAddress: deserializeAddress(data.deliveryAddress.label),
+            departureAddress: deserializeAddress(data.shippingAddress.label),
+            arrivalDate: data.deliveryDate,
             vehicleId: data.vehicleId,
         });
-
-        navigate(URL_REDIRECT);
+        notification.showSuccess(SUCCESS_MESSAGE);
+        navigate(URL_REDIRECT, { state: response.data.rideId });
     };
 
     if (isLoading) return <Loader />;

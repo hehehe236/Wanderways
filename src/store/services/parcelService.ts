@@ -23,7 +23,16 @@ export const parcelApi = createApi({
                 body: newParcel,
             }),
         }),
+        getAvailableParcels: builder.query({
+            query: (): string => '/api/parcels/available',
+            keepUnusedDataFor: 0,
+        }),
     }),
 });
 
-export const { useGetParcelsQuery, useGetParcelByIdQuery, useCreateParcelMutation } = parcelApi;
+export const {
+    useGetParcelsQuery,
+    useGetParcelByIdQuery,
+    useCreateParcelMutation,
+    useGetAvailableParcelsQuery,
+} = parcelApi;

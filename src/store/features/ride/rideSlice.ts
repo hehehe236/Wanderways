@@ -48,6 +48,15 @@ const rideSlice = createSlice({
                 return updateRide;
             }
         );
+        builder.addMatcher(
+            rideApi.endpoints.createRide.matchFulfilled,
+            (state, { payload }: PayloadAction<RideGeneralInfoType>) => {
+                const updateRide = state.map((ride) => {
+                    return ride.rideId === payload.rideId ? { ...ride, ...payload } : ride;
+                });
+                return updateRide;
+            }
+        );
     },
 });
 

@@ -1,0 +1,25 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.line {
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    width: 55px;
+    transform: rotate(-90deg);
+    background-color: var(--primary);
+    height: 2px;
+}
