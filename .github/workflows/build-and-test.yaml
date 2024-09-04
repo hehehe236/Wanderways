@@ -7,13 +7,7 @@ on:
       - 'bugfix/**'
       - main
       - 'release/**'
-  pull_request:
-    branches:
-      - 'feature/**'
-      - 'bugfix/**'
-      - main
-      - 'release/**'
-      
+
 jobs:
   lint:
     runs-on: ubuntu-latest
