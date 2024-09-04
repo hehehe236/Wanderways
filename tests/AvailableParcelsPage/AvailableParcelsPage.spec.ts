@@ -5,13 +5,9 @@ test.describe('Available parcel page', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/', { waitUntil: 'commit' });
         await page.getByRole('button', { name: 'Deliver parcel' }).click();
-        await page.locator('.custom-select__input-container').first().click();
+        await page.locator('[id="Delivery\\ from"] svg').click();
         await page.getByRole('option', { name: 'Shevchenka St, 12, Kyiv,' }).click();
-        await page
-            .locator(
-                '[id="Shipping\\ to"] > .custom-select__control > .custom-select__value-container > .custom-select__input-container'
-            )
-            .click();
+        await page.locator('[id="Shipping\\ to"] svg').click();
         await page.getByRole('option', { name: 'Kyivska St, 77, Rivne,' }).click();
         await page.getByRole('textbox').click();
         await page.getByLabel('Choose Saturday, October 5th,').click();
