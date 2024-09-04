@@ -34,52 +34,52 @@ export default defineConfig({
 
     /* Configure projects for major browsers */
     projects: [
-        {
-            name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
-        },
+        // {
+        //     name: 'chromium',
+        //     use: { ...devices['Desktop Chrome'] },
+        // },
 
-        {
-            name: 'firefox',
-            use: { ...devices['Desktop Firefox'] },
-        },
-
-        {
-            name: 'webkit',
-            use: { ...devices['Desktop Safari'] },
-        },
+        // {
+        //     name: 'firefox',
+        //     use: { ...devices['Desktop Firefox'] },
+        // },
+        //
+        // {
+        //     name: 'webkit',
+        //     use: { ...devices['Desktop Safari'] },
+        // },
 
         /* Test against mobile viewports. */
-        {
-            name: 'Mobile Chrome - Pixel 5',
-            use: { ...devices['Pixel 5'] },
-        },
-        {
-            name: 'Mobile Chrome - Galaxy S21',
-            use: { ...devices['Galaxy S21'] },
-        },
-        {
-            name: 'Mobile Chrome - Xiaomi Mi 11',
-            use: { ...devices['Xiaomi Mi 11'] },
-        },
-        {
-            name: 'Mobile Safari - iPhone 13',
-            use: { ...devices['iPhone 13'] },
-        },
+        // {
+        //     name: 'Mobile Chrome - Pixel 5',
+        //     use: { ...devices['Pixel 5'] },
+        // },
+        // {
+        //     name: 'Mobile Chrome - Galaxy S21',
+        //     use: { ...devices['Galaxy S21'] },
+        // },
+        // {
+        //     name: 'Mobile Chrome - Xiaomi Mi 11',
+        //     use: { ...devices['Xiaomi Mi 11'] },
+        // },
+        // {
+        //     name: 'Mobile Safari - iPhone 13',
+        //     use: { ...devices['iPhone 13'] },
+        // },
         {
             name: 'Mobile Chrome - iPhone 13',
             use: { ...devices['iPhone 13'] },
         },
-        {
-            name: 'Mobile Chrome - iPhone SE',
-            use: { ...devices['iPhone SE'] },
-        },
+        // {
+        //     name: 'Mobile Chrome - iPhone SE',
+        //     use: { ...devices['iPhone SE'] },
+        // },
 
         /* Test against generic Android viewports. */
-        {
-            name: 'Android - Generic',
-            use: { ...devices['Pixel 5'] },
-        },
+        // {
+        //     name: 'Android - Generic',
+        //     use: { ...devices['Pixel 5'] },
+        // },
 
         /* Test against branded browsers. */
         // {
