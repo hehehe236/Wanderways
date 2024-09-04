@@ -34,7 +34,7 @@ export default defineConfig({
 
     /* Configure projects for major browsers */
     projects: process.env.CI 
-    ?   [
+        ? [
             {
                 name: 'Mobile Chrome - iPhone 13',
                 use: { ...devices['iPhone 13'] }
