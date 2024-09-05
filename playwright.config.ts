@@ -18,9 +18,9 @@ export default defineConfig({
     /* Fail the build on CI if you accidentally left test.only in the source code. */
     forbidOnly: !!process.env.CI,
     /* Retry on CI only */
-    retries: process.env.CI ? 2 : 0,
+    retries: process.env.CI ? 3 : 1,
     /* Opt out of parallel tests on CI. */
-    workers: process.env.CI ? 1 : undefined,
+    workers: process.env.CI ? 2 : undefined,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: 'html',
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -33,64 +33,71 @@ export default defineConfig({
     },
 
     /* Configure projects for major browsers */
-    projects: [
-        {
-            name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
-        },
+    projects: process.env.CI 
+        ? [
+            {
+                name: 'Mobile Chrome - iPhone 13',
+                use: { ...devices['iPhone 13'] }
+            }
+        ] 
+        : [
+            {
+                name: 'chromium',
+                use: { ...devices['Desktop Chrome'] },
+            },
 
-        {
-            name: 'firefox',
-            use: { ...devices['Desktop Firefox'] },
-        },
+            {
+                name: 'firefox',
+                use: { ...devices['Desktop Firefox'] },
+            },
+            
+            {
+                name: 'webkit',
+                use: { ...devices['Desktop Safari'] },
+            },
 
-        {
-            name: 'webkit',
-            use: { ...devices['Desktop Safari'] },
-        },
+            /* Test against mobile viewports. */
+            {
+                name: 'Mobile Chrome - Pixel 5',
+                use: { ...devices['Pixel 5'] },
+            },
+            {
+                name: 'Mobile Chrome - Galaxy S21',
+                use: { ...devices['Galaxy S21'] },
+            },
+            {
+                name: 'Mobile Chrome - Xiaomi Mi 11',
+                use: { ...devices['Xiaomi Mi 11'] },
+            },
+            {
+                name: 'Mobile Safari - iPhone 13',
+                use: { ...devices['iPhone 13'] },
+            },
+            {
+                name: 'Mobile Chrome - iPhone 13',
+                use: { ...devices['iPhone 13'] },
+            },
+            {
+                name: 'Mobile Chrome - iPhone SE',
+                use: { ...devices['iPhone SE'] },
+            },
 
-        /* Test against mobile viewports. */
-        {
-            name: 'Mobile Chrome - Pixel 5',
-            use: { ...devices['Pixel 5'] },
-        },
-        {
-            name: 'Mobile Chrome - Galaxy S21',
-            use: { ...devices['Galaxy S21'] },
-        },
-        {
-            name: 'Mobile Chrome - Xiaomi Mi 11',
-            use: { ...devices['Xiaomi Mi 11'] },
-        },
-        {
-            name: 'Mobile Safari - iPhone 13',
-            use: { ...devices['iPhone 13'] },
-        },
-        {
-            name: 'Mobile Chrome - iPhone 13',
-            use: { ...devices['iPhone 13'] },
-        },
-        {
-            name: 'Mobile Chrome - iPhone SE',
-            use: { ...devices['iPhone SE'] },
-        },
+            /* Test against generic Android viewports. */
+            {
+                name: 'Android - Generic',
+                use: { ...devices['Pixel 5'] },
+            },
 
-        /* Test against generic Android viewports. */
-        {
-            name: 'Android - Generic',
-            use: { ...devices['Pixel 5'] },
-        },
-
-        /* Test against branded browsers. */
-        // {
-        //   name: 'Microsoft Edge',
-        //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-        // },
-        // {
-        //   name: 'Google Chrome',
-        //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-        // },
-    ],
+            /* Test against branded browsers. */
+            {
+                name: 'Microsoft Edge',
+                use: { ...devices['Desktop Edge'], channel: 'msedge' },
+            },
+            {
+                name: 'Google Chrome',
+                use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+            },
+        ],
 
     /* Run your local dev server before starting the tests */
     webServer: {
