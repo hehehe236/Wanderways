@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
-    persistStore,
     FLUSH,
-    REHYDRATE,
     PAUSE,
     PERSIST,
+    persistReducer,
+    persistStore,
     PURGE,
     REGISTER,
-    persistReducer,
+    REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { parcelApi } from '../store/services/parcelService.ts';
@@ -17,6 +17,8 @@ import { parcelReducer } from '@/store/features/parcel/parcelSlice.ts';
 import { rideReducer } from '@/store/features/ride/rideSlice.ts';
 import { profileReducer } from '@/store/features/profile/profileSlice.ts';
 import { profileApi } from '@/store/services/profileService.ts';
+import { vehicleReducer } from '@/store/features/vehicles/vehicleSlice.ts';
+import { vehicleApi } from '@/store/services/vehicleService.ts';
 
 const profilePersistConfig = {
     key: 'profile',
@@ -27,10 +29,12 @@ const rootReducer = combineReducers({
     [parcelApi.reducerPath]: parcelApi.reducer,
     [rideApi.reducerPath]: rideApi.reducer,
     [profileApi.reducerPath]: profileApi.reducer,
+    [vehicleApi.reducerPath]: vehicleApi.reducer,
     option: optionReducer,
     parcel: parcelReducer,
     ride: rideReducer,
     profile: persistReducer(profilePersistConfig, profileReducer),
+    vehicle: vehicleReducer,
 });
 
 export const store = configureStore({
@@ -43,7 +47,8 @@ export const store = configureStore({
         })
             .concat(parcelApi.middleware)
             .concat(rideApi.middleware)
-            .concat(profileApi.middleware),
+            .concat(profileApi.middleware)
+            .concat(vehicleApi.middleware),
 });
 
 export const persistor = persistStore(store);

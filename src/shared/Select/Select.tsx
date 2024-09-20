@@ -5,10 +5,11 @@ import { ControllerRenderProps, FieldError, FieldErrorsImpl, Merge } from 'react
 import cls from './Select.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import {
-    ParcelFormInputType,
     OptionSelectType,
+    ParcelFormInputType,
 } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
+import { ProfileVehicleFormType } from '@/components/ProfileVehicleForm/ProfileVehicleType.ts';
 
 export type SelectType = {
     options: OptionSelectType[];
@@ -20,12 +21,12 @@ export type SelectType = {
               ParcelFormInputType,
               'deliveryAddress' | 'shippingAddress' | 'selectType'
           >
-        | ControllerRenderProps<RideFormInputType, 'deliveryAddress'>;
+        | ControllerRenderProps<RideFormInputType, 'deliveryAddress'>
+        | ControllerRenderProps<ProfileVehicleFormType, 'vehicleType' | 'modelType'>;
 };
 
 export const Select = (props: SelectType) => {
     const { options, placeholder, label, error, field } = props;
-
     return (
         <>
             <label htmlFor={label}>
@@ -44,7 +45,7 @@ export const Select = (props: SelectType) => {
             />
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.value?.message}
+                    {error.value?.message || error.message}
                 </Text>
             )}
         </>

@@ -1,15 +1,11 @@
 import cls from './ParcelCreate.module.css';
-import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
-import { Text } from '@/shared/Text/Text.tsx';
 import { ParcelCreateForm } from '@/components/ParcelCreateForm/ParcelCreateForm.tsx';
+import { Title } from '@/shared/Title/Title.tsx';
 
 const ParcelCreate = () => {
     return (
         <div className={cls.container}>
-            <ArrowBack />
-            <Text size='headline1_bold' color='primary' className={cls.title}>
-                Send parcel
-            </Text>
+            <Title title='Send parcel' />
             <ParcelCreateForm />
         </div>
     );

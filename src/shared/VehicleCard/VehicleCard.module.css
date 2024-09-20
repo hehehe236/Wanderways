@@ -11,10 +11,24 @@
 }
 
 .modelName {
+    text-align: start;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin-bottom: 4px;
 }
 
 .selected {
     border-radius: 20px;
     border: 1px solid var(--primary);
+}
+
+.wrap_text {
+    width: calc(var(--cart-ride-width) - 100px);
+}
+
+.icon_delete {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    stroke: var(--red-error);
 }

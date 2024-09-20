@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import LayoutWithoutAvatar from '@/components/LayoutWithoutAvatar/LayoutWithoutAvatar.tsx';
@@ -13,12 +13,14 @@ const RideCreate = lazy(async () => await import('./pages/RideCreate/RideCreate'
 const AvailableParcels = lazy(
     async () => await import('./pages/AvailableParcels/AvailableParcels')
 );
-const Profile = lazy(async () => await import('./pages/Profile/Profile'));
-const ProfileGeneral = lazy(async () => await import('./pages/ProfileGeneral/ProfileGeneral'));
-const ProfileEmail = lazy(async () => await import('./pages/ProfileEmail/ProfileEmail'));
 const AvailableDrivers = lazy(
     async () => await import('./pages/AvailableDrivers/AvailableDrivers')
 );
+const Profile = lazy(async () => await import('./pages/Profile/Profile'));
+const ProfileGeneral = lazy(async () => await import('./pages/ProfileGeneral/ProfileGeneral'));
+const ProfileEmail = lazy(async () => await import('./pages/ProfileEmail/ProfileEmail'));
+const MyVehicles = lazy(async () => await import('./pages/MyVehicles/MyVehicles'));
+const ProfileVehicle = lazy(async () => await import('./pages/ProfileVehicle/ProfileVehicle'));
 
 export const App = () => {
     return (
@@ -38,6 +40,8 @@ export const App = () => {
                     <Route index element={<Profile />} />
                     <Route path='general' element={<ProfileGeneral />} />
                     <Route path='email' element={<ProfileEmail />} />
+                    <Route path='vehicles' element={<MyVehicles />} />
+                    <Route path='new-vehicle' element={<ProfileVehicle />} />
                 </Route>
             </Routes>
         </BrowserRouter>
