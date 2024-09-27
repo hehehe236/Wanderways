@@ -1,8 +1,9 @@
 import { ComponentPropsWithRef } from 'react';
 import { type TagVariants, tagVariants } from '@/shared/Tag/tag-variants.ts';
 import { Text } from '@/shared/Text/Text.tsx';
+import { Status } from '@/utils/ParcelStatus.ts';
 
-export type TextVariant = 'In Transit' | 'Failed' | 'Delivered' | 'New';
+export type TextVariant = Status;
 export type TagProps = ComponentPropsWithRef<'div'> & TagVariants & { text?: TextVariant };
 
 const Tag = ({ text, background, className, ...props }: TagProps) => {

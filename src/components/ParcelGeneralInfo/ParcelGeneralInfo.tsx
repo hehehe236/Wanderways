@@ -18,7 +18,7 @@ export const ParcelGeneralInfo = ({ parcelId }: { parcelId: number }) => {
     );
     if (!parcel) return null;
 
-    const buttonRef = useElementWidth();
+    const buttonRef = useElementWidth<HTMLButtonElement>();
 
     return (
         <Link to={`/parcel/${parcelId}`} state={parcelId}>

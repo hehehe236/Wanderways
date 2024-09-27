@@ -23,10 +23,10 @@
  * ```
  */
 
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-const useElementWidth = () => {
-    const elementRef = useRef<HTMLButtonElement>(null);
+const useElementWidth = <T extends HTMLElement>() => {
+    const elementRef = useRef<T>(null);
 
     const updateWidth = () => {
         if (elementRef.current) {

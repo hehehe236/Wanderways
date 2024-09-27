@@ -1,3 +1,5 @@
+import { Status } from '@/utils/ParcelStatus.ts';
+
 export type Address = {
     street: string;
     city: string;
@@ -35,7 +37,7 @@ export type RideAcceptedParcels = {
 export type RideGeneralInfoType = {
     driverId: number;
     rideId: number;
-    status: 'In Transit' | 'Failed' | 'Delivered' | 'New';
+    status: Status;
     parcelsTypes: string[];
     totalCost: number;
     departureAddress: Address;
