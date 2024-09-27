@@ -31,7 +31,7 @@ export const RideDetailsInfo = () => {
                     {nameTypes}
                 </Text>
                 <div className={cls.container_status}>
-                    <Tag text={ride.status} background={ride.status} />
+                    <Tag text={ride.status} className={cls.tag} />
                     {nameTypes !== 'No parcels' && (
                         <>
                             <IconDot addStyle={cls.icon_dot} />

@@ -1,4 +1,4 @@
-import { Status } from '@/utils/ParcelStatus.ts';
+import { ParcelStatus } from '@/utils/ParcelStatus.ts';
 
 export type Address = {
     street: string;
@@ -37,7 +37,7 @@ export type RideAcceptedParcels = {
 export type RideGeneralInfoType = {
     driverId: number;
     rideId: number;
-    status: Status;
+    status: ParcelStatus;
     parcelsTypes: string[];
     totalCost: number;
     departureAddress: Address;

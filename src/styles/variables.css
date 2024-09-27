@@ -29,6 +29,7 @@
     --body2-font-bold: 600 16px/19px 'Urbanist', sans-serif;
     --body3-font-bold: normal 16px/19px 'Urbanist', sans-serif;
     --body4-font-bold: 500 14px/17px 'Urbanist', sans-serif;
+    --body4-font-700: 700 14px/17px 'Urbanist', sans-serif;
 
     /* Shadow */
     --shadow: 0 0 20px 0 rgba(16, 24, 40, 0.08);

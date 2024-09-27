@@ -49,3 +49,8 @@
     width: 16px;
     height: 16px;
 }
+
+.tag {
+    background-color: var(--yellow-warning);
+    color: var(--white);
+}

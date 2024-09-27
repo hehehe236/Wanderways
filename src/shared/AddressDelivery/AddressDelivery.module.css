@@ -8,3 +8,11 @@
 .arrow_icon {
     stroke: var(--secondary-text);
 }
+
+.color_new {
+    color: var(--white);
+}
+
+.stroke_new {
+    stroke: var(--white);
+}

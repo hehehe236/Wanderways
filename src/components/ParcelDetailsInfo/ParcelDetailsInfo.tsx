@@ -28,7 +28,7 @@ export const ParcelDetailsInfo = () => {
                     {parcel.type}
                 </Text>
                 <div className={cls.container_status}>
-                    <Tag text={parcel.status} background={parcel.status} />
+                    <Tag text={parcel.status} className={cls.tag} />
                     <IconDot addStyle={cls.icon_dot} />
                     <div className={cls.container_price}>
                         <IconHgryvnia addStyle={cls.icon_hryvnia} />

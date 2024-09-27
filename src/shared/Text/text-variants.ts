@@ -15,6 +15,7 @@ export const textVariants = cva(cls.text, {
             body2_font_bold: cls.body2_font_bold,
             body3_font_bold: cls.body3_font_bold,
             body4_font_bold: cls.body4_font_bold,
+            body4_font_700: cls.body4_font_700,
         },
         color: {
             primary: cls.color_primary,

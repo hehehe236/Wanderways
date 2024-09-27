@@ -6,7 +6,6 @@
     align-items: center;
     gap: 10px;
     border-radius: 100px;
-    color: var(--white);
 }
 
 .background_blue {
@@ -27,4 +26,12 @@
 
 .background_red {
     background-color: var(--red-error);
+}
+
+.color_primary {
+    color: var(--primary-text);
+}
+
+.color_white {
+    color: var(--white);
 }

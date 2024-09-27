@@ -34,10 +34,6 @@
     font: var(--body4-font-bold);
 }
 
-.body4_font_700 {
-    font: var(--body4-font-700);
-}
-
 .color_primary {
     color: var(--primary-text);
 }

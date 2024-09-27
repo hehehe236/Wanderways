@@ -1,1 +1,1 @@
-export type Status = 'New' | 'Accepted' | 'In Transit' | 'Failed' | 'Delivered' | 'Canceled';
+export type ParcelStatus = 'New' | 'In Transit' | 'Failed' | 'Delivered';

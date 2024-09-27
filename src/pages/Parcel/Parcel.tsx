@@ -16,9 +16,9 @@ import { ParcelDetailsDescription } from '@/components/ParcelDetailsDescription/
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconFindDriver } from '@/shared/svg/IconFindDriver.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
-import { Status } from '@/utils/ParcelStatus.ts';
+import { ParcelStatus } from '@/utils/ParcelStatus.ts';
 
-const status: Status = 'New';
+const status: ParcelStatus = 'New';
 
 const Parcel = () => {
     const { id } = useParams();

@@ -11,6 +11,7 @@ import { AddressDelivery } from '@/shared/AddressDelivery/AddressDelivery.tsx';
 import { Tag } from '@/shared/Tag/Tag.tsx';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
+import { changeStyleForStatusNew } from '@/utils/changeStyleForStatusNew.ts';
 
 export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
     const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
@@ -22,9 +23,13 @@ export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
 
     return (
         <Link to={`/ride/${rideId}`} state={rideId}>
-            <button className={cls.container} ref={buttonRef}>
+            <button
+                className={changeStyleForStatusNew(ride, cls.container, cls.background_new)}
+                ref={buttonRef}
+            >
                 <div className={cls.address_status}>
                     <AddressDelivery
+                        status={ride}
                         deliveryAddress={ride.departureAddress.city}
                         shippingAddress={ride.arrivalAddress.city}
                     />

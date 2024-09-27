@@ -9,7 +9,13 @@ export const tagVariants = cva(cls.tag, {
             'In Transit': cls.background_blue,
             Failed: cls.background_red,
             Delivered: cls.background_green,
-            New: cls.background_yellow,
+            New: cls.background_white,
+        },
+        text_color: {
+            'In Transit': cls.color_white,
+            Failed: cls.color_white,
+            Delivered: cls.color_white,
+            New: cls.color_primary,
         },
     },
 });
