@@ -14,7 +14,7 @@ export type ModalProps = {
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     const navigate = useNavigate();
-    const handleClickIconClose = () => navigate('/parcel/1', { state: 1 });
+    const handleClickIconClose = () => navigate('/');
 
     return (
         <ModalReact

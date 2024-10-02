@@ -15,7 +15,7 @@ export const ParcelCreateSuccess = ({ onClose, parcelId }: ParcelCreateSuccessPr
     const navigate = useNavigate();
     const handleModal = () => {
         onClose();
-        navigate('/parcel/1', { state: 1 });
+        navigate('/');
     };
 
     return (
