@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.container_wheel {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--secondary);
+}
+
+.wheel {
+    stroke: var(--primary);
+}
+
+.container_text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.icon_close{
+    stroke: var(--white);
+}
+
+.address_btns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.block_btn {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 8px;
+    width: 100%;
+}
+
+.btn_approve {
+    height: 40px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--stroke);
+}

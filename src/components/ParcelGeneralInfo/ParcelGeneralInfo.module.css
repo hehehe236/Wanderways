@@ -93,3 +93,15 @@
 .stroke_new {
     stroke: var(--white);
 }
+
+.block_request {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 8px 0;
+    border-radius: 10px;
+    background-color: var(--white);
+}

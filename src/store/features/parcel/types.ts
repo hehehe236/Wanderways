@@ -24,6 +24,13 @@ export type ParcelAdditionalInfoType = {
     recipient: Recipient;
 };
 
+export type ParcelRequestDriver = {
+    name: string;
+    lastName: string;
+    departureAddress: Address;
+    arrivalAddress: Address;
+};
+
 export type ParcelGeneralInfoType = {
     parcelId: number;
     senderId: number;
@@ -35,6 +42,8 @@ export type ParcelGeneralInfoType = {
     deliveryAddress: Address;
     deliveryDate?: string;
     details?: string;
+    hasRequests?: boolean;
+    driverRequested?: ParcelRequestDriver[];
 };
 
 export type Parcel = ParcelGeneralInfoType & Partial<ParcelAdditionalInfoType>;

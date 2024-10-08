@@ -13,11 +13,13 @@ export const buttonVariants = cva(cls.button, {
             icon: cls.icon,
             tab: cls.tab,
             submit: cls.submit,
+            cancel: cls.cancel,
         },
         background: {
             secondary: cls.background_secondary,
             white: cls.background_white,
             primary: cls.background_primary,
+            red: cls.background_red,
         },
     },
 });

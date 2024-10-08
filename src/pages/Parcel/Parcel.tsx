@@ -17,10 +17,10 @@ import { Button } from '@/shared/Button/Button.tsx';
 import { IconFindDriver } from '@/shared/svg/IconFindDriver.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { ParcelStatus } from '@/utils/ParcelStatus.ts';
-
-const status: ParcelStatus = 'New';
+import { ParcelRequests } from '@/components/ParcelRequests/ParcelRequests.tsx';
 
 const Parcel = () => {
+    const parcelStatusNew: ParcelStatus = 'New';
     const { id } = useParams();
     const { state: parcelId } = useLocation();
     const { isLoading } = useGetParcelByIdQuery(id, { skip: !id });
@@ -38,22 +38,34 @@ const Parcel = () => {
             <ArrowBack />
             <ParcelDetailsInfo />
             <ul className={cls.container_list}>
-                {parcel.status === status && (
-                    <Link
-                        to='/available-drivers'
-                        className={cls.btn_find}
-                        state={parcelId}
-                        data-testid='btnFindDriver'
-                    >
-                        <Button type='button' variant='submit' background='primary' size='submit'>
-                            <div className={cls.text_btn}>
-                                <IconFindDriver />
-                                <Text size='body2_font_bold' color='white'>
-                                    Find driver
-                                </Text>
-                            </div>
-                        </Button>
-                    </Link>
+                {parcel.status === parcelStatusNew && (
+                    <li>
+                        <Link
+                            to='/available-drivers'
+                            className={cls.btn_find}
+                            state={parcelId}
+                            data-testid='btnFindDriver'
+                        >
+                            <Button
+                                type='button'
+                                variant='submit'
+                                background='primary'
+                                size='submit'
+                            >
+                                <div className={cls.text_btn}>
+                                    <IconFindDriver />
+                                    <Text size='body2_font_bold' color='white'>
+                                        Find driver
+                                    </Text>
+                                </div>
+                            </Button>
+                        </Link>
+                    </li>
+                )}
+                {parcel.status === parcelStatusNew && parcel.hasRequests && (
+                    <li data-testid='parcelRequests'>
+                        <ParcelRequests />
+                    </li>
                 )}
                 <li data-testid='parcelDetailsDescription'>
                     <BasisBlock>

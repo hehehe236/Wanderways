@@ -6,34 +6,42 @@ import { Parcel } from '@/store/features/parcel/types.ts';
 import { Ride } from '@/store/features/ride/types.ts';
 
 export type AddressDeliveryProps = {
-    status: Parcel | Ride;
+    status?: Parcel | Ride;
     shippingAddress: string;
     deliveryAddress: string;
+    font: 'body1_font_bold' | 'body4_font_bold';
+    color: 'primary' | 'secondary';
 };
 
 export const AddressDelivery = ({
     status,
     shippingAddress,
     deliveryAddress,
+    font,
+    color,
 }: AddressDeliveryProps) => {
     return (
         <div className={cls.address}>
             <Text
-                size='body1_font_bold'
-                color='primary'
+                size={font}
+                color={color}
                 variant='left'
-                className={changeStyleForStatusNew(status, '', cls.color_new)}
+                className={status ? changeStyleForStatusNew(status, '', cls.color_new) : ''}
             >
                 {shippingAddress}
             </Text>
             <IconArrowRight
-                addStyle={changeStyleForStatusNew(status, cls.arrow_icon, cls.stroke_new)}
+                addStyle={
+                    status
+                        ? changeStyleForStatusNew(status, cls.arrow_icon, cls.stroke_new)
+                        : cls.arrow_icon
+                }
             />
             <Text
-                size='body1_font_bold'
-                color='primary'
+                size={font}
+                color={color}
                 variant='left'
-                className={changeStyleForStatusNew(status, '', cls.color_new)}
+                className={status ? changeStyleForStatusNew(status, '', cls.color_new) : ''}
             >
                 {deliveryAddress}
             </Text>

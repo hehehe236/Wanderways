@@ -15,11 +15,21 @@
 }
 
 .submit {
+    width: 100%;
     display: flex;
     padding: 10px 20px;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
+}
+
+.cancel {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
 .tab_size {
@@ -40,4 +50,8 @@
 
 .background_primary {
     background-color: var(--primary);
+}
+
+.background_red {
+    background-color: var(--red-error);
 }

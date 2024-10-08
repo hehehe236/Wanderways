@@ -29,11 +29,13 @@ export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
             >
                 <div className={cls.address_status}>
                     <AddressDelivery
+                        color='primary'
+                        font='body1_font_bold'
                         status={ride}
                         deliveryAddress={ride.departureAddress.city}
                         shippingAddress={ride.arrivalAddress.city}
                     />
-                    <Tag text={ride.status} background={ride.status} />
+                    <Tag text={ride.status} background={ride.status} text_color={ride.status} />
                 </div>
                 {ride.totalCost !== 0 && ride.parcelsTypes.length !== 0 && (
                     <div className={cls.product_info}>

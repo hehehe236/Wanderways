@@ -8,7 +8,7 @@ test.describe('Available drivers page', () => {
         await page.locator('.custom-select__indicator').first().click();
         await page.getByRole('option', { name: 'Clothing' }).click();
         await page.locator('input[name="deliveryDate"]').click();
-        await page.getByLabel('Choose Saturday, October 5th,').click();
+        await page.getByLabel('Choose Saturday, November 2nd,').click();
         await page.getByRole('option', { name: '11:30 AM' }).click();
         await page.locator('[id="Delivery\\ from"] svg').click();
         await page.getByRole('option', { name: 'Vasylkivska St, 45, Kharkiv,' }).click();

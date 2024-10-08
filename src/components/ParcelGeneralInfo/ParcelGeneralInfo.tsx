@@ -12,8 +12,11 @@ import { Parcel } from '@/store/features/parcel/types.ts';
 import { Tag } from '@/shared/Tag/Tag.tsx';
 import { selectParcelById } from '@/store/features/parcel/parcelSlice.ts';
 import { changeStyleForStatusNew } from '@/utils/changeStyleForStatusNew.ts';
+import { IconBell } from '@/shared/svg/IconBell.tsx';
+import { ParcelStatus } from '@/utils/ParcelStatus.ts';
 
 export const ParcelGeneralInfo = ({ parcelId }: { parcelId: number }) => {
+    const parcelStatusNew: ParcelStatus = 'New';
     const parcel: Parcel | undefined = useSelector((state: { parcel: Parcel[] }) =>
         selectParcelById(state, parcelId)
     );
@@ -29,6 +32,8 @@ export const ParcelGeneralInfo = ({ parcelId }: { parcelId: number }) => {
             >
                 <div className={cls.address_status}>
                     <AddressDelivery
+                        color='primary'
+                        font='body1_font_bold'
                         status={parcel}
                         deliveryAddress={parcel.deliveryAddress.city}
                         shippingAddress={parcel.shippingAddress.city}
@@ -39,6 +44,12 @@ export const ParcelGeneralInfo = ({ parcelId }: { parcelId: number }) => {
                         text_color={parcel.status}
                     />
                 </div>
+                {parcel.hasRequests && parcel.status === parcelStatusNew && (
+                    <div className={cls.block_request}>
+                        <IconBell />
+                        <Text size='body2_font_bold'>Requests</Text>
+                    </div>
+                )}
                 <div className={cls.product_info}>
                     <div className={cls.container_icon}>
                         <IconParcelFilled addStyle={cls.parcel_icon} />

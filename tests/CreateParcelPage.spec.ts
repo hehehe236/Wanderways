@@ -62,7 +62,7 @@ test.describe('Create parcel page', (): void => {
         parcelTypeOption = page.getByRole('option', { name: 'Clothing' });
         parcelTypeValue = page.locator('input[value="clothing"]');
         deliveryDate = page.locator('input[name="deliveryDate"]');
-        deliveryDateLabel = page.getByLabel('Choose Saturday, October 5th,');
+        deliveryDateLabel = page.getByLabel('Choose Saturday, November 2nd,');
         deliveryDateOption = page.getByRole('option', { name: '3:30 PM' });
         deliveryFrom = page.locator('[id="Delivery\\ from"]');
         deliveryFromOption = page.getByRole('option', { name: 'Shevchenka St, 12, Kyiv,' });

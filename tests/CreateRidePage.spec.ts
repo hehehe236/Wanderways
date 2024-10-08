@@ -38,7 +38,7 @@ test.describe('Create ride page', () => {
         shippingTo = page.locator('[id="Shipping\\ to"]');
         shippingToOption = page.getByRole('option', { name: 'Nauky St, 99, Poltava,' });
         deliveryDate = page.locator('input[name="deliveryDate"]');
-        deliveryDateLabel = page.getByLabel('Choose Saturday, October 5th,');
+        deliveryDateLabel = page.getByLabel('Choose Saturday, November 2nd,');
         deliveryDateOption = page.getByRole('option', { name: '3:30 PM' });
         chooseVehicle = page.getByText('Skoda RoomsterVan');
         submitBtn = page.getByRole('button', { name: 'Publish ride' });
