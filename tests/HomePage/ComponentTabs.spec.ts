@@ -5,7 +5,7 @@ const colors = {
     secondary: 'rgb(231, 236, 250)',
 };
 
-test.describe('Tabs component', () => {
+test.describe('ParcelRideSwitcher component', () => {
     let parcelsButton: Locator;
     let ridesButton: Locator;
 

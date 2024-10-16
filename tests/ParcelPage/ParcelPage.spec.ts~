@@ -55,7 +55,6 @@ test.describe('Parcel page', () => {
 
         const titleRequest = page.getByTestId('titleRequest');
         await expect(titleRequest).toBeVisible();
-        await expect(titleRequest).toHaveText('Requests');
 
         const countRequest = page.getByTestId('countRequest');
         await expect(countRequest).toBeVisible();

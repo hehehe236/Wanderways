@@ -48,7 +48,7 @@ export const AcceptedParcel = ({ parcelId }: { parcelId: number }) => {
                         Price
                     </Text>
                 </div>
-                <Button variant='submit' background='primary'>
+                <Button background='primary' size='confirm' variant='confirm'>
                     <Text size='body2_font_bold' color='white'>
                         Confirm delivery
                     </Text>

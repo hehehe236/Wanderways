@@ -32,12 +32,24 @@
     border-radius: 50%;
 }
 
+.confirm {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+}
+
 .tab_size {
     width: 176px;
 }
 
 .submit_size {
     width: 100%;
+}
+
+.confirm_size {
+    width: 160px;
 }
 
 .background_secondary {

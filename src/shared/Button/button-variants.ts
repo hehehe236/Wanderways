@@ -8,12 +8,14 @@ export const buttonVariants = cva(cls.button, {
         size: {
             tab: cls.tab_size,
             submit: cls.submit_size,
+            confirm: cls.confirm_size,
         },
         variant: {
             icon: cls.icon,
             tab: cls.tab,
             submit: cls.submit,
             cancel: cls.cancel,
+            confirm: cls.confirm,
         },
         background: {
             secondary: cls.background_secondary,

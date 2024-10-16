@@ -18,15 +18,17 @@ export const ParcelRequests = () => {
         <>
             <div className={cls.container}>
                 <div className={cls.container_text}>
-                    <Text size='headline1_bold'>Requests</Text>
+                    <Text size='headline1_bold' data-testid='titleRequest'>
+                        Requests
+                    </Text>
                     <div className={cls.container_number}>
-                        <Text size='body3_font_bold' color='white'>
+                        <Text size='body3_font_bold' color='white' data-testid='countRequest'>
                             {parcel?.driverRequested?.length}
                         </Text>
                     </div>
                 </div>
                 <div>
-                    <Link to='/'>
+                    <Link to='/' data-testid='btnViewAll'>
                         <Text size='body2_font_bold' color='blue'>
                             View all
                         </Text>

@@ -12,14 +12,17 @@ import { Tag } from '@/shared/Tag/Tag.tsx';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { changeStyleForStatusNew } from '@/utils/changeStyleForStatusNew.ts';
+import { ParcelStatus } from '@/utils/ParcelStatus.ts';
+import { IconBell } from '@/shared/svg/IconBell.tsx';
 
 export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
+    const parcelStatusNew: ParcelStatus = 'New';
     const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
         selectRideById(state, rideId)
     );
     if (!ride) return null;
 
-    const buttonRef = useElementWidth();
+    const buttonRef = useElementWidth<HTMLButtonElement>();
 
     return (
         <Link to={`/ride/${rideId}`} state={rideId}>
@@ -37,6 +40,12 @@ export const RideGeneralInfo = ({ rideId }: { rideId: number }) => {
                     />
                     <Tag text={ride.status} background={ride.status} text_color={ride.status} />
                 </div>
+                {ride.hasRequests && ride.status === parcelStatusNew && (
+                    <div className={cls.block_request}>
+                        <IconBell />
+                        <Text size='body2_font_bold'>Requests</Text>
+                    </div>
+                )}
                 {ride.totalCost !== 0 && ride.parcelsTypes.length !== 0 && (
                     <div className={cls.product_info}>
                         <div className={cls.container_icon}>

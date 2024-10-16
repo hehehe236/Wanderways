@@ -16,8 +16,11 @@ import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { RouteDelivery } from '@/shared/RouteDelivery/RouteDelivery.tsx';
 import { DateDelivery } from '@/shared/DateDelivery/DateDelivery.tsx';
+import { ParcelStatus } from '@/utils/ParcelStatus.ts';
+import { RideRequests } from '@/components/RideRequests/RideRequests.tsx';
 
 const Ride = () => {
+    const parcelStatusNew: ParcelStatus = 'New';
     const { id } = useParams();
     const { isLoading: isLoadingGeneralInfo } = useGetRideByIdQuery(id, { skip: !id });
     const { isLoading: isLoadingAdditionalInfo } = useGetRideAcceptedParcelsQuery(id, {
@@ -61,6 +64,11 @@ const Ride = () => {
                         />
                     </BasisBlock>
                 </li>
+                {ride.status === parcelStatusNew && ride.hasRequests && (
+                    <li data-testid='rideRequests'>
+                        <RideRequests />
+                    </li>
+                )}
                 {ride.acceptedParcelList?.length !== 0 && (
                     <li>
                         <Text size='headline1_bold' variant='left' color='primary'>

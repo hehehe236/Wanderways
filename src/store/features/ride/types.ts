@@ -1,4 +1,5 @@
 import { ParcelStatus } from '@/utils/ParcelStatus.ts';
+import { ParcelGeneralInfoType } from '@/store/features/parcel/types.ts';
 
 export type Address = {
     street: string;
@@ -18,6 +19,11 @@ export type Sender = {
     lastName: string;
     phoneNumber: string;
     emailAddress: string;
+};
+
+export type SenderRequestedType = {
+    fromSenders: ParcelGeneralInfoType[];
+    myRequests: ParcelGeneralInfoType[];
 };
 
 export type RideAcceptedParcels = {
@@ -45,6 +51,8 @@ export type RideGeneralInfoType = {
     arrivalAddress: Address;
     arrivalDate?: string;
     acceptedParcelList?: RideAcceptedParcels[];
+    hasRequests?: boolean;
+    senderRequested?: SenderRequestedType;
 };
 
 export type Ride = RideGeneralInfoType;
