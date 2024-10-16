@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type InitialStateOption = {
     isVisibleParcelList: boolean;
-    isVisibleOthersList: boolean;
+    isVisibleSendersList: boolean;
 };
 
 const initialState: InitialStateOption = {
     isVisibleParcelList: true,
-    isVisibleOthersList: true,
+    isVisibleSendersList: true,
 };
 
 const optionSlice = createSlice({
@@ -15,18 +15,18 @@ const optionSlice = createSlice({
     initialState,
     selectors: {
         selectVisibleParcelList: (state) => state.isVisibleParcelList,
-        selectVisibleOthersList: (state) => state.isVisibleOthersList,
+        selectVisibleSendersList: (state) => state.isVisibleSendersList,
     },
     reducers: {
         setVisibleParcelList: (state, action: PayloadAction<boolean>) => {
             state.isVisibleParcelList = action.payload;
         },
-        setVisibleOtherList: (state, action: PayloadAction<boolean>) => {
-            state.isVisibleOthersList = action.payload;
+        setVisibleSendersList: (state, action: PayloadAction<boolean>) => {
+            state.isVisibleSendersList = action.payload;
         },
     },
 });
 
 export const optionReducer = optionSlice.reducer;
-export const { setVisibleParcelList, setVisibleOtherList } = optionSlice.actions;
-export const { selectVisibleParcelList, selectVisibleOthersList } = optionSlice.selectors;
+export const { setVisibleParcelList, setVisibleSendersList } = optionSlice.actions;
+export const { selectVisibleParcelList, selectVisibleSendersList } = optionSlice.selectors;

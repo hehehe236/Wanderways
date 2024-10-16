@@ -32,15 +32,17 @@ export const AcceptedParcelList = () => {
                             <ParcelCard
                                 type={type}
                                 details={details}
+                                parcelId={parcelId}
                                 cost={cost}
                                 btnText='Confirm delivery'
                                 variant='accepted'
-                                departureAddress={departureAddress}
-                                arrivalAddress={arrivalAddress}
-                                departureDate={departureDate}
-                                arrivalDate={arrivalDate}
                             >
-                                <RideRecipientSender parcelId={parcelId} />
+                                <RideRecipientSender
+                                    departureAddress={departureAddress}
+                                    arrivalAddress={arrivalAddress}
+                                    departureDate={departureDate}
+                                    arrivalDate={arrivalDate}
+                                />
                             </ParcelCard>
                         </li>
                     );

@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { useSelector } from 'react-redux';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
-import { selectVisibleOthersList, setVisibleOtherList } from '@/store/features/optionSlice.ts';
+import { selectVisibleSendersList, setVisibleSendersList } from '@/store/features/optionSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
 const ParcelRequested = () => {
@@ -17,9 +17,9 @@ const ParcelRequested = () => {
     );
     if (!ride) return null;
 
-    const isVisibleOthersList = useSelector(selectVisibleOthersList);
+    const isVisibleSendersList = useSelector(selectVisibleSendersList);
     const dispatch = useAppDispatch();
-    const handleClick = (isParcelTab: boolean) => dispatch(setVisibleOtherList(isParcelTab));
+    const handleClick = (isParcelTab: boolean) => dispatch(setVisibleSendersList(isParcelTab));
 
     return (
         <main className={cls.container}>
@@ -49,7 +49,7 @@ const ParcelRequested = () => {
                         leftTitle='From Senders'
                         rightTitle='My Requests'
                         handleClick={handleClick}
-                        isActiveTab={isVisibleOthersList}
+                        isActiveTab={isVisibleSendersList}
                     />
                 </li>
                 <li>
