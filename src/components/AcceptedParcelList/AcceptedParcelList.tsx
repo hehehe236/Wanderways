@@ -26,6 +26,8 @@ export const AcceptedParcelList = () => {
                     arrivalAddress,
                     departureDate,
                     arrivalDate,
+                    // sender,
+                    // recipient,
                 }) => {
                     return (
                         <li key={parcelId}>

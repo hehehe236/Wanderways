@@ -9,7 +9,7 @@ import { RideRouteDetails } from '@/components/RideRouteDetails/RideRouteDetails
 import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconClose } from '@/shared/svg/IconClose.tsx';
-import { selectVisibleSendersList } from '@/store/features/optionSlice.ts';
+import { selectValueRideSwitcher } from '@/store/features/switchersSlice.ts';
 import { Address } from '@/store/features/ride/types.ts';
 
 export type ParcelCardProps = {
@@ -38,7 +38,7 @@ export const ParcelCard = (props: ParcelCardProps) => {
         departureDate,
         arrivalDate,
     } = props;
-    const isVisibleSendersList = useSelector(selectVisibleSendersList);
+    const isVisibleSendersList = useSelector(selectValueRideSwitcher);
     const variantParcel: ParcelCardProps['variant'] = 'requested';
 
     return (

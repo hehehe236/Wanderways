@@ -7,7 +7,11 @@ import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { ParcelDeliveryRequests } from '@/components/ParcelDeliveryRequests/ParcelDeliveryRequests.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
-import { selectVisibleSendersList, setVisibleSendersList } from '@/store/features/optionSlice.ts';
+import {
+    RideSwitcher,
+    selectValueRideSwitcher,
+    setValueRideSwitcher,
+} from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 
@@ -18,9 +22,9 @@ export const RideRequests = () => {
     );
     if (!ride) return null;
 
-    const isVisibleSendersList = useSelector(selectVisibleSendersList);
+    const rideSwitcher = useSelector(selectValueRideSwitcher);
     const dispatch = useAppDispatch();
-    const handleClick = (isParcelTab: boolean) => dispatch(setVisibleSendersList(isParcelTab));
+    const handleClick = (chooseTab: RideSwitcher) => dispatch(setValueRideSwitcher(chooseTab));
 
     return (
         <ul className={cls.list}>
@@ -44,7 +48,7 @@ export const RideRequests = () => {
                     leftTitle='From Senders'
                     rightTitle='My Requests'
                     handleClick={handleClick}
-                    isActiveTab={isVisibleSendersList}
+                    isActiveTab={rideSwitcher}
                 />
             </li>
             <li>

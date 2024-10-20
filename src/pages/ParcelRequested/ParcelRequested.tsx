@@ -7,7 +7,10 @@ import { useParams } from 'react-router-dom';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { useSelector } from 'react-redux';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
-import { selectVisibleSendersList, setVisibleSendersList } from '@/store/features/optionSlice.ts';
+import {
+    selectVisibleSendersList,
+    setVisibleSendersList,
+} from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
 const ParcelRequested = () => {

@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { parcelApi } from '../store/services/parcelService.ts';
 import { rideApi } from '@/store/services/rideService.ts';
-import { optionReducer } from './features/optionSlice.ts';
+import { switchersReducer } from './features/switchersSlice.ts';
 import { parcelReducer } from '@/store/features/parcel/parcelSlice.ts';
 import { rideReducer } from '@/store/features/ride/rideSlice.ts';
 import { profileReducer } from '@/store/features/profile/profileSlice.ts';
@@ -30,7 +30,7 @@ const rootReducer = combineReducers({
     [rideApi.reducerPath]: rideApi.reducer,
     [profileApi.reducerPath]: profileApi.reducer,
     [vehicleApi.reducerPath]: vehicleApi.reducer,
-    option: optionReducer,
+    switchers: switchersReducer,
     parcel: parcelReducer,
     ride: rideReducer,
     profile: persistReducer(profilePersistConfig, profileReducer),

@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import cls from './ParcelDeliveryRequests.module.css';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
-import { selectVisibleSendersList } from '@/store/features/optionSlice.ts';
+import { selectValueRideSwitcher } from '@/store/features/switchersSlice.ts';
 import { getDeliveryRequests } from '@/utils/db/getDeliveryRequests.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
 
@@ -18,7 +18,7 @@ export const ParcelDeliveryRequests = () => {
     );
     if (!ride) return null;
 
-    const isVisibleSendersList = useSelector(selectVisibleSendersList);
+    const isVisibleSendersList = useSelector(selectValueRideSwitcher);
     const data = getDeliveryRequests(ride, isVisibleSendersList, isRequested);
 
     if (!data) return null;
