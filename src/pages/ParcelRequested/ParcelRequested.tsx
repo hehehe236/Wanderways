@@ -8,8 +8,9 @@ import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { useSelector } from 'react-redux';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import {
-    selectVisibleSendersList,
-    setVisibleSendersList,
+    RideSwitcher,
+    selectValueRideSwitcher,
+    setValueRideSwitcher,
 } from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
@@ -20,9 +21,9 @@ const ParcelRequested = () => {
     );
     if (!ride) return null;
 
-    const isVisibleSendersList = useSelector(selectVisibleSendersList);
+    const rideSwitcher = useSelector(selectValueRideSwitcher);
     const dispatch = useAppDispatch();
-    const handleClick = (isParcelTab: boolean) => dispatch(setVisibleSendersList(isParcelTab));
+    const handleClick = (chooseTab: RideSwitcher) => dispatch(setValueRideSwitcher(chooseTab));
 
     return (
         <main className={cls.container}>
@@ -52,7 +53,7 @@ const ParcelRequested = () => {
                         leftTitle='From Senders'
                         rightTitle='My Requests'
                         handleClick={handleClick}
-                        isActiveTab={isVisibleSendersList}
+                        isActiveTab={rideSwitcher}
                     />
                 </li>
                 <li>
