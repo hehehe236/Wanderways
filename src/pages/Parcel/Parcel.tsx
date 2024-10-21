@@ -86,7 +86,11 @@ const Parcel = () => {
                 )}
                 <li id='recipient'>
                     <BasisBlock>
-                        <Recipient />
+                        <Recipient
+                            name={parcel?.recipient?.name}
+                            lastName={parcel?.recipient?.lastName}
+                            phoneNumber={parcel?.recipient?.phoneNumber}
+                        />
                     </BasisBlock>
                 </li>
             </ul>

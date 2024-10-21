@@ -7,7 +7,6 @@ export const IconHgryvnia = ({ addStyle }: { addStyle?: string }) => {
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
             className={addStyle}
-            data-testid='icon_hgryvnia'
         >
             <path
                 d='M7 14L17 14'

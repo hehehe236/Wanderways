@@ -5,7 +5,9 @@ import { useLocation } from 'react-router-dom';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
-import { RideRecipientSender } from '@/components/RideRecipientSender/RideRecipientSender.tsx';
+import { Recipient } from '@/components/Recipient/Recipient.tsx';
+import { Sender } from '@/components/Sender/Sender.tsx';
+import { RidesBlockBtn } from '@/components/RidesBlockBtn/RidesBlockBtn.tsx';
 
 export const AcceptedParcelList = () => {
     const { state: rideId } = useLocation();
@@ -26,8 +28,8 @@ export const AcceptedParcelList = () => {
                     arrivalAddress,
                     departureDate,
                     arrivalDate,
-                    // sender,
-                    // recipient,
+                    sender,
+                    recipient,
                 }) => {
                     return (
                         <li key={parcelId}>
@@ -35,15 +37,26 @@ export const AcceptedParcelList = () => {
                                 type={type}
                                 details={details}
                                 cost={cost}
-                                btnText='Confirm delivery'
-                                variant='accepted'
                                 departureAddress={departureAddress}
                                 arrivalAddress={arrivalAddress}
                                 departureDate={departureDate}
                                 arrivalDate={arrivalDate}
-                            >
-                                <RideRecipientSender parcelId={parcelId} />
-                            </ParcelCard>
+                                recipient={
+                                    <Recipient
+                                        name={recipient.name}
+                                        lastName={recipient.lastName}
+                                        phoneNumber={recipient.phoneNumber}
+                                    />
+                                }
+                                sender={
+                                    <Sender
+                                        name={sender.name}
+                                        lastName={sender.lastName}
+                                        phoneNumber={sender.phoneNumber}
+                                    />
+                                }
+                                actionNode={<RidesBlockBtn sender={sender} recipient={recipient} />}
+                            />
                         </li>
                     );
                 }

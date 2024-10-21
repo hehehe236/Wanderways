@@ -4,9 +4,9 @@ import { useLocation, useParams } from 'react-router-dom';
 import cls from './ParcelDeliveryRequests.module.css';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
-import { selectValueRideSwitcher } from '@/store/features/switchersSlice.ts';
-import { getDeliveryRequests } from '@/utils/db/getDeliveryRequests.ts';
+import { RideSwitcher, selectValueRideSwitcher } from '@/store/features/switchersSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
+import { RidesBlockBtn } from '@/components/RidesBlockBtn/RidesBlockBtn.tsx';
 
 export const ParcelDeliveryRequests = () => {
     const { id } = useParams();
@@ -18,10 +18,20 @@ export const ParcelDeliveryRequests = () => {
     );
     if (!ride) return null;
 
-    const isVisibleSendersList = useSelector(selectValueRideSwitcher);
-    const data = getDeliveryRequests(ride, isVisibleSendersList, isRequested);
+    const rideSwitcher = useSelector(selectValueRideSwitcher);
+    const data = getDeliveryRequests(ride, rideSwitcher, isRequested);
 
     if (!data) return null;
+
+    function getDeliveryRequests(ride: RideType, rideSwitcher: RideSwitcher, isRequested: boolean) {
+        const { fromSenders, myRequests } = ride?.senderRequested || {};
+
+        if (rideSwitcher === 'From Senders') {
+            return isRequested ? fromSenders : fromSenders?.slice(0, 1);
+        } else {
+            return isRequested ? myRequests : myRequests?.slice(0, 1);
+        }
+    }
 
     return (
         <ul className={cls.container} data-testid='deliveryRequests'>
@@ -41,12 +51,11 @@ export const ParcelDeliveryRequests = () => {
                             type={type}
                             details={details}
                             cost={cost}
-                            btnText='Approve'
-                            variant='requested'
                             departureAddress={shippingAddress}
                             arrivalAddress={deliveryAddress}
                             departureDate={shippingDate}
                             arrivalDate={deliveryDate}
+                            actionNode={<RidesBlockBtn />}
                         />
                     </li>
                 )

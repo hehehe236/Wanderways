@@ -1,4 +1,4 @@
-import cls from './RecipientInfo.module.css';
+import cls from './ContactInfo.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { IconPhone } from '@/shared/svg/IconPhone.tsx';
 
@@ -7,7 +7,7 @@ export type RecipientInfoProps = {
     phone: string;
 };
 
-export const RecipientInfo = (props: RecipientInfoProps) => {
+export const ContactInfo = (props: RecipientInfoProps) => {
     const { name, phone } = props;
 
     return (

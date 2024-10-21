@@ -38,12 +38,11 @@
     height: 16px;
 }
 
-.block_btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
 
-.icon_close {
-    stroke: var(--white);
+
+
+
+.line {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--stroke);
 }

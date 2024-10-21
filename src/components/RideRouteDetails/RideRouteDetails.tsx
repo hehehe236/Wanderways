@@ -15,7 +15,7 @@ export const RideRouteDetails = (props: RideRouteDetailsProps) => {
 
     return (
         <>
-            <div className={cls.container}>
+            <div className={cls.container} data-testid='rideRouteDetails'>
                 <ul className={cls.list}>
                     <li>
                         <RouteDelivery

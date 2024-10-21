@@ -7,6 +7,7 @@ export const IconParcelFilled = ({ addStyle }: { addStyle?: string }) => {
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
             className={addStyle}
+            data-testid='icon_parcel'
         >
             <path
                 fillRule='evenodd'
