@@ -22,9 +22,6 @@ const checkParcelCardCommonElements = async (parcelCard: Locator) => {
 
     const price = parcelCard.getByTestId('price');
     await expect(price).toBeVisible();
-
-    const rideBlockBtn = parcelCard.getByTestId('rideBlockBtn');
-    await expect(rideBlockBtn).toBeVisible();
 };
 
 test.describe('Parcel Card', () => {
@@ -47,8 +44,8 @@ test.describe('Parcel Card', () => {
         await expect(parcelCard).toBeVisible();
         await checkParcelCardCommonElements(parcelCard);
 
-        const rideBlockBtn = parcelCard.getByTestId('rideBlockBtn');
-        await expect(rideBlockBtn).toHaveText('Approve');
+        const btnApprove = parcelCard.getByRole('button', { name: 'Approve' });
+        await expect(btnApprove).toBeVisible();
 
         const icon_close = parcelCard.getByTestId('icon_close');
         await expect(icon_close).toBeVisible();
@@ -66,8 +63,8 @@ test.describe('Parcel Card', () => {
         const sender = parcelCard.getByTestId('sender');
         await expect(sender).toBeVisible();
 
-        const rideBlockBtn = parcelCard.getByTestId('rideBlockBtn');
-        await expect(rideBlockBtn).toHaveText('Confirm delivery');
+        const btnConfirmDelivery = parcelCard.getByRole('button', { name: 'Confirm delivery' });
+        await expect(btnConfirmDelivery).toBeVisible();
     });
 
     test('WhenRidePageLoaded_AndClickSwitcher_BtnApproveChangeIsVisible', async ({ page }) => {

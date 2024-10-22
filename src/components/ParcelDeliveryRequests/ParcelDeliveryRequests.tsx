@@ -6,7 +6,9 @@ import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { RideSwitcher, selectValueRideSwitcher } from '@/store/features/switchersSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
-import { RidesBlockBtn } from '@/components/RidesBlockBtn/RidesBlockBtn.tsx';
+import { Button } from '@/shared/Button/Button.tsx';
+import { IconClose } from '@/shared/svg/IconClose.tsx';
+import { Text } from '@/shared/Text/Text.tsx';
 
 export const ParcelDeliveryRequests = () => {
     const { id } = useParams();
@@ -55,7 +57,24 @@ export const ParcelDeliveryRequests = () => {
                             arrivalAddress={deliveryAddress}
                             departureDate={shippingDate}
                             arrivalDate={deliveryDate}
-                            actionNode={<RidesBlockBtn />}
+                            actionNode={
+                                <div className={cls.block_btn} data-testid='rideBlockBtn'>
+                                    <Button background='red' variant='cancel'>
+                                        <IconClose addStyle={cls.icon_close} />
+                                    </Button>
+                                    {rideSwitcher === 'From Senders' && (
+                                        <Button
+                                            background='primary'
+                                            size='confirm'
+                                            variant='confirm'
+                                        >
+                                            <Text size='body2_font_bold' color='white'>
+                                                Approve
+                                            </Text>
+                                        </Button>
+                                    )}
+                                </div>
+                            }
                         />
                     </li>
                 )

@@ -6,11 +6,11 @@ export type SwitcherType<T> = {
     leftTitle: string;
     rightTitle: string;
     handleClick: (value: T) => void;
-    isActiveTab: T;
+    switcherType: T;
 };
 
 export const Switcher = <T extends string>(props: SwitcherType<T>) => {
-    const { leftTitle, rightTitle, handleClick, isActiveTab } = props;
+    const { leftTitle, rightTitle, handleClick, switcherType } = props;
 
     const handleLeftTabClick = () => handleClick(leftTitle as T);
     const handleRightTabClick = () => handleClick(rightTitle as T);
@@ -20,7 +20,7 @@ export const Switcher = <T extends string>(props: SwitcherType<T>) => {
             <Button
                 variant='tab'
                 size='tab'
-                background={isActiveTab === leftTitle ? 'white' : 'secondary'}
+                background={switcherType === leftTitle ? 'white' : 'secondary'}
                 onClick={handleLeftTabClick}
             >
                 <Text size='body2_font_bold' color='primary'>
@@ -30,7 +30,7 @@ export const Switcher = <T extends string>(props: SwitcherType<T>) => {
             <Button
                 variant='tab'
                 size='tab'
-                background={isActiveTab === leftTitle ? 'secondary' : 'white'}
+                background={switcherType === leftTitle ? 'secondary' : 'white'}
                 onClick={handleRightTabClick}
             >
                 <Text size='body2_font_bold' color='primary'>

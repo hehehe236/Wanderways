@@ -1,9 +1,0 @@
-.block_btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.icon_close {
-    stroke: var(--white);
-}

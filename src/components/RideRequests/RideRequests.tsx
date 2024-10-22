@@ -48,7 +48,7 @@ export const RideRequests = () => {
                     leftTitle='From Senders'
                     rightTitle='My Requests'
                     handleClick={handleClick}
-                    isActiveTab={rideSwitcher}
+                    switcherType={rideSwitcher}
                 />
             </li>
             <li>

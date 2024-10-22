@@ -1,5 +1,5 @@
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
-import cls from './ParcelRequested.module.css';
+import cls from './RideParcelRequests.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 import { ParcelDeliveryRequests } from '@/components/ParcelDeliveryRequests/ParcelDeliveryRequests.tsx';
@@ -14,7 +14,7 @@ import {
 } from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
-const ParcelRequested = () => {
+const RideParcelRequests = () => {
     const { id } = useParams();
     const ride: RideType | undefined = useSelector((state: { ride: RideType[] }) =>
         selectRideById(state, Number(id))
@@ -53,7 +53,7 @@ const ParcelRequested = () => {
                         leftTitle='From Senders'
                         rightTitle='My Requests'
                         handleClick={handleClick}
-                        isActiveTab={rideSwitcher}
+                        switcherType={rideSwitcher}
                     />
                 </li>
                 <li>
@@ -64,4 +64,4 @@ const ParcelRequested = () => {
     );
 };
 
-export default ParcelRequested;
+export default RideParcelRequests;

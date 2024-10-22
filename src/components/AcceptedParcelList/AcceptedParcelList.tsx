@@ -7,7 +7,8 @@ import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
 import { Recipient } from '@/components/Recipient/Recipient.tsx';
 import { Sender } from '@/components/Sender/Sender.tsx';
-import { RidesBlockBtn } from '@/components/RidesBlockBtn/RidesBlockBtn.tsx';
+import { Button } from '@/shared/Button/Button.tsx';
+import { Text } from '@/shared/Text/Text.tsx';
 
 export const AcceptedParcelList = () => {
     const { state: rideId } = useLocation();
@@ -42,20 +43,30 @@ export const AcceptedParcelList = () => {
                                 departureDate={departureDate}
                                 arrivalDate={arrivalDate}
                                 recipient={
-                                    <Recipient
-                                        name={recipient.name}
-                                        lastName={recipient.lastName}
-                                        phoneNumber={recipient.phoneNumber}
-                                    />
+                                    recipient === null ? null : (
+                                        <Recipient
+                                            name={recipient.name}
+                                            lastName={recipient.lastName}
+                                            phoneNumber={recipient.phoneNumber}
+                                        />
+                                    )
                                 }
                                 sender={
-                                    <Sender
-                                        name={sender.name}
-                                        lastName={sender.lastName}
-                                        phoneNumber={sender.phoneNumber}
-                                    />
+                                    sender === null ? null : (
+                                        <Sender
+                                            name={sender.name}
+                                            lastName={sender.lastName}
+                                            phoneNumber={sender.phoneNumber}
+                                        />
+                                    )
                                 }
-                                actionNode={<RidesBlockBtn sender={sender} recipient={recipient} />}
+                                actionNode={
+                                    <Button background='primary' size='confirm' variant='confirm'>
+                                        <Text size='body2_font_bold' color='white'>
+                                            Confirm delivery
+                                        </Text>
+                                    </Button>
+                                }
                             />
                         </li>
                     );

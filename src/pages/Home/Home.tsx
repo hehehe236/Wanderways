@@ -24,7 +24,7 @@ const Home = () => {
                 leftTitle='Parcels'
                 rightTitle='Rides'
                 handleClick={handleClick}
-                isActiveTab={homeSwitcher}
+                switcherType={homeSwitcher}
             />
             {homeSwitcher === 'Parcels' ? <ParcelList /> : <RideList />}
         </main>

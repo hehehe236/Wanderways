@@ -2,12 +2,12 @@ import cls from './ContactInfo.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { IconPhone } from '@/shared/svg/IconPhone.tsx';
 
-export type RecipientInfoProps = {
+export type ContactInfoProps = {
     name: string;
     phone: string;
 };
 
-export const ContactInfo = (props: RecipientInfoProps) => {
+export const ContactInfo = (props: ContactInfoProps) => {
     const { name, phone } = props;
 
     return (

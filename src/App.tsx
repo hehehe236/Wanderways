@@ -21,7 +21,9 @@ const ProfileGeneral = lazy(async () => await import('./pages/ProfileGeneral/Pro
 const ProfileEmail = lazy(async () => await import('./pages/ProfileEmail/ProfileEmail'));
 const MyVehicles = lazy(async () => await import('./pages/MyVehicles/MyVehicles'));
 const ProfileVehicle = lazy(async () => await import('./pages/ProfileVehicle/ProfileVehicle'));
-const ParcelRequested = lazy(async () => await import('./pages/ParcelRequested/ParcelRequested'));
+const RideParcelRequests = lazy(
+    async () => await import('./pages/RideParcelRequests/RideParcelRequests')
+);
 
 export const App = () => {
     return (
@@ -36,7 +38,7 @@ export const App = () => {
                     <Route path='ride/vehicle' element={<ArrowBack />} />
                     <Route path='available-parcels' element={<AvailableParcels />} />
                     <Route path='available-drivers' element={<AvailableDrivers />} />
-                    <Route path='ride/:id/requested' element={<ParcelRequested />} />
+                    <Route path='ride/:id/requested' element={<RideParcelRequests />} />
                 </Route>
                 <Route path='profile' element={<LayoutWithoutAvatar />}>
                     <Route index element={<Profile />} />
