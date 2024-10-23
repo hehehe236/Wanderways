@@ -5,8 +5,6 @@ import { useLocation } from 'react-router-dom';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
-import { Recipient } from '@/components/Recipient/Recipient.tsx';
-import { Sender } from '@/components/Sender/Sender.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 
@@ -42,24 +40,8 @@ export const AcceptedParcelList = () => {
                                 arrivalAddress={arrivalAddress}
                                 departureDate={departureDate}
                                 arrivalDate={arrivalDate}
-                                recipient={
-                                    recipient === null ? null : (
-                                        <Recipient
-                                            name={recipient.name}
-                                            lastName={recipient.lastName}
-                                            phoneNumber={recipient.phoneNumber}
-                                        />
-                                    )
-                                }
-                                sender={
-                                    sender === null ? null : (
-                                        <Sender
-                                            name={sender.name}
-                                            lastName={sender.lastName}
-                                            phoneNumber={sender.phoneNumber}
-                                        />
-                                    )
-                                }
+                                recipient={recipient}
+                                sender={sender}
                                 actionNode={
                                     <Button background='primary' size='confirm' variant='confirm'>
                                         <Text size='body2_font_bold' color='white'>

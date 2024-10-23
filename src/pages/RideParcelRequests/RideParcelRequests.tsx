@@ -9,8 +9,8 @@ import { useSelector } from 'react-redux';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import {
     RideSwitcher,
-    selectValueRideSwitcher,
-    setValueRideSwitcher,
+    selectRideSwitcherValue,
+    setRideSwitcherValue,
 } from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
@@ -21,9 +21,9 @@ const RideParcelRequests = () => {
     );
     if (!ride) return null;
 
-    const rideSwitcher = useSelector(selectValueRideSwitcher);
+    const rideSwitcher = useSelector(selectRideSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (chooseTab: RideSwitcher) => dispatch(setValueRideSwitcher(chooseTab));
+    const handleClick = (rideSwitcherValue: RideSwitcher) => dispatch(setRideSwitcherValue(rideSwitcherValue));
 
     return (
         <main className={cls.container}>

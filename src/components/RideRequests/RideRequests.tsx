@@ -9,8 +9,8 @@ import { ParcelDeliveryRequests } from '@/components/ParcelDeliveryRequests/Parc
 import { Button } from '@/shared/Button/Button.tsx';
 import {
     RideSwitcher,
-    selectValueRideSwitcher,
-    setValueRideSwitcher,
+    selectRideSwitcherValue,
+    setRideSwitcherValue,
 } from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
@@ -22,9 +22,9 @@ export const RideRequests = () => {
     );
     if (!ride) return null;
 
-    const rideSwitcher = useSelector(selectValueRideSwitcher);
+    const rideSwitcher = useSelector(selectRideSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (chooseTab: RideSwitcher) => dispatch(setValueRideSwitcher(chooseTab));
+    const handleClick = (rideSwitcherValue: RideSwitcher) => dispatch(setRideSwitcherValue(rideSwitcherValue));
 
     return (
         <ul className={cls.list}>

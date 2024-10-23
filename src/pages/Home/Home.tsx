@@ -6,16 +6,16 @@ import { ParcelList } from '@/components/ParcelList/ParcelList.tsx';
 import { RideList } from '@/components/RideList/RideList.tsx';
 import {
     HomeSwitcher,
-    selectValueHomeSwitcher,
-    setValueHomeSwitcher,
+    selectHomeSwitcherValue,
+    setHomeSwitcherValue,
 } from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 
 const Home = () => {
-    const homeSwitcher = useSelector(selectValueHomeSwitcher);
+    const homeSwitcher = useSelector(selectHomeSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (chooseTab: HomeSwitcher) => dispatch(setValueHomeSwitcher(chooseTab));
+    const handleClick = (homeSwitcherValue: HomeSwitcher) => dispatch(setHomeSwitcherValue(homeSwitcherValue));
 
     return (
         <main className={cls.container}>

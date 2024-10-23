@@ -17,19 +17,19 @@ const switchersSlice = createSlice({
     name: 'switchers',
     initialState,
     selectors: {
-        selectValueHomeSwitcher: (state) => state.homeSwitcher,
-        selectValueRideSwitcher: (state) => state.rideSwitcher,
+        selectHomeSwitcherValue: (state) => state.homeSwitcher,
+        selectRideSwitcherValue: (state) => state.rideSwitcher,
     },
     reducers: {
-        setValueHomeSwitcher: (state, action: PayloadAction<HomeSwitcher>) => {
+        setHomeSwitcherValue: (state, action: PayloadAction<HomeSwitcher>) => {
             state.homeSwitcher = action.payload;
         },
-        setValueRideSwitcher: (state, action: PayloadAction<RideSwitcher>) => {
+        setRideSwitcherValue: (state, action: PayloadAction<RideSwitcher>) => {
             state.rideSwitcher = action.payload;
         },
     },
 });
 
 export const switchersReducer = switchersSlice.reducer;
-export const { setValueHomeSwitcher, setValueRideSwitcher } = switchersSlice.actions;
-export const { selectValueHomeSwitcher, selectValueRideSwitcher } = switchersSlice.selectors;
+export const { setHomeSwitcherValue, setRideSwitcherValue } = switchersSlice.actions;
+export const { selectHomeSwitcherValue, selectRideSwitcherValue } = switchersSlice.selectors;

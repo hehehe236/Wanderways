@@ -6,7 +6,9 @@ import { IconParcelFilled } from '@/shared/svg/IconParcelFilled.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { RideRouteDetails } from '@/components/RideRouteDetails/RideRouteDetails.tsx';
 import { IconHgryvnia } from '@/shared/svg/IconHgryvnia.tsx';
-import { Address } from '@/store/features/ride/types.ts';
+import { Address, Recipient as RecipientType, Sender as SenderType } from '@/store/features/ride/types.ts';
+import { Recipient } from '@/components/Recipient/Recipient';
+import { Sender } from '@/components/Sender/Sender';
 
 export type ParcelCardProps = {
     type: string;
@@ -16,8 +18,8 @@ export type ParcelCardProps = {
     arrivalAddress: Address;
     departureDate?: string;
     arrivalDate?: string;
-    recipient?: ReactNode;
-    sender?: ReactNode;
+    recipient?: RecipientType;
+    sender?: SenderType;
     actionNode: ReactNode;
 };
 
@@ -57,8 +59,22 @@ export const ParcelCard = (props: ParcelCardProps) => {
                         arrivalDate={arrivalDate}
                     />
                 </li>
-                {recipient && <li className={cls.line}>{recipient}</li>}
-                {sender && <li className={cls.line}>{sender}</li>}
+                {recipient && 
+                    <li className={cls.line}>
+                        <Recipient
+                            name={recipient.name}
+                            lastName={recipient.lastName}
+                            phoneNumber={recipient.phoneNumber} />
+                    </li>
+                }
+                {sender && 
+                    <li className={cls.line}>
+                        <Sender
+                            name={sender.name}
+                            lastName={sender.lastName}
+                            phoneNumber={sender.phoneNumber} />
+                    </li>
+                }
                 <li className={cls.submit_delivery}>
                     <div className={cls.container_price}>
                         <div className={cls.price}>

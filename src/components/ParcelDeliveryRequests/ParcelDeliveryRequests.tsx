@@ -4,7 +4,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import cls from './ParcelDeliveryRequests.module.css';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
-import { RideSwitcher, selectValueRideSwitcher } from '@/store/features/switchersSlice.ts';
+import { RideSwitcher, selectRideSwitcherValue } from '@/store/features/switchersSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconClose } from '@/shared/svg/IconClose.tsx';
@@ -20,7 +20,7 @@ export const ParcelDeliveryRequests = () => {
     );
     if (!ride) return null;
 
-    const rideSwitcher = useSelector(selectValueRideSwitcher);
+    const rideSwitcher = useSelector(selectRideSwitcherValue);
     const data = getDeliveryRequests(ride, rideSwitcher, isRequested);
 
     if (!data) return null;
