@@ -1,5 +1,5 @@
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
-import cls from './ParcelRequested.module.css';
+import cls from './RideParcelRequests.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 import { ParcelDeliveryRequests } from '@/components/ParcelDeliveryRequests/ParcelDeliveryRequests.tsx';
@@ -7,19 +7,23 @@ import { useParams } from 'react-router-dom';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
 import { useSelector } from 'react-redux';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
-import { selectVisibleOthersList, setVisibleOtherList } from '@/store/features/optionSlice.ts';
+import {
+    RideSwitcher,
+    selectRideSwitcherValue,
+    setRideSwitcherValue,
+} from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
-const ParcelRequested = () => {
+const RideParcelRequests = () => {
     const { id } = useParams();
     const ride: RideType | undefined = useSelector((state: { ride: RideType[] }) =>
         selectRideById(state, Number(id))
     );
     if (!ride) return null;
 
-    const isVisibleOthersList = useSelector(selectVisibleOthersList);
+    const rideSwitcher = useSelector(selectRideSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (isParcelTab: boolean) => dispatch(setVisibleOtherList(isParcelTab));
+    const handleClick = (rideSwitcherValue: RideSwitcher) => dispatch(setRideSwitcherValue(rideSwitcherValue));
 
     return (
         <main className={cls.container}>
@@ -49,7 +53,7 @@ const ParcelRequested = () => {
                         leftTitle='From Senders'
                         rightTitle='My Requests'
                         handleClick={handleClick}
-                        isActiveTab={isVisibleOthersList}
+                        switcherType={rideSwitcher}
                     />
                 </li>
                 <li>
@@ -60,4 +64,4 @@ const ParcelRequested = () => {
     );
 };
 
-export default ParcelRequested;
+export default RideParcelRequests;

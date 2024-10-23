@@ -27,7 +27,7 @@ test.describe('Parcel page', () => {
         await expect(recipientComponent).toBeVisible();
     });
 
-    test('WhenStatusNew_And_ClickBtnFindDriver_RedirectToAvailableDrivers', async ({ page }) => {
+    test('WhenStatusNew_AndClickBtnFindDriver_RedirectToAvailableDrivers', async ({ page }) => {
         const button = page
             .locator('li > a > button')
             .filter({
@@ -45,7 +45,7 @@ test.describe('Parcel page', () => {
         expect(page.url()).toBe(`${BASE_URL_FRONT}available-drivers`);
     });
 
-    test('WhenStatusNew_And_HasRequests_ListRequestsIsVisible', async ({ page }) => {
+    test('WhenStatusNew_AndHasRequests_ListRequestsIsVisible', async ({ page }) => {
         const button = page.locator('li > a > button').filter({
             has: page.locator('div > p'),
             hasText: 'Requests',

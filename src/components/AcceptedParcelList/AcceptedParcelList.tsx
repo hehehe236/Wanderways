@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 
 import cls from './AcceptedParcelList.module.css';
-import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
-import { AcceptedParcel } from '@/components/AcceptedParcel/AcceptedParcel.tsx';
 import { useLocation } from 'react-router-dom';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
+import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
+import { Button } from '@/shared/Button/Button.tsx';
+import { Text } from '@/shared/Text/Text.tsx';
 
 export const AcceptedParcelList = () => {
     const { state: rideId } = useLocation();
@@ -16,15 +17,43 @@ export const AcceptedParcelList = () => {
 
     return (
         <ul className={cls.container} id='accepted-parcels'>
-            {ride.acceptedParcelList?.map(({ parcelId }) => {
-                return (
-                    <li key={parcelId}>
-                        <BasisBlock>
-                            <AcceptedParcel parcelId={parcelId} />
-                        </BasisBlock>
-                    </li>
-                );
-            })}
+            {ride.acceptedParcelList?.map(
+                ({
+                    parcelId,
+                    type,
+                    details,
+                    cost,
+                    departureAddress,
+                    arrivalAddress,
+                    departureDate,
+                    arrivalDate,
+                    sender,
+                    recipient,
+                }) => {
+                    return (
+                        <li key={parcelId}>
+                            <ParcelCard
+                                type={type}
+                                details={details}
+                                cost={cost}
+                                departureAddress={departureAddress}
+                                arrivalAddress={arrivalAddress}
+                                departureDate={departureDate}
+                                arrivalDate={arrivalDate}
+                                recipient={recipient}
+                                sender={sender}
+                                actionNode={
+                                    <Button background='primary' size='confirm' variant='confirm'>
+                                        <Text size='body2_font_bold' color='white'>
+                                            Confirm delivery
+                                        </Text>
+                                    </Button>
+                                }
+                            />
+                        </li>
+                    );
+                }
+            )}
         </ul>
     );
 };

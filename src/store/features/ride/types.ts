@@ -8,17 +8,17 @@ export type Address = {
 };
 
 export type Recipient = {
-    name: string;
-    lastName: string;
-    phoneNumber: string;
-    emailAddress: string;
+    name?: string;
+    lastName?: string;
+    phoneNumber?: string;
+    emailAddress?: string;
 };
 
 export type Sender = {
-    name: string;
-    lastName: string;
-    phoneNumber: string;
-    emailAddress: string;
+    name?: string;
+    lastName?: string;
+    phoneNumber?: string;
+    emailAddress?: string;
 };
 
 export type SenderRequestedType = {

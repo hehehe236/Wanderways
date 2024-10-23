@@ -4,14 +4,18 @@ import cls from './Home.module.css';
 import { ParcelHandler } from '@/components/ParcelHandler/ParcelHandler.tsx';
 import { ParcelList } from '@/components/ParcelList/ParcelList.tsx';
 import { RideList } from '@/components/RideList/RideList.tsx';
-import { selectVisibleParcelList, setVisibleParcelList } from '@/store/features/optionSlice.ts';
+import {
+    HomeSwitcher,
+    selectHomeSwitcherValue,
+    setHomeSwitcherValue,
+} from '@/store/features/switchersSlice.ts';
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 
 const Home = () => {
-    const isVisibleParcelList = useSelector(selectVisibleParcelList);
+    const homeSwitcher = useSelector(selectHomeSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (isParcelTab: boolean) => dispatch(setVisibleParcelList(isParcelTab));
+    const handleClick = (homeSwitcherValue: HomeSwitcher) => dispatch(setHomeSwitcherValue(homeSwitcherValue));
 
     return (
         <main className={cls.container}>
@@ -20,9 +24,9 @@ const Home = () => {
                 leftTitle='Parcels'
                 rightTitle='Rides'
                 handleClick={handleClick}
-                isActiveTab={isVisibleParcelList}
+                switcherType={homeSwitcher}
             />
-            {isVisibleParcelList ? <ParcelList /> : <RideList />}
+            {homeSwitcher === 'Parcels' ? <ParcelList /> : <RideList />}
         </main>
     );
 };

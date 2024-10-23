@@ -4,14 +4,14 @@
     gap: 16px;
 }
 
-.icon_parcel {
-    fill: var(--primary);
-}
-
 .container_type {
     display: flex;
     gap: 8px;
     align-items: center;
+}
+
+.icon_parcel {
+    fill: var(--primary);
 }
 
 .submit_delivery {
@@ -36,4 +36,13 @@
     stroke-width: 2px;
     width: 16px;
     height: 16px;
+}
+
+
+
+
+
+.line {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--stroke);
 }

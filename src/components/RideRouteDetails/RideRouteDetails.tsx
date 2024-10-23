@@ -1,42 +1,35 @@
-import { useSelector } from 'react-redux';
-
 import cls from './RideRouteDetails.module.css';
 import { DateDelivery } from '@/shared/DateDelivery/DateDelivery.tsx';
 import { RouteDelivery } from '@/shared/RouteDelivery/RouteDelivery.tsx';
-import { useLocation } from 'react-router-dom';
-import { selectRideAcceptedParcels } from '@/store/features/ride/rideSlice.ts';
-import { Ride, RideAcceptedParcels } from '@/store/features/ride/types.ts';
+import { Address } from '@/store/features/ride/types.ts';
 
-export const RideRouteDetails = ({ parcelId }: { parcelId: number }) => {
-    const { state: rideId } = useLocation();
-    const acceptedParcel: RideAcceptedParcels | undefined = useSelector((state: { ride: Ride[] }) =>
-        selectRideAcceptedParcels(state, rideId, parcelId)
-    );
-    if (!acceptedParcel) return null;
+export type RideRouteDetailsProps = {
+    departureAddress: Address;
+    arrivalAddress: Address;
+    departureDate?: string;
+    arrivalDate?: string;
+};
+
+export const RideRouteDetails = (props: RideRouteDetailsProps) => {
+    const { departureAddress, arrivalAddress, departureDate, arrivalDate } = props;
 
     return (
         <>
-            <div className={cls.container}>
+            <div className={cls.container} data-testid='rideRouteDetails'>
                 <ul className={cls.list}>
                     <li>
                         <RouteDelivery
-                            city={acceptedParcel.departureAddress.city}
-                            street={acceptedParcel.departureAddress.street}
+                            city={departureAddress.city}
+                            street={departureAddress.street}
                         />
                     </li>
                     <li className={cls.line} />
                     <li>
-                        <RouteDelivery
-                            city={acceptedParcel.arrivalAddress.city}
-                            street={acceptedParcel.arrivalAddress.street}
-                        />
+                        <RouteDelivery city={arrivalAddress.city} street={arrivalAddress.street} />
                     </li>
                 </ul>
             </div>
-            <DateDelivery
-                shippingDate={acceptedParcel.departureDate}
-                deliveryDate={acceptedParcel.arrivalDate}
-            />
+            <DateDelivery shippingDate={departureDate} deliveryDate={arrivalDate} />
         </>
     );
 };
