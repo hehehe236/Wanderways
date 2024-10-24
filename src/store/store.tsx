@@ -19,6 +19,7 @@ import { profileReducer } from '@/store/features/profile/profileSlice.ts';
 import { profileApi } from '@/store/services/profileService.ts';
 import { vehicleReducer } from '@/store/features/vehicles/vehicleSlice.ts';
 import { vehicleApi } from '@/store/services/vehicleService.ts';
+import { authReducer } from '@/store/features/auth/authSlice.ts';
 
 const profilePersistConfig = {
     key: 'profile',
@@ -35,6 +36,7 @@ const rootReducer = combineReducers({
     ride: rideReducer,
     profile: persistReducer(profilePersistConfig, profileReducer),
     vehicle: vehicleReducer,
+    auth: authReducer,
 });
 
 export const store = configureStore({

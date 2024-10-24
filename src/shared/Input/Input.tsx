@@ -5,11 +5,11 @@ import { FormInputType } from '@/components/ParcelCreateForm/ParcelCreateForm.ts
 import { ReactElement, useRef } from 'react';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
-import { ProfileEmailFormType } from '@/components/ProfileEmailForm/ProfileEmailForm.tsx';
 import { useLocation } from 'react-router-dom';
+import { UserCredentialsFormType } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
 
 export type InputType = {
-    name: keyof ParcelFormInputType | keyof ProfileEmailFormType;
+    name: keyof ParcelFormInputType | keyof UserCredentialsFormType;
     type: string;
     label: string;
     icon?: ReactElement;

@@ -1,0 +1,35 @@
+import { Link } from 'react-router-dom';
+
+import cls from './Login.module.css';
+import { Text } from '@/shared/Text/Text.tsx';
+import Logo from '/images/Logo.svg';
+import { useLoginMutation } from '@/store/services/authService.ts';
+import { UserCredentialsForm } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
+
+const Login = () => {
+    const [login, { isLoading }] = useLoginMutation();
+    return (
+        <main className={cls.container}>
+            <img src={Logo} alt='logo' width={80} height={80} className={cls.logo} />
+            <Text size='headline1_bold' color='primary' variant='center' className={cls.title}>
+                Log in to your account
+            </Text>
+            <UserCredentialsForm
+                handleUserAction={login}
+                isLoading={isLoading}
+                messageSuccess='Login is successful'
+                messageError='Login error'
+                btnText='Sign in'
+                additionNode={
+                    <Link to='#'>
+                        <Text size='body2_font_bold' color='blue' variant='right'>
+                            Restore password
+                        </Text>
+                    </Link>
+                }
+            />
+        </main>
+    );
+};
+
+export default Login;

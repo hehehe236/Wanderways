@@ -8,10 +8,10 @@ import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInp
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconEyeOpen } from '@/shared/svg/IconEyeOpen.tsx';
 import { IconEyeClose } from '@/shared/svg/IconEyeClose.tsx';
-import { ProfileEmailFormType } from '@/components/ProfileEmailForm/ProfileEmailForm.tsx';
+import { UserCredentialsFormType } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
 
 export type InputType = {
-    name: keyof ParcelFormInputType | keyof ProfileEmailFormType;
+    name: keyof ParcelFormInputType | keyof UserCredentialsFormType;
     label: string;
     icon?: ReactElement;
     placeholder: string;
