@@ -15,7 +15,8 @@ import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 const Home = () => {
     const homeSwitcher = useSelector(selectHomeSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (homeSwitcherValue: HomeSwitcher) => dispatch(setHomeSwitcherValue(homeSwitcherValue));
+    const handleClick = (homeSwitcherValue: HomeSwitcher) =>
+        dispatch(setHomeSwitcherValue(homeSwitcherValue));
 
     return (
         <main className={cls.container}>

@@ -8,9 +8,21 @@
 }
 
 .logo {
-    margin: 32px auto 40px auto;
+    margin: 32px auto 40px;
 }
 
 .title {
     margin-bottom: 32px;
+}
+
+.restorePassword {
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.block_text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 32px auto;
 }

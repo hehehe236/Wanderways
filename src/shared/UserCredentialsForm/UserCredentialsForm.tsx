@@ -67,7 +67,7 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
     if (isLoading) return <Loader />;
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} data-testid='profileEmailForm'>
+            <form onSubmit={handleSubmit(onSubmit)} data-testid='userCredentialsForm'>
                 <ul className={cls.container_list}>
                     <li>
                         <Input
