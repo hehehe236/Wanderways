@@ -3,11 +3,11 @@ import { BASE_URL_FRONT } from '@/utils/const.ts';
 
 test.describe('Login page', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/login', { waitUntil: 'commit' });
+        await page.goto('/signin', { waitUntil: 'commit' });
     });
 
     test('WhenLoginPageLoaded_URLIsCorrect_AndComponentsAreVisible', async ({ page }) => {
-        expect(page.url()).toBe(`${BASE_URL_FRONT}login`);
+        expect(page.url()).toBe(`${BASE_URL_FRONT}signin`);
 
         const logo = page.getByTestId('logo');
         await expect(logo).toBeVisible();
