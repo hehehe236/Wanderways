@@ -48,7 +48,7 @@ export const App = () => {
                     <Route path='vehicles' element={<MyVehicles />} />
                     <Route path='new-vehicle' element={<ProfileVehicle />} />
                 </Route>
-                <Route path='/login' element={<LayoutWithoutAvatar />}>
+                <Route path='/signin' element={<LayoutWithoutAvatar />}>
                     <Route index element={<Login />} />
                 </Route>
             </Routes>

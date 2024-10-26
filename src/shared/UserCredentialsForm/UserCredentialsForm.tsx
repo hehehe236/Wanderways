@@ -1,8 +1,10 @@
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import cls from './UserCredentialsForm.module.css';
 import { Input } from '@/shared/Input/Input.tsx';
@@ -11,11 +13,10 @@ import { InputPassword } from '@/shared/InputPassword/InputPassword.tsx';
 import { IconLockClose } from '@/shared/svg/IconLockClose.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
-import { selectProfileEmail } from '@/store/features/profile/profileSlice.ts';
+import { clearProfile, selectProfileEmail } from '@/store/features/profile/profileSlice.ts';
 import { ValidateSchemaUserCredentialsForm } from '@/shared/UserCredentialsForm/ValidateSchemaUserCredentialsForm.ts';
 import notification from '@/utils/NotificationManager.ts';
 import { Loader } from '@/shared/Loader/Loader.tsx';
-import { ReactNode } from 'react';
 
 export type UserCredentialsFormProps = {
     handleUserAction: (
@@ -40,6 +41,9 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
     const { handleUserAction, isLoading, messageSuccess, messageError, additionNode, btnText } =
         props;
     const email = useSelector(selectProfileEmail);
+    const dispatch = useDispatch();
+    const { pathname } = useLocation();
+    if (pathname === '/signin') dispatch(clearProfile());
     const {
         register,
         handleSubmit,

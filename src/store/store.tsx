@@ -22,7 +22,7 @@ import { vehicleApi } from '@/store/services/vehicleService.ts';
 import { authReducer } from '@/store/features/auth/authSlice.ts';
 
 const profilePersistConfig = {
-    key: 'profile',
+    key: 'wanderways_profile',
     storage,
 };
 

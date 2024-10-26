@@ -8,25 +8,25 @@ export const authApi = createApi({
     }),
     tagTypes: ['Auth'],
     endpoints: (builder) => ({
-        login: builder.mutation({
+        signin: builder.mutation({
             query: ({ email, password }) => ({
-                url: '/auth/login',
+                url: '/auth/signin',
                 method: 'POST',
                 body: { email, password },
             }),
         }),
-        register: builder.mutation({
+        signup: builder.mutation({
             query: ({ email, password }) => ({
-                url: '/auth/register',
+                url: '/auth/signup',
                 method: 'POST',
                 body: { email, password },
             }),
         }),
-        logout: builder.query({
-            query: () => '/auth/logout',
+        signout: builder.query({
+            query: () => '/auth/signout',
             keepUnusedDataFor: 0,
         }),
     }),
 });
 
-export const { useLoginMutation, useRegisterMutation, useLogoutQuery } = authApi;
+export const { useSigninMutation, useSignupMutation, useSignoutQuery } = authApi;
