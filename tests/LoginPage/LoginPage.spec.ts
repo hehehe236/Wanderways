@@ -1,18 +1,18 @@
 import { expect, test } from '@playwright/test';
 import { BASE_URL_FRONT } from '@/utils/const.ts';
 
-test.describe('Login page', () => {
+test.describe('SignIn page', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/signin', { waitUntil: 'commit' });
     });
 
-    test('WhenLoginPageLoaded_URLIsCorrect_AndComponentsAreVisible', async ({ page }) => {
+    test('WhenSignInPageLoaded_URLIsCorrect_AndComponentsAreVisible', async ({ page }) => {
         expect(page.url()).toBe(`${BASE_URL_FRONT}signin`);
 
         const logo = page.getByTestId('logo');
         await expect(logo).toBeVisible();
 
-        const title = page.getByText('Log in to your account');
+        const title = page.getByText('Sign In to your account');
         await expect(title).toBeVisible();
 
         const userCredentialsForm = page.getByTestId('userCredentialsForm');

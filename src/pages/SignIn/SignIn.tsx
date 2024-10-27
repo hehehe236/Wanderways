@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
-import cls from './Login.module.css';
+import cls from './SignIn.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import Logo from '/images/Logo.svg';
 import { useSigninMutation } from '@/store/services/authService.ts';
 import { UserCredentialsForm } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
 import { SocialAuthIcons } from '@/shared/SocialAuthIcons/SocialAuthIcons.tsx';
 
-const Login = () => {
-    const [login, { isLoading }] = useSigninMutation();
+const SignIn = () => {
+    const [signIn, { isLoading }] = useSigninMutation();
     return (
         <main className={cls.container}>
             <img
@@ -26,13 +26,13 @@ const Login = () => {
                 className={cls.title}
                 data-testid='title'
             >
-                Log in to your account
+                Sign In to your account
             </Text>
             <UserCredentialsForm
-                handleUserAction={login}
+                handleUserAction={signIn}
                 isLoading={isLoading}
-                messageSuccess='Login is successful'
-                messageError='Login error'
+                messageSuccess='SignIn is successful'
+                messageError='SignIn error'
                 btnText='Sign in'
                 additionNode={
                     <Link to='#'>
@@ -62,4 +62,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignIn;
