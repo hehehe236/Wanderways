@@ -25,6 +25,7 @@ const RideParcelRequests = lazy(
     async () => await import('./pages/RideParcelRequests/RideParcelRequests')
 );
 const SignIn = lazy(async () => await import('./pages/SignIn/SignIn'));
+const SignUp = lazy(async () => await import('./pages/SignUp/SignUp'));
 
 export const App = () => {
     return (
@@ -50,6 +51,9 @@ export const App = () => {
                 </Route>
                 <Route path='/signin' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignIn />} />
+                </Route>
+                <Route path='/signup' element={<LayoutWithoutAvatar />}>
+                    <Route index element={<SignUp />} />
                 </Route>
             </Routes>
         </BrowserRouter>

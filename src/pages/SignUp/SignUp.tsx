@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
-import cls from './SignIn.module.css';
+import cls from './SignUp.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import Logo from '/images/Logo.svg';
-import { useSigninMutation } from '@/store/services/authService.ts';
+import { useSignupMutation } from '@/store/services/authService.ts';
 import { UserCredentialsForm } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
 import { SocialAuthIcons } from '@/shared/SocialAuthIcons/SocialAuthIcons.tsx';
 
-const SignIn = () => {
-    const [signIn, { isLoading }] = useSigninMutation();
+const SignUp = () => {
+    const [signUp, { isLoading }] = useSignupMutation();
     return (
         <main className={cls.container}>
             <img
@@ -26,35 +26,35 @@ const SignIn = () => {
                 className={cls.title}
                 data-testid='title'
             >
-                Sign In to your account
+                Create an account
             </Text>
             <UserCredentialsForm
-                handleUserAction={signIn}
+                handleUserAction={signUp}
                 isLoading={isLoading}
-                messageSuccess='SignIn is successful'
-                messageError='SignIn error'
-                btnText='Sign in'
+                messageSuccess='SignUp is successful'
+                messageError='SignUp error'
+                btnText='Sign Up'
                 additionNode={
-                    <Link to='#'>
-                        <Text
-                            size='body2_font_bold'
-                            color='blue'
-                            variant='right'
-                            className={cls.restorePassword}
-                        >
-                            Restore password
+                    <div className={cls.block_text}>
+                        <Text size='body4_font_bold' color='secondary' data-testid='textConditions'>
+                            By signing up you agree with out
                         </Text>
-                    </Link>
+                        <Link to='#' data-testid='linkConditions'>
+                            <Text size='body4_font_bold' color='blue'>
+                                Terms & Conditions
+                            </Text>
+                        </Link>
+                    </div>
                 }
             />
             <SocialAuthIcons />
             <div className={cls.block_text}>
                 <Text size='body3_font_bold' color='secondary' data-testid='text'>
-                    Don’t have an account?
+                    Already have an account?
                 </Text>
-                <Link to='/signup' data-testid='linkRedirect'>
+                <Link to='/signin' data-testid='linkRedirect'>
                     <Text size='body2_font_bold' color='blue'>
-                        Sign Up
+                        Sign In
                     </Text>
                 </Link>
             </div>
@@ -62,4 +62,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignUp;
