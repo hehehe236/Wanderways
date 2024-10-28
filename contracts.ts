@@ -69,8 +69,8 @@ type Ride = {
 
 // ------ API -------
 
-// [POST] api/login
-type Login = {
+// [POST] api/signin
+type SignIn = {
     userName: string;
     password: string;
 }

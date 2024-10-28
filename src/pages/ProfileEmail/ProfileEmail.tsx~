@@ -9,7 +9,7 @@ const ProfileEmail = () => {
         <main className={cls.container}>
             <Title title='Edit email' />
             <UserCredentialsForm
-                handleUserAction={editProfile}
+                editProfile={editProfile}
                 isLoading={isLoading}
                 messageSuccess='Email changed successfully'
                 messageError='Error updating profile'

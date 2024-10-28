@@ -39,6 +39,14 @@ const profileSlice = createSlice({
         saveProfilePicture: (state, action: PayloadAction<string>) => {
             state.profilePicture = action.payload;
         },
+        clearProfile: (state) => {
+            state.userId = 0;
+            state.name = '';
+            state.lastName = '';
+            state.phone = '';
+            state.email = '';
+            state.profilePicture = '';
+        },
     },
     extraReducers: (builder) => {
         builder.addMatcher(
@@ -59,6 +67,6 @@ const profileSlice = createSlice({
 });
 
 export const profileReducer = profileSlice.reducer;
-export const { saveProfilePicture } = profileSlice.actions;
+export const { saveProfilePicture, clearProfile } = profileSlice.actions;
 export const { selectProfilePicture, selectProfileGeneral, selectProfileEmail } =
     profileSlice.selectors;

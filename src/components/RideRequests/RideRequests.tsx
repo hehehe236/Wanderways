@@ -24,7 +24,8 @@ export const RideRequests = () => {
 
     const rideSwitcher = useSelector(selectRideSwitcherValue);
     const dispatch = useAppDispatch();
-    const handleClick = (rideSwitcherValue: RideSwitcher) => dispatch(setRideSwitcherValue(rideSwitcherValue));
+    const handleClick = (rideSwitcherValue: RideSwitcher) =>
+        dispatch(setRideSwitcherValue(rideSwitcherValue));
 
     return (
         <ul className={cls.list}>

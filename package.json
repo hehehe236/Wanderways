@@ -25,6 +25,7 @@
         "class-variance-authority": "^0.7.0",
         "google-libphonenumber": "^3.2.38",
         "normalize.css": "^8.0.1",
+        "playwright": "^1.46.0",
         "react": "^18.2.0",
         "react-datepicker": "^7.3.0",
         "react-dom": "^18.2.0",
