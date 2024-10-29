@@ -18,7 +18,10 @@ const AvailableDrivers = lazy(
 );
 const Profile = lazy(async () => await import('./pages/Profile/Profile'));
 const ProfileGeneral = lazy(async () => await import('./pages/ProfileGeneral/ProfileGeneral'));
-const ProfileEmail = lazy(async () => await import('./pages/ProfileEmail/ProfileEmail'));
+const ProfileEmail = lazy(async () => await import('@/pages/ProfileEmail/ProfileEmail.tsx'));
+const ProfilePassword = lazy(
+    async () => await import('@/pages/ProfilePassword/ProfilePassword.tsx')
+);
 const MyVehicles = lazy(async () => await import('./pages/MyVehicles/MyVehicles'));
 const ProfileVehicle = lazy(async () => await import('./pages/ProfileVehicle/ProfileVehicle'));
 const RideParcelRequests = lazy(
@@ -48,6 +51,7 @@ export const App = () => {
                     <Route path='email' element={<ProfileEmail />} />
                     <Route path='vehicles' element={<MyVehicles />} />
                     <Route path='new-vehicle' element={<ProfileVehicle />} />
+                    <Route path='password' element={<ProfilePassword />} />
                 </Route>
                 <Route path='/signin' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignIn />} />

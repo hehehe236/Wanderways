@@ -9,9 +9,13 @@ import { Button } from '@/shared/Button/Button.tsx';
 import { IconEyeOpen } from '@/shared/svg/IconEyeOpen.tsx';
 import { IconEyeClose } from '@/shared/svg/IconEyeClose.tsx';
 import { UserCredentialsFormType } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
+import { ProfilePasswordEditFormType } from '@/components/ProfilePasswordEditForm/ProfilePasswordEditForm.tsx';
 
 export type InputType = {
-    name: keyof ParcelFormInputType | keyof UserCredentialsFormType;
+    name:
+        | keyof ParcelFormInputType
+        | keyof UserCredentialsFormType
+        | keyof ProfilePasswordEditFormType;
     label: string;
     icon?: ReactElement;
     placeholder: string;

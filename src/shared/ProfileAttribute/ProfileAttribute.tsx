@@ -15,7 +15,7 @@ export const ProfileAttribute = (props: ProfileAttributeProps) => {
     const { icon, text, path } = props;
 
     return (
-        <Link to={`${path}`} className={cls.container}>
+        <Link to={path} className={cls.container}>
             <div className={cls.container_text}>
                 {cloneElement(icon, { addStyle: cls.icon })}
                 <Text size='headline2_bold' color='primary'>
