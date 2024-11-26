@@ -20,6 +20,7 @@ import { profileApi } from '@/store/services/profileService.ts';
 import { vehicleReducer } from '@/store/features/vehicles/vehicleSlice.ts';
 import { vehicleApi } from '@/store/services/vehicleService.ts';
 import { authReducer } from '@/store/features/auth/authSlice.ts';
+import { authApi } from '@/store/services/authService.ts';
 
 const profilePersistConfig = {
     key: 'wanderways_profile',
@@ -31,6 +32,7 @@ const rootReducer = combineReducers({
     [rideApi.reducerPath]: rideApi.reducer,
     [profileApi.reducerPath]: profileApi.reducer,
     [vehicleApi.reducerPath]: vehicleApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
     switchers: switchersReducer,
     parcel: parcelReducer,
     ride: rideReducer,
@@ -50,7 +52,8 @@ export const store = configureStore({
             .concat(parcelApi.middleware)
             .concat(rideApi.middleware)
             .concat(profileApi.middleware)
-            .concat(vehicleApi.middleware),
+            .concat(vehicleApi.middleware)
+            .concat(authApi.middleware),
 });
 
 export const persistor = persistStore(store);

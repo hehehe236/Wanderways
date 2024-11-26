@@ -1,0 +1,41 @@
+.container {
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    margin: 250px auto 0;
+}
+
+.container_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 24px;
+}
+
+.title {
+    margin-bottom: 32px;
+}
+
+.link {
+    display: flex;
+    width: 100%;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: var(--white);
+    transition: background-color var(--transition) opacity var(--transition);
+}
+
+.link:hover {
+    background-color: var(--primary);
+    opacity: 0.5;
+}

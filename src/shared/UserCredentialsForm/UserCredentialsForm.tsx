@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import cls from './UserCredentialsForm.module.css';
 import { Input } from '@/shared/Input/Input.tsx';
@@ -38,11 +38,11 @@ export type UserCredentialsFormType = {
 };
 
 export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
-    const { handleUserAction, isLoading, messageSuccess, messageError, additionNode, btnText } =
-        props;
+    const { handleUserAction, isLoading, messageError, additionNode, btnText } = props;
     const email = useSelector(selectProfileEmail);
     const dispatch = useDispatch();
     const { pathname } = useLocation();
+    const redirect = useNavigate();
     if (pathname === '/signin') dispatch(clearProfile());
     const {
         register,
@@ -62,7 +62,7 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
             password: data.password,
         });
         if ('data' in response) {
-            notification.showSuccess(messageSuccess);
+            redirect('confirm-email', { state: { email: data.email } });
         } else if ('error' in response) {
             notification.showError(messageError);
         }

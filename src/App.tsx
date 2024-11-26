@@ -29,6 +29,8 @@ const RideParcelRequests = lazy(
 );
 const SignIn = lazy(async () => await import('./pages/SignIn/SignIn'));
 const SignUp = lazy(async () => await import('./pages/SignUp/SignUp'));
+const ConfirmEmail = lazy(async () => await import('./pages/ConfirmEmail/ConfirmEmail'));
+const VerifiedEmail = lazy(async () => await import('./pages/VerifiedEmail/VerifiedEmail'));
 
 export const App = () => {
     return (
@@ -58,6 +60,8 @@ export const App = () => {
                 </Route>
                 <Route path='/signup' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignUp />} />
+                    <Route path='confirm-email' element={<ConfirmEmail />} />
+                    <Route path='verified-email' element={<VerifiedEmail />} />
                 </Route>
             </Routes>
         </BrowserRouter>
