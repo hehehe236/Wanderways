@@ -1,0 +1,22 @@
+.title {
+    margin: 16px 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_icon_car {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: var(--primary);
+    margin-bottom: 12px;
+}

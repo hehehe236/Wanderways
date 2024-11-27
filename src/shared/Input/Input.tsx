@@ -7,9 +7,10 @@ import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 import { useLocation } from 'react-router-dom';
 import { UserCredentialsFormType } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
+import { UserProfileFormType } from '@/shared/UserProfileForm/UserProfileForm.tsx';
 
 export type InputType = {
-    name: keyof ParcelFormInputType | keyof UserCredentialsFormType;
+    name: keyof ParcelFormInputType | keyof UserCredentialsFormType | keyof UserProfileFormType;
     type: string;
     label: string;
     icon?: ReactElement;
@@ -34,7 +35,7 @@ export const Input = (props: InputType) => {
                     size='headline3_bold'
                     color='primary'
                     className={
-                        (name !== 'recipientLastName' && name !== 'recipientEmail') ||
+                        (name !== 'surname' && name !== 'recipientEmail') ||
                         (name === 'recipientEmail' && currentUrl === '/profile/email')
                             ? cls.label_name
                             : cls.label

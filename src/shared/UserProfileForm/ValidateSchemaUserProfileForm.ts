@@ -12,13 +12,13 @@ const isPhoneValid = (phone: string | undefined) => {
     }
 };
 
-export const ValidateSchemaProfileEditForm = Yup.object().shape({
-    recipientName: Yup.string()
+export const ValidateSchemaUserProfileFormProps = Yup.object().shape({
+    name: Yup.string()
         .trim()
         .min(3, 'Minimum 3 characters')
         .max(50, 'Maximum 50 characters')
         .required('This field is required'),
-    recipientLastName: Yup.string()
+    surname: Yup.string()
         .trim()
         .test('is-valid-min-length', 'Minimum 3 characters', function (value) {
             if (!value) return true;
@@ -28,8 +28,9 @@ export const ValidateSchemaProfileEditForm = Yup.object().shape({
             if (!value) return true;
             return value.length <= 50;
         }),
-    recipientPhone: Yup.string().test('is-valid-phone', 'Invalid format phone', (value) => {
+    phone: Yup.string().test('is-valid-phone', 'Invalid format phone', (value) => {
         if (value === '+380') return true;
         return isPhoneValid(value);
     }),
+    wantToBeDriver: Yup.boolean(),
 });

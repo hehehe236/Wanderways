@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import LayoutWithoutAvatar from '@/components/LayoutWithoutAvatar/LayoutWithoutAvatar.tsx';
-import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
 
 const Home = lazy(async () => await import('./pages/Home/Home'));
 const Parcel = lazy(async () => await import('./pages/Parcel/Parcel'));
@@ -29,6 +28,7 @@ const RideParcelRequests = lazy(
 );
 const SignIn = lazy(async () => await import('./pages/SignIn/SignIn'));
 const SignUp = lazy(async () => await import('./pages/SignUp/SignUp'));
+const AboutYourself = lazy(async () => await import('./pages/AboutYourself/AboutYourself'));
 const SignOut = lazy(async () => await import('./pages/SignOut/SignOut'));
 const ConfirmEmail = lazy(async () => await import('./pages/ConfirmEmail/ConfirmEmail'));
 const VerifiedEmail = lazy(async () => await import('./pages/VerifiedEmail/VerifiedEmail'));
@@ -43,7 +43,6 @@ export const App = () => {
                     <Route path='ride/:id' element={<Ride />} />
                     <Route path='parcel' element={<ParcelCreate />} />
                     <Route path='ride' element={<RideCreate />} />
-                    <Route path='ride/vehicle' element={<ArrowBack />} />
                     <Route path='available-parcels' element={<AvailableParcels />} />
                     <Route path='available-drivers' element={<AvailableDrivers />} />
                     <Route path='ride/:id/requested' element={<RideParcelRequests />} />
@@ -62,6 +61,7 @@ export const App = () => {
                 </Route>
                 <Route path='/signup' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignUp />} />
+                    <Route path='about-yourself' element={<AboutYourself />} />
                     <Route path='confirm-email' element={<ConfirmEmail />} />
                     <Route path='verified-email' element={<VerifiedEmail />} />
                 </Route>

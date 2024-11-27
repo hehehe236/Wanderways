@@ -17,8 +17,8 @@ test.describe('Profile edit page', () => {
         const profileTitleComponent = page.getByText('Edit Profile');
         await expect(profileTitleComponent).toBeVisible();
 
-        const profileEditFormComponent = page.getByTestId('profileEditForm');
-        await expect(profileEditFormComponent).toBeVisible();
+        const userProfileForm = page.getByTestId('userProfileForm');
+        await expect(userProfileForm).toBeVisible();
 
         const btnSignOutComponent = page.getByRole('button', { name: 'Save changes' });
         await expect(btnSignOutComponent).toBeVisible();

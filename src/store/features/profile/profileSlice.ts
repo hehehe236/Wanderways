@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { profileApi } from '@/store/services/profileService.ts';
 
 export type Profile = {
     userId: number;
     name: string;
-    lastName: string;
+    surname: string;
     phone?: string;
     email?: string;
     profilePicture: string;
@@ -14,7 +14,7 @@ export type Profile = {
 const initialState: Profile = {
     userId: 0,
     name: '',
-    lastName: '',
+    surname: '',
     phone: '',
     email: '',
     profilePicture: '',
@@ -30,7 +30,7 @@ const profileSlice = createSlice({
             (state: Profile) => state,
             (profile) => ({
                 name: profile.name,
-                lastName: profile.lastName,
+                surname: profile.surname,
                 phone: profile.phone,
             })
         ),
@@ -42,7 +42,7 @@ const profileSlice = createSlice({
         clearProfile: (state) => {
             state.userId = 0;
             state.name = '';
-            state.lastName = '';
+            state.surname = '';
             state.phone = '';
             state.email = '';
             state.profilePicture = '';
@@ -53,7 +53,7 @@ const profileSlice = createSlice({
             profileApi.endpoints.editProfile.matchFulfilled,
             (state, { payload }: PayloadAction<Profile>) => {
                 state.name = payload.name;
-                state.lastName = payload.lastName;
+                state.surname = payload.surname;
                 state.phone = payload.phone;
             }
         );

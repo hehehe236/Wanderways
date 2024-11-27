@@ -2,7 +2,6 @@ import { expect, Locator, test } from '@playwright/test';
 import { BASE_URL_FRONT } from '../src/utils/const';
 
 const URL_REDIRECT_AVAILABLE = '/available-parcels';
-const URL_REDIRECT_VEHICLE = '/ride/vehicle';
 const MESSAGE_SUCCESS = 'Ride successfully published';
 const MESSAGE_ERROR_VEHICLE = 'Should choose a vehicle';
 const MESSAGE_ERROR = 'This field is required';
@@ -24,7 +23,6 @@ test.describe('Create ride page', () => {
     let deliveryAddressError: Locator;
     let shippingAddressError: Locator;
     let deliveryDateError: Locator;
-    let linkAddNew: Locator;
 
     test.beforeEach(async ({ page }) => {
         await page.goto('/', { waitUntil: 'commit' });
@@ -32,7 +30,7 @@ test.describe('Create ride page', () => {
 
         arrowBack = page.getByRole('button', { name: 'Back' });
         formComponent = page.locator('form');
-        linkComponent = page.getByRole('link', { name: 'Add new' });
+        linkComponent = page.getByTestId('addNew');
         deliveryFrom = page.locator('[id="Delivery\\ from"]');
         deliveryFromOption = page.getByRole('option', { name: 'Shevchenka St, 12, Kyiv,' });
         shippingTo = page.locator('[id="Shipping\\ to"]');
@@ -46,7 +44,6 @@ test.describe('Create ride page', () => {
         deliveryAddressError = page.locator('#deliveryAddress');
         shippingAddressError = page.locator('#shippingAddress');
         deliveryDateError = page.locator('#deliveryDate');
-        linkAddNew = page.getByRole('link', { name: 'Add new' });
     });
 
     test('WhenCreateParcelPageLoaded__AllComponentsAreVisible_AndURLIsCorrect', async ({
@@ -101,14 +98,5 @@ test.describe('Create ride page', () => {
 
         const deliveryDateErrr = deliveryDateError.getByText(MESSAGE_ERROR);
         await expect(deliveryDateErrr).toHaveText(MESSAGE_ERROR);
-    });
-
-    test('WhenClickAddNew_RedirectToNewVehicle', async ({ page }) => {
-        const link = linkAddNew;
-        await expect(link).toHaveAttribute('href', '/ride/vehicle');
-
-        await link.click();
-        await page.goto(URL_REDIRECT_VEHICLE, { waitUntil: 'commit' });
-        await expect(page).toHaveURL(URL_REDIRECT_VEHICLE);
     });
 });

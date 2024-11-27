@@ -12,7 +12,7 @@ export default tseslint.config(
     {
         plugins: {
             '@typescript-eslint': tseslint.plugin,
-            'react': eslintReact,
+            react: eslintReact,
             'react-hooks': eslintReactHooks,
             'react-refresh': eslintReactRefresh,
             prettier: prettierPlugin,
@@ -27,8 +27,8 @@ export default tseslint.config(
             'eslint.config.js',
             'contracts.ts',
             'playwright.config.ts',
-            'playwright-ct.config.ts' ,
-            'playwright/index.tsx'
+            'playwright-ct.config.ts',
+            'playwright/index.tsx',
         ],
     },
     js.configs.recommended,
@@ -42,11 +42,11 @@ export default tseslint.config(
             },
             parserOptions: {
                 project: ['tsconfig.json', 'tsconfig.node.json'],
-            }
+            },
         },
         settings: {
             react: {
-                version: "detect",
+                version: 'detect',
             },
         },
     },
@@ -60,20 +60,20 @@ export default tseslint.config(
             'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
             'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
             'react/self-closing-comp': ['error', { component: true, html: true }],
-            'max-lines': ['warn', { max: 124 }],
+            'max-lines': ['warn', { max: 256 }],
             'max-params': ['error', 3],
             '@typescript-eslint/no-unused-vars': [
                 'error',
                 {
-                    "args": "all",
-                    "argsIgnorePattern": "^_",
-                    "caughtErrors": "all",
-                    "caughtErrorsIgnorePattern": "^_",
-                    "destructuredArrayIgnorePattern": "^_",
-                    "varsIgnorePattern": "^_",
-                    "ignoreRestSiblings": true
-                }
+                    args: 'all',
+                    argsIgnorePattern: '^_',
+                    caughtErrors: 'all',
+                    caughtErrorsIgnorePattern: '^_',
+                    destructuredArrayIgnorePattern: '^_',
+                    varsIgnorePattern: '^_',
+                    ignoreRestSiblings: true,
+                },
             ],
         },
-    },
+    }
 );
