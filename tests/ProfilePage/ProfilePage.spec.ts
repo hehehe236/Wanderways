@@ -26,7 +26,14 @@ test.describe('Profile page', () => {
         const listItems = profileListAttributeComponent.locator('li');
         expect(await listItems.count()).toBe(4);
 
-        const btnSignOutComponent = page.getByRole('button', { name: 'Sign out' });
+        const btnSignOutComponent = page.getByTestId('btnSignOut');
         await expect(btnSignOutComponent).toBeVisible();
+    });
+
+    test('WhenClickSinOutBtn_RedirectToSignOutPage', async ({ page }) => {
+        const btnSignOutComponent = page.getByTestId('btnSignOut');
+        await btnSignOutComponent.click();
+        await page.waitForURL(`${BASE_URL_FRONT}profile/signout`);
+        expect(page.url()).toBe(`${BASE_URL_FRONT}profile/signout`);
     });
 });

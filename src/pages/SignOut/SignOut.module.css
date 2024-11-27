@@ -1,0 +1,66 @@
+.container {
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    margin: 250px auto 0;
+}
+
+.container_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    padding: 9px 15px 7px 13px;
+    margin-bottom: 24px;
+}
+
+.title {
+    margin-bottom: 32px;
+}
+
+.block_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.btn_cancel, .btn_yes {
+    display: flex;
+    width: 100%;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+}
+
+.btn_cancel {
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--blue-label);
+    transition: background-color var(--transition), border var(--transition) color var(--transition);
+}
+
+.btn_yes {
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--white);
+    transition: background-color var(--transition), border var(--transition) color var(--transition);
+}
+
+.btn_cancel:hover {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--white);
+}
+
+.btn_yes:hover {
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--primary);
+}

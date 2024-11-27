@@ -29,6 +29,7 @@ const RideParcelRequests = lazy(
 );
 const SignIn = lazy(async () => await import('./pages/SignIn/SignIn'));
 const SignUp = lazy(async () => await import('./pages/SignUp/SignUp'));
+const SignOut = lazy(async () => await import('./pages/SignOut/SignOut'));
 const ConfirmEmail = lazy(async () => await import('./pages/ConfirmEmail/ConfirmEmail'));
 const VerifiedEmail = lazy(async () => await import('./pages/VerifiedEmail/VerifiedEmail'));
 
@@ -54,6 +55,7 @@ export const App = () => {
                     <Route path='vehicles' element={<MyVehicles />} />
                     <Route path='new-vehicle' element={<ProfileVehicle />} />
                     <Route path='password' element={<ProfilePassword />} />
+                    <Route path='signout' element={<SignOut />} />
                 </Route>
                 <Route path='/signin' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignIn />} />
