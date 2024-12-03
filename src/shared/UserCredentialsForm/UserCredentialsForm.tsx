@@ -17,6 +17,7 @@ import { clearProfile, selectProfileEmail } from '@/store/features/profile/profi
 import { ValidateSchemaUserCredentialsForm } from '@/shared/UserCredentialsForm/ValidateSchemaUserCredentialsForm.ts';
 import notification from '@/utils/NotificationManager.ts';
 import { Loader } from '@/shared/Loader/Loader.tsx';
+import { ROUTES } from '@/utils/routes.ts';
 
 export type UserCredentialsFormProps = {
     handleUserAction: (
@@ -62,7 +63,9 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
             password: data.password,
         });
         if ('data' in response) {
-            redirect('confirm-email', { state: { email: data.email } });
+            if (pathname === '/signup') {
+                redirect(ROUTES.CONFIRM_EMAIL.path, { state: data.email });
+            } else redirect(ROUTES.HOME.path);
         } else if ('error' in response) {
             notification.showError(messageError);
         }

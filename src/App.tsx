@@ -2,7 +2,8 @@ import { lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
-import LayoutWithoutAvatar from '@/components/LayoutWithoutAvatar/LayoutWithoutAvatar.tsx';
+import LayoutWithoutHeader from '@/components/LayoutWithoutAvatar/LayoutWithoutHeader.tsx';
+import LayoutWithoutAvatar from '@/components/LayoutWithoutHeader/LayoutWithoutAvatar.tsx';
 
 const Home = lazy(async () => await import('./pages/Home/Home'));
 const Parcel = lazy(async () => await import('./pages/Parcel/Parcel'));
@@ -32,6 +33,11 @@ const AboutYourself = lazy(async () => await import('./pages/AboutYourself/About
 const SignOut = lazy(async () => await import('./pages/SignOut/SignOut'));
 const ConfirmEmail = lazy(async () => await import('./pages/ConfirmEmail/ConfirmEmail'));
 const VerifiedEmail = lazy(async () => await import('./pages/VerifiedEmail/VerifiedEmail'));
+const ConfirmDelivery = lazy(async () => await import('./pages/ConfirmDelivery/ConfirmDelivery'));
+const SendFeedback = lazy(async () => await import('./pages/SendFeedback/SendFeedback'));
+const FeedbackConfirmation = lazy(
+    async () => await import('./pages/FeedbackConfirmation/FeedbackConfirmation')
+);
 
 export const App = () => {
     return (
@@ -63,7 +69,14 @@ export const App = () => {
                     <Route index element={<SignUp />} />
                     <Route path='about-yourself' element={<AboutYourself />} />
                     <Route path='confirm-email' element={<ConfirmEmail />} />
-                    <Route path='verified-email' element={<VerifiedEmail />} />
+                </Route>
+                <Route path='/signup/verified-email' element={<LayoutWithoutHeader />}>
+                    <Route index element={<VerifiedEmail />} />
+                </Route>
+                <Route path='/confirm-delivery' element={<LayoutWithoutHeader />}>
+                    <Route index element={<ConfirmDelivery />} />
+                    <Route path='feedback' element={<SendFeedback />} />
+                    <Route path='feedback-confirmation' element={<FeedbackConfirmation />} />
                 </Route>
             </Routes>
         </BrowserRouter>

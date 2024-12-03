@@ -5,6 +5,7 @@ import { Parcel as ParcelType } from '@/store/features/parcel/types.ts';
 import { useSelector } from 'react-redux';
 import { selectParcelById } from '@/store/features/parcel/parcelSlice.ts';
 import { ParcelRequestsDriver } from '@/components/ParcelRequestsDriver/ParcelRequestsDriver.tsx';
+import { ROUTES } from '@/utils/routes.ts';
 
 export const ParcelRequests = () => {
     const { id } = useParams();
@@ -28,7 +29,7 @@ export const ParcelRequests = () => {
                     </div>
                 </div>
                 <div>
-                    <Link to='/' data-testid='btnViewAll'>
+                    <Link to={ROUTES.HOME.path} data-testid='btnViewAll'>
                         <Text size='body2_font_bold' color='blue'>
                             View all
                         </Text>

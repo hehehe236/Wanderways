@@ -10,7 +10,7 @@ test.describe('Available parcel page', () => {
         await page.locator('[id="Shipping\\ to"] svg').click();
         await page.getByRole('option', { name: 'Kyivska St, 77, Rivne,' }).click();
         await page.getByRole('textbox').click();
-        await page.getByLabel('Choose Saturday, November 2nd,').click();
+        await page.getByLabel('Choose Saturday, January 4th,').click();
         await page.getByRole('option', { name: '11:30 AM' }).click();
         await page.getByText('Skoda RoomsterVan').click();
         await page.getByRole('button', { name: 'Publish ride' }).click();

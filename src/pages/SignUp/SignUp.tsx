@@ -6,6 +6,7 @@ import Logo from '/images/Logo.svg';
 import { useSignupMutation } from '@/store/services/authService.ts';
 import { UserCredentialsForm } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
 import { SocialAuthIcons } from '@/shared/SocialAuthIcons/SocialAuthIcons.tsx';
+import { ROUTES } from '@/utils/routes.ts';
 
 const SignUp = () => {
     const [signUp, { isLoading }] = useSignupMutation();
@@ -52,7 +53,7 @@ const SignUp = () => {
                 <Text size='body3_font_bold' color='secondary' data-testid='text'>
                     Already have an account?
                 </Text>
-                <Link to='/signin' data-testid='linkRedirect'>
+                <Link to={ROUTES.SIGNIN.path} data-testid='linkRedirect'>
                     <Text size='body2_font_bold' color='blue'>
                         Sign In
                     </Text>

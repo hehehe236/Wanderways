@@ -1,0 +1,48 @@
+.container {
+    max-width: 768px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 96px 16px 0;
+    margin: 32px auto 0;
+}
+
+.iconTitleWrapper {
+    margin-bottom: 16px;
+}
+
+.btn_block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.btn_signin, .btn_signup {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    transition: background-color var(--transition) ;
+}
+
+.btn_signin {
+    background-color: var(--primary);
+}
+
+.btn_signin:hover {
+    background-color: var(--secondary);
+    color: var(--blue-label);
+}
+
+.btn_signup {
+    background-color: var(--secondary);
+}
+
+.btn_signup:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}

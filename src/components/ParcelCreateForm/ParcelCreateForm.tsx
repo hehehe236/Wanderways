@@ -101,7 +101,8 @@ export const ParcelCreateForm = () => {
                                 </li>
                                 <li>
                                     <TextArea
-                                        register={register}
+                                        id='detailsParcel'
+                                        register={register('detailsParcel')}
                                         label='Details'
                                         placeholder='Anything driver should know about...'
                                         error={errors.detailsParcel}

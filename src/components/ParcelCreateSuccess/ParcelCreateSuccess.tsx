@@ -5,6 +5,7 @@ import { IconParcelCreateSuccess } from '@/shared/svg/IconParcelCreateSuccess.ts
 import { Text } from '@/shared/Text/Text.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconFindDriver } from '@/shared/svg/IconFindDriver.tsx';
+import { ROUTES } from '@/utils/routes.ts';
 
 export type ParcelCreateSuccessProps = {
     onClose: () => void;
@@ -15,7 +16,7 @@ export const ParcelCreateSuccess = ({ onClose, parcelId }: ParcelCreateSuccessPr
     const navigate = useNavigate();
     const handleModal = () => {
         onClose();
-        navigate('/');
+        navigate(ROUTES.HOME.path);
     };
 
     return (
@@ -28,7 +29,7 @@ export const ParcelCreateSuccess = ({ onClose, parcelId }: ParcelCreateSuccessPr
                 Your parcel is ready for delivery. You can find a driver manually or let us find one
                 for you automatically.
             </Text>
-            <Link to='/available-drivers' className={cls.btn_find} state={parcelId}>
+            <Link to={ROUTES.AVAILABLE_DRIVERS.path} className={cls.btn_find} state={parcelId}>
                 <Button type='button' variant='submit' background='primary' size='submit'>
                     <div className={cls.text_btn}>
                         <IconFindDriver />

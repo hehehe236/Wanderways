@@ -19,10 +19,10 @@ import { AddNew } from '@/shared/AddNew/AddNew.tsx';
 import { VehicleSelection } from '@/components/VehicleSelection/VehicleSelection.tsx';
 import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
 import notification from '@/utils/NotificationManager.ts';
+import { ROUTES } from '@/utils/routes.ts';
 
 const ERROR_MESSAGE = 'Should choose a vehicle';
 const SUCCESS_MESSAGE = 'Ride successfully published';
-const URL_REDIRECT = '/available-parcels';
 
 export const RideCreateForm = () => {
     const {
@@ -50,7 +50,7 @@ export const RideCreateForm = () => {
             vehicleId: data.vehicleId,
         });
         notification.showSuccess(SUCCESS_MESSAGE);
-        navigate(URL_REDIRECT, { state: response.data.rideId });
+        navigate(ROUTES.AVAILABLE_PARCELS.path, { state: response.data.rideId });
     };
 
     if (isLoading) return <Loader />;

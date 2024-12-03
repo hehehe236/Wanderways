@@ -7,6 +7,7 @@ import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
+import notification from '@/utils/NotificationManager.ts';
 
 export const AcceptedParcelList = () => {
     const { state: rideId } = useLocation();
@@ -14,6 +15,9 @@ export const AcceptedParcelList = () => {
         selectRideById(state, rideId)
     );
     if (!ride) return null;
+
+    const handleClickConfirmDelivery = () =>
+        notification.showSuccess('Confirmation email sent to recipient and sender emails');
 
     return (
         <ul className={cls.container} id='accepted-parcels'>
@@ -43,7 +47,12 @@ export const AcceptedParcelList = () => {
                                 recipient={recipient}
                                 sender={sender}
                                 actionNode={
-                                    <Button background='primary' size='confirm' variant='confirm'>
+                                    <Button
+                                        background='primary'
+                                        size='confirm'
+                                        variant='confirm'
+                                        onClick={handleClickConfirmDelivery}
+                                    >
                                         <Text size='body2_font_bold' color='white'>
                                             Confirm delivery
                                         </Text>

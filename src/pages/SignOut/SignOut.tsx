@@ -4,13 +4,14 @@ import cls from './SignOut.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { IconSignOut } from '@/shared/svg/IconSignOut.tsx';
 import { clearCookies } from '@/utils/clearCookies.ts';
+import { ROUTES } from '@/utils/routes.ts';
 
 const SignOut = () => {
     const navigate = useNavigate();
 
     const handleSignOut = () => {
         clearCookies();
-        navigate('/signin');
+        navigate(ROUTES.SIGNIN.path);
     };
     return (
         <main className={cls.container}>
@@ -21,7 +22,7 @@ const SignOut = () => {
                 Are you sure you want to sign out?
             </Text>
             <div className={cls.block_btn}>
-                <Link to='/profile' className={cls.btn_cancel} data-testid='btnCancel'>
+                <Link to={ROUTES.PROFILE.path} className={cls.btn_cancel} data-testid='btnCancel'>
                     <Text size='body2_font_bold'>Cancel</Text>
                 </Link>
                 <button
