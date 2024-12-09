@@ -73,3 +73,7 @@
 .icon_close {
     stroke: var(--white);
 }
+
+.container_modal {
+    margin-top: 170px;
+}

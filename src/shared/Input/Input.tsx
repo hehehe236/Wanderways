@@ -1,7 +1,6 @@
 import cls from './Input.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
-import { FieldError, FieldErrorsImpl, Merge, UseFormRegister } from 'react-hook-form';
-import { FormInputType } from '@/components/ParcelCreateForm/ParcelCreateForm.tsx';
+import { FieldError, FieldErrorsImpl, Merge, UseFormRegisterReturn } from 'react-hook-form';
 import { ReactElement, useRef } from 'react';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
@@ -10,13 +9,18 @@ import { UserCredentialsFormType } from '@/shared/UserCredentialsForm/UserCreden
 import { UserProfileFormType } from '@/shared/UserProfileForm/UserProfileForm.tsx';
 
 export type InputType = {
-    name: keyof ParcelFormInputType | keyof UserCredentialsFormType | keyof UserProfileFormType;
+    name:
+        | keyof ParcelFormInputType
+        | keyof UserCredentialsFormType
+        | keyof UserProfileFormType
+        | 'modelName'
+        | 'idNumber';
     type: string;
     label: string;
     icon?: ReactElement;
     placeholder: string;
     error: Merge<FieldError, FieldErrorsImpl<{ name: string }>> | undefined;
-    register: UseFormRegister<FormInputType>;
+    register: UseFormRegisterReturn;
 };
 
 export const Input = (props: InputType) => {
@@ -24,7 +28,7 @@ export const Input = (props: InputType) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const currentUrl = useLocation().pathname;
 
-    const { ref, ...rest } = register(name);
+    const { ref, ...rest } = register;
 
     const handlePlaceholderClick = () => inputRef.current?.focus();
 
@@ -47,7 +51,7 @@ export const Input = (props: InputType) => {
             <input
                 id={name}
                 type={type}
-                {...register(name)}
+                {...register}
                 placeholder={icon ? '' : placeholder}
                 className={cls.input}
                 {...rest}

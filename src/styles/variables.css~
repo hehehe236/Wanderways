@@ -42,8 +42,7 @@
     --cart-ride-width: 0px;
 
     /* Z-index */
-    --z-index-header: 10px;
-    --z-index-modal: 100px;
+    --z-index-modal: 10px;
 
     /* Breakpoints */
     --mobile: 320px;

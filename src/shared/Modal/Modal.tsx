@@ -10,11 +10,11 @@ export type ModalProps = {
     isOpen: boolean;
     onClose: () => void;
     children: ReactNode;
+    redirect?: string;
 };
 
-export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+export const Modal = ({ isOpen, onClose, children, redirect }: ModalProps) => {
     const navigate = useNavigate();
-    const handleClickIconClose = () => navigate('/');
 
     return (
         <ModalReact
@@ -25,7 +25,12 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
             onRequestClose={() => onClose()}
             bodyOpenClassName={cls.block_scroll}
         >
-            <Button variant='icon' type='button' className={cls.btn} onClick={handleClickIconClose}>
+            <Button
+                variant='icon'
+                type='button'
+                className={cls.btn}
+                onClick={redirect ? () => navigate(redirect) : onClose}
+            >
                 <IconClose />
             </Button>
             {children}

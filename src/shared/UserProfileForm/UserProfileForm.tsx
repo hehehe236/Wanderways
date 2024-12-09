@@ -85,7 +85,7 @@ export const UserProfileForm = (props: UserProfileFormProps) => {
                             placeholder='Enter name'
                             icon={<IconProfile />}
                             error={errors.name}
-                            register={register}
+                            register={register('name')}
                         />
                     </li>
                     <li data-testid='surname'>
@@ -96,7 +96,7 @@ export const UserProfileForm = (props: UserProfileFormProps) => {
                             placeholder='Enter surname'
                             icon={<IconProfile />}
                             error={errors.surname}
-                            register={register}
+                            register={register('surname')}
                         />
                     </li>
                     <li data-testid='phone'>

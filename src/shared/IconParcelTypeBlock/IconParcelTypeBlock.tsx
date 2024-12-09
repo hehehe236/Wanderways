@@ -10,7 +10,7 @@ export const IconParcelTypeBlock = () => {
                 <IconParcelFilled addStyle={cls.parcel_icon} />
             </div>
             <div className={cls.name_price}>
-                <Text size='headline2_bold' color='primary' className={cls.name}>
+                <Text size='headline2_bold' color='primary'>
                     To be replaced with real parcel type in the future
                 </Text>
                 <Text size='body4_font_bold' color='secondary' className={cls.price}>

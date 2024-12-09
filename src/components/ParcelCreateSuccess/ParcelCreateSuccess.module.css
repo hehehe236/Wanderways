@@ -13,12 +13,8 @@
     margin-bottom: 24px;
 }
 
-.title {
-    margin-bottom: 8px;
-}
-
 .text {
-    margin-bottom: 32px;
+    margin: 8px 0 32px;
 }
 
 .btn_find,

@@ -27,13 +27,6 @@
     margin-right: auto;
 }
 
-.name {
-    text-align: start;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
 .price {
     display: flex;
     align-items: center;

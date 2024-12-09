@@ -18,22 +18,22 @@ test.describe('Confirm delivery page', () => {
         const iconDriverBlock = page.getByTestId('iconDriverBlock');
         await expect(iconDriverBlock).toBeVisible();
 
-        const btnDeliveryFailed = page.getByTestId('btnCancel');
+        const btnDeliveryFailed = page.getByRole('button', { name: 'Delivery failed' });
         await expect(btnDeliveryFailed).toBeVisible();
 
-        const btnConfirmFailed = page.getByTestId('btnYes');
+        const btnConfirmFailed = page.getByRole('button', { name: 'Confirm delivery' });
         await expect(btnConfirmFailed).toBeVisible();
     });
 
     test('WhenClickDeliveryFailedBtn_RedirectToFeedbackPage', async ({ page }) => {
-        const btnDeliveryFailed = page.getByTestId('btnCancel');
+        const btnDeliveryFailed = page.getByRole('button', { name: 'Delivery failed' });
         await btnDeliveryFailed.click();
         await page.waitForURL(`${BASE_URL_FRONT}confirm-delivery/feedback`);
         expect(page.url()).toBe(`${BASE_URL_FRONT}confirm-delivery/feedback`);
     });
 
     test('WhenClickConfirmFailedBtn_RedirectToFeedbackPage', async ({ page }) => {
-        const btnConfirmFailed = page.getByTestId('btnYes');
+        const btnConfirmFailed = page.getByRole('button', { name: 'Confirm delivery' });
         await btnConfirmFailed.click();
         await page.waitForURL(`${BASE_URL_FRONT}confirm-delivery/feedback`);
         expect(page.url()).toBe(`${BASE_URL_FRONT}confirm-delivery/feedback`);

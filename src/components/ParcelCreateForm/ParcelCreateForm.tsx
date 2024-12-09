@@ -27,6 +27,7 @@ import { ParcelCreateSuccess } from '@/components/ParcelCreateSuccess/ParcelCrea
 import { DatePicker } from '@/shared/DatePicker/DatePicker.tsx';
 import notification from '@/utils/NotificationManager.ts';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
+import { ROUTES } from '@/utils/routes.ts';
 
 const ERROR_MESSAGE = 'Should choose a phone or email';
 
@@ -170,7 +171,7 @@ export const ParcelCreateForm = () => {
                                         icon={<IconProfile />}
                                         placeholder='Name'
                                         error={errors.recipientName}
-                                        register={register}
+                                        register={register('recipientName')}
                                     />
                                 </li>
                                 <li>
@@ -181,7 +182,7 @@ export const ParcelCreateForm = () => {
                                         icon={<IconProfile />}
                                         placeholder='Surname'
                                         error={errors.recipientLastName}
-                                        register={register}
+                                        register={register('recipientLastName')}
                                     />
                                 </li>
                                 <li>
@@ -207,7 +208,7 @@ export const ParcelCreateForm = () => {
                                         icon={<IconEmail />}
                                         placeholder='Enter email'
                                         error={errors.recipientEmail}
-                                        register={register}
+                                        register={register('recipientEmail')}
                                     />
                                 </li>
                             </ul>
@@ -226,7 +227,7 @@ export const ParcelCreateForm = () => {
                     </Text>
                 </Button>
             </form>
-            <Modal isOpen={isOpenModal} onClose={handleModal}>
+            <Modal isOpen={isOpenModal} onClose={handleModal} redirect={ROUTES.HOME.path}>
                 <ParcelCreateSuccess onClose={handleModal} parcelId={newParcelId} />
             </Modal>
         </>

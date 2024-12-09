@@ -6,6 +6,7 @@ import { Text } from '@/shared/Text/Text.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconFindDriver } from '@/shared/svg/IconFindDriver.tsx';
 import { ROUTES } from '@/utils/routes.ts';
+import { IconTitlePageBlock } from '@/shared/IconTitlePageBlock/IconTitlePageBlock.tsx';
 
 export type ParcelCreateSuccessProps = {
     onClose: () => void;
@@ -21,10 +22,10 @@ export const ParcelCreateSuccess = ({ onClose, parcelId }: ParcelCreateSuccessPr
 
     return (
         <div className={cls.container} id='modal-parcel-create-success'>
-            <IconParcelCreateSuccess addStyle={cls.icon} />
-            <Text size='headline1_bold' color='primary' className={cls.title}>
-                Parcel created successfully
-            </Text>
+            <IconTitlePageBlock
+                icon={<IconParcelCreateSuccess addStyle={cls.icon} />}
+                title='Parcel created successfully'
+            />
             <Text variant='center' size='body3_font_bold' color='secondary' className={cls.text}>
                 Your parcel is ready for delivery. You can find a driver manually or let us find one
                 for you automatically.

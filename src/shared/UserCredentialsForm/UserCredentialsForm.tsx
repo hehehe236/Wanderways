@@ -84,7 +84,7 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
                             icon={<IconEmail />}
                             placeholder='Email'
                             error={errors.email}
-                            register={register}
+                            register={register('email')}
                         />
                     </li>
                     <li>

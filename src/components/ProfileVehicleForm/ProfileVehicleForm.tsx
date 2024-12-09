@@ -2,13 +2,13 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from 'react';
 
-import { ProfileVehicleFormType } from '@/components/ProfileVehicleForm/ProfileVehicleType.ts';
+import { ProfileVehicleFormType } from './ProfileVehicleType.ts';
 import { Select } from '@/shared/Select/Select.tsx';
 import { vehicleType } from '@/utils/db/vehicleType.ts';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { IconCar } from '@/shared/svg/IconCar.tsx';
 import cls from './ProfileVehicleForm.module.css';
-import { ValidateSchemaProfileVehicleForm } from '@/components/ProfileVehicleForm/ValidateSchemaProfileVehicleForm.ts';
+import { ValidateSchemaProfileVehicleForm } from './ValidateSchemaProfileVehicleForm.ts';
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Input } from '@/shared/Input/Input.tsx';
@@ -91,7 +91,7 @@ export const ProfileVehicleForm = () => {
                             placeholder='Enter model name'
                             icon={<IconCar addStyle={cls.icon} />}
                             error={errors.modelName}
-                            register={register}
+                            register={register('modelName')}
                         />
                     </li>
                 )}
@@ -126,7 +126,7 @@ export const ProfileVehicleForm = () => {
                             placeholder='Wilson'
                             icon={<IconPlate addStyle={cls.icon} />}
                             error={errors.idNumber}
-                            register={register}
+                            register={register('idNumber')}
                         />
                     </li>
                 )}

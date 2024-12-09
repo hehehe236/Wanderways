@@ -15,23 +15,23 @@ test.describe('Sign out page', () => {
         const title = page.getByText('Are you sure you want to sign out?');
         await expect(title).toBeVisible();
 
-        const btnCancel = page.getByTestId('btnCancel');
+        const btnCancel = page.getByRole('button', { name: 'Cancel' });
         await expect(btnCancel).toBeVisible();
-        await expect(btnCancel).toHaveText('Cancel');
 
-        const btnYes = page.getByTestId('btnYes');
+        const btnYes = page.getByRole('button', { name: 'Yes' });
         await expect(btnYes).toBeVisible();
-        await expect(btnYes).toHaveText('Yes');
     });
 
     test('WhenClickCancelBtn_RedirectToProfilePage', async ({ page }) => {
-        await page.getByTestId('btnCancel').click();
+        const btnCancel = page.getByRole('button', { name: 'Cancel' });
+        await btnCancel.click();
         await page.waitForURL(`${BASE_URL_FRONT}profile`);
         expect(page.url()).toBe(`${BASE_URL_FRONT}profile`);
     });
 
     test('WhenClickYesBtn_RedirectToSignInPage', async ({ page }) => {
-        await page.getByTestId('btnYes').click();
+        const btnYes = page.getByRole('button', { name: 'Yes' });
+        await btnYes.click();
         await page.waitForURL(`${BASE_URL_FRONT}signin`);
         expect(page.url()).toBe(`${BASE_URL_FRONT}signin`);
     });

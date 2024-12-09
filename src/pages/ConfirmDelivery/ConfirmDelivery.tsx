@@ -1,14 +1,17 @@
+import { useNavigate } from 'react-router-dom';
+
 import { IconTitlePageBlock } from '@/shared/IconTitlePageBlock/IconTitlePageBlock.tsx';
 import { IconQuestion } from '@/shared/svg/IconQuestion.tsx';
 import cls from './ConfirmDelivery.module.css';
 import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
 import { IconParcelTypeBlock } from '@/shared/IconParcelTypeBlock/IconParcelTypeBlock.tsx';
 import { IconDriverBlock } from '@/shared/IconDriverBlock/IconDriverBlock.tsx';
-import { Link } from 'react-router-dom';
-import { Text } from '@/shared/Text/Text.tsx';
 import { ROUTES } from '@/utils/routes.ts';
+import { DualButtonGroup } from '@/shared/DualButtonGroup/DualButtonGroup.tsx';
 
 const ConfirmDelivery = () => {
+    const navigate = useNavigate();
+    const handleClick = () => navigate(ROUTES.FEEDBACK.path);
     return (
         <main className={cls.container}>
             <div className={cls.iconTitleWrapper}>
@@ -22,14 +25,17 @@ const ConfirmDelivery = () => {
                 <div className={cls.line} />
                 <IconDriverBlock />
             </BasisBlock>
-            <div className={cls.block_btn}>
-                <Link to={ROUTES.FEEDBACK.path} className={cls.btn_cancel} data-testid='btnCancel'>
-                    <Text size='body2_font_bold'>Delivery failed</Text>
-                </Link>
-                <Link to={ROUTES.FEEDBACK.path} className={cls.btn_yes} data-testid='btnYes'>
-                    <Text size='body2_font_bold'>Confirm delivery</Text>
-                </Link>
-            </div>
+            <DualButtonGroup
+                backgroundLeft='red'
+                backgroundRight='primary'
+                textColorLeft='white'
+                textColorRight='white'
+                textSize='body2_font_bold'
+                textLeft='Delivery failed'
+                textRight='Confirm delivery'
+                handleClickLeftBtn={handleClick}
+                handleClickRightBtn={handleClick}
+            />
         </main>
     );
 };
