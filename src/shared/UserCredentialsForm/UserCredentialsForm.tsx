@@ -94,7 +94,7 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
                             placeholder='Password'
                             error={errors.password}
                             icon={<IconLockClose />}
-                            register={register}
+                            register={register('password')}
                         />
                     </li>
                 </ul>

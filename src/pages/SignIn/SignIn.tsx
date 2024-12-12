@@ -36,7 +36,7 @@ const SignIn = () => {
                 messageError='SignIn error'
                 btnText='Sign in'
                 additionNode={
-                    <Link to='#'>
+                    <Link to={ROUTES.RESTORE_PASSWORD.path}>
                         <Text
                             size='body2_font_bold'
                             color='blue'

@@ -47,7 +47,7 @@ export const ProfilePasswordEditForm = () => {
                         label='Current password'
                         placeholder='Current password'
                         error={errors.currentPassword}
-                        register={register}
+                        register={register('currentPassword')}
                     />
                 </li>
                 <li data-testid='newPassword'>
@@ -56,7 +56,7 @@ export const ProfilePasswordEditForm = () => {
                         label='New password'
                         placeholder='New password'
                         error={errors.newPassword}
-                        register={register}
+                        register={register('newPassword')}
                     />
                 </li>
                 <li data-testid='confirmNewPassword'>
@@ -65,7 +65,7 @@ export const ProfilePasswordEditForm = () => {
                         label='Confirm new password'
                         placeholder='Confirm new password'
                         error={errors.confirmNewPassword}
-                        register={register}
+                        register={register('confirmNewPassword')}
                     />
                 </li>
             </ul>

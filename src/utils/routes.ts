@@ -6,7 +6,8 @@ type Route =
     | { type: 'AVAILABLE_PARCELS'; path: '/available-parcels' }
     | { type: 'AVAILABLE_DRIVERS'; path: '/available-drivers' }
     | { type: 'CONFIRM_EMAIL'; path: 'confirm-email' }
-    | { type: 'FEEDBACK'; path: 'feedback' };
+    | { type: 'FEEDBACK'; path: 'feedback' }
+    | { type: 'RESTORE_PASSWORD'; path: '/signin/restore-password' };
 
 export const ROUTES: Record<Route['type'], Route> = {
     HOME: { type: 'HOME', path: '/' },
@@ -17,4 +18,5 @@ export const ROUTES: Record<Route['type'], Route> = {
     AVAILABLE_DRIVERS: { type: 'AVAILABLE_DRIVERS', path: '/available-drivers' },
     CONFIRM_EMAIL: { type: 'CONFIRM_EMAIL', path: 'confirm-email' },
     FEEDBACK: { type: 'FEEDBACK', path: 'feedback' },
+    RESTORE_PASSWORD: { type: 'RESTORE_PASSWORD', path: '/signin/restore-password' },
 };

@@ -38,6 +38,8 @@ const SendFeedback = lazy(async () => await import('./pages/SendFeedback/SendFee
 const FeedbackConfirmation = lazy(
     async () => await import('./pages/FeedbackConfirmation/FeedbackConfirmation')
 );
+const RestorePassword = lazy(async () => await import('./pages/RestorePassword/RestorePassword'));
+const NewPassword = lazy(async () => await import('./pages/NewPassword/NewPassword'));
 
 export const App = () => {
     return (
@@ -64,6 +66,8 @@ export const App = () => {
                 </Route>
                 <Route path='/signin' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignIn />} />
+                    <Route path='restore-password' element={<RestorePassword />} />
+                    <Route path='new-password' element={<NewPassword />} />
                 </Route>
                 <Route path='/signup' element={<LayoutWithoutAvatar />}>
                     <Route index element={<SignUp />} />

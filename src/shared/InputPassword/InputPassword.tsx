@@ -1,7 +1,6 @@
 import cls from './InputPassword.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
-import { FieldError, FieldErrorsImpl, Merge, UseFormRegister } from 'react-hook-form';
-import { FormInputType } from '@/components/ParcelCreateForm/ParcelCreateForm.tsx';
+import { FieldError, FieldErrorsImpl, Merge, UseFormRegisterReturn } from 'react-hook-form';
 import { ReactElement, useRef, useState } from 'react';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
@@ -20,7 +19,7 @@ export type InputType = {
     icon?: ReactElement;
     placeholder: string;
     error: Merge<FieldError, FieldErrorsImpl<{ name: string }>> | undefined;
-    register: UseFormRegister<FormInputType>;
+    register: UseFormRegisterReturn;
 };
 
 export const InputPassword = (props: InputType) => {
@@ -28,7 +27,7 @@ export const InputPassword = (props: InputType) => {
     const [isOpenEye, setIsOpenEye] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const { ref, ...rest } = register(name);
+    const { ref, ...rest } = register;
 
     const handlePlaceholderClick = () => inputRef.current?.focus();
     const handlePasswordIconClick = () => setIsOpenEye((prevState) => !prevState);
@@ -43,7 +42,7 @@ export const InputPassword = (props: InputType) => {
             <input
                 id={name}
                 type={isOpenEye ? 'text' : 'password'}
-                {...register(name)}
+                {...register}
                 placeholder={icon ? '' : placeholder}
                 className={cls.input}
                 {...rest}
