@@ -11,10 +11,10 @@ export type ParcelManagerProps = {
 };
 export const ParcelManager = ({ text, icon, path }: ParcelManagerProps) => {
     return (
-        <Link to={path} state={{ tokenId: 1 }}>
+        <Link to={path} state={{ tokenId: 1 }} className={cls.link}>
             <button className={cls.container} type='button'>
                 <div className={cls.container_icon}>{icon}</div>
-                <Text size='body2_font_bold' color='primary'>
+                <Text size='body2_font_bold' color='primary' variant='left'>
                     {text}
                 </Text>
             </button>

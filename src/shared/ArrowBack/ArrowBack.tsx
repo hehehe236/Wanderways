@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import cls from './ArrowBack.module.css';
 import { Button } from '@/shared/Button/Button.tsx';
@@ -6,6 +7,7 @@ import { IconArrowLeft } from '@/shared/svg/IconArrowLeft.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 
 export const ArrowBack = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -18,7 +20,7 @@ export const ArrowBack = () => {
                 <IconArrowLeft />
             </div>
             <Text size='body2_font_bold' color='primary'>
-                Back
+                {t('btnBack')}
             </Text>
         </Button>
     );

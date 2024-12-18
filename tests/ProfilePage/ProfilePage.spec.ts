@@ -24,7 +24,7 @@ test.describe('Profile page', () => {
         await expect(profileListAttributeComponent).toBeVisible();
 
         const listItems = profileListAttributeComponent.locator('li');
-        expect(await listItems.count()).toBe(4);
+        expect(await listItems.count()).toBe(5);
 
         const btnSignOutComponent = page.getByTestId('btnSignOut');
         await expect(btnSignOutComponent).toBeVisible();

@@ -1,5 +1,7 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import { Loader } from '@/shared/Loader/Loader.tsx';
 
 import Layout from './components/Layout/Layout';
 import LayoutWithoutHeader from '@/components/LayoutWithoutAvatar/LayoutWithoutHeader.tsx';
@@ -40,49 +42,53 @@ const FeedbackConfirmation = lazy(
 );
 const RestorePassword = lazy(async () => await import('./pages/RestorePassword/RestorePassword'));
 const NewPassword = lazy(async () => await import('./pages/NewPassword/NewPassword'));
+const ProfileLanguage = lazy(async () => await import('./pages/ProfileLanguage/ProfileLanguage'));
 
 export const App = () => {
     return (
         <BrowserRouter basename='/'>
-            <Routes>
-                <Route path='/' element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path='parcel/:id' element={<Parcel />} />
-                    <Route path='ride/:id' element={<Ride />} />
-                    <Route path='parcel' element={<ParcelCreate />} />
-                    <Route path='ride' element={<RideCreate />} />
-                    <Route path='available-parcels' element={<AvailableParcels />} />
-                    <Route path='available-drivers' element={<AvailableDrivers />} />
-                    <Route path='ride/:id/requested' element={<RideParcelRequests />} />
-                </Route>
-                <Route path='profile' element={<LayoutWithoutAvatar />}>
-                    <Route index element={<Profile />} />
-                    <Route path='general' element={<ProfileGeneral />} />
-                    <Route path='email' element={<ProfileEmail />} />
-                    <Route path='vehicles' element={<MyVehicles />} />
-                    <Route path='new-vehicle' element={<ProfileVehicle />} />
-                    <Route path='password' element={<ProfilePassword />} />
-                    <Route path='signout' element={<SignOut />} />
-                </Route>
-                <Route path='/signin' element={<LayoutWithoutAvatar />}>
-                    <Route index element={<SignIn />} />
-                    <Route path='restore-password' element={<RestorePassword />} />
-                    <Route path='new-password' element={<NewPassword />} />
-                </Route>
-                <Route path='/signup' element={<LayoutWithoutAvatar />}>
-                    <Route index element={<SignUp />} />
-                    <Route path='about-yourself' element={<AboutYourself />} />
-                    <Route path='confirm-email' element={<ConfirmEmail />} />
-                </Route>
-                <Route path='/signup/verified-email' element={<LayoutWithoutHeader />}>
-                    <Route index element={<VerifiedEmail />} />
-                </Route>
-                <Route path='/confirm-delivery' element={<LayoutWithoutHeader />}>
-                    <Route index element={<ConfirmDelivery />} />
-                    <Route path='feedback' element={<SendFeedback />} />
-                    <Route path='feedback-confirmation' element={<FeedbackConfirmation />} />
-                </Route>
-            </Routes>
+            <Suspense fallback={<Loader />}>
+                <Routes>
+                    <Route path='/' element={<Layout />}>
+                        <Route index element={<Home />} />
+                        <Route path='parcel/:id' element={<Parcel />} />
+                        <Route path='ride/:id' element={<Ride />} />
+                        <Route path='parcel' element={<ParcelCreate />} />
+                        <Route path='ride' element={<RideCreate />} />
+                        <Route path='available-parcels' element={<AvailableParcels />} />
+                        <Route path='available-drivers' element={<AvailableDrivers />} />
+                        <Route path='ride/:id/requested' element={<RideParcelRequests />} />
+                    </Route>
+                    <Route path='profile' element={<LayoutWithoutAvatar />}>
+                        <Route index element={<Profile />} />
+                        <Route path='general' element={<ProfileGeneral />} />
+                        <Route path='email' element={<ProfileEmail />} />
+                        <Route path='vehicles' element={<MyVehicles />} />
+                        <Route path='new-vehicle' element={<ProfileVehicle />} />
+                        <Route path='password' element={<ProfilePassword />} />
+                        <Route path='signout' element={<SignOut />} />
+                        <Route path='language' element={<ProfileLanguage />} />
+                    </Route>
+                    <Route path='/signin' element={<LayoutWithoutAvatar />}>
+                        <Route index element={<SignIn />} />
+                        <Route path='restore-password' element={<RestorePassword />} />
+                        <Route path='new-password' element={<NewPassword />} />
+                    </Route>
+                    <Route path='/signup' element={<LayoutWithoutAvatar />}>
+                        <Route index element={<SignUp />} />
+                        <Route path='about-yourself' element={<AboutYourself />} />
+                        <Route path='confirm-email' element={<ConfirmEmail />} />
+                    </Route>
+                    <Route path='/signup/verified-email' element={<LayoutWithoutHeader />}>
+                        <Route index element={<VerifiedEmail />} />
+                    </Route>
+                    <Route path='/confirm-delivery' element={<LayoutWithoutHeader />}>
+                        <Route index element={<ConfirmDelivery />} />
+                        <Route path='feedback' element={<SendFeedback />} />
+                        <Route path='feedback-confirmation' element={<FeedbackConfirmation />} />
+                    </Route>
+                </Routes>
+            </Suspense>
         </BrowserRouter>
     );
 };

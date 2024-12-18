@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import cls from './Home.module.css';
 import { ParcelHandler } from '@/components/ParcelHandler/ParcelHandler.tsx';
@@ -13,6 +14,7 @@ import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 
 const Home = () => {
+    const { t } = useTranslation();
     const homeSwitcher = useSelector(selectHomeSwitcherValue);
     const dispatch = useAppDispatch();
     const handleClick = (homeSwitcherValue: HomeSwitcher) =>
@@ -22,8 +24,8 @@ const Home = () => {
         <main className={cls.container}>
             <ParcelHandler />
             <Switcher
-                leftTitle='Parcels'
-                rightTitle='Rides'
+                leftTitle={t('home.switcher.leftTitle')}
+                rightTitle={t('home.switcher.rightTitle')}
                 handleClick={handleClick}
                 switcherType={homeSwitcher}
             />

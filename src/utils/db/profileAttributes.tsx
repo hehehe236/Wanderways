@@ -3,6 +3,7 @@ import { IconEmail } from '@/shared/svg/IconEmail.tsx';
 import { IconPassword } from '@/shared/svg/IconPassword.tsx';
 import { IconCar } from '@/shared/svg/IconCar.tsx';
 import { ReactElement } from 'react';
+import { IconLang } from '@/shared/svg/IconLang.tsx';
 
 export type ProfileAttributes = {
     icon: ReactElement;
@@ -30,6 +31,11 @@ const profileAttributes: ProfileAttributes[] = [
         icon: <IconCar />,
         text: 'My vehicles',
         path: '/profile/vehicles',
+    },
+    {
+        icon: <IconLang />,
+        text: 'My language',
+        path: '/profile/language',
     },
 ];
 
