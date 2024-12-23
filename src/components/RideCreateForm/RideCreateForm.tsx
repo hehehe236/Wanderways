@@ -20,11 +20,10 @@ import { VehicleSelection } from '@/components/VehicleSelection/VehicleSelection
 import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
 import notification from '@/utils/NotificationManager.ts';
 import { ROUTES } from '@/utils/routes.ts';
-
-const ERROR_MESSAGE = 'Should choose a vehicle';
-const SUCCESS_MESSAGE = 'Ride successfully published';
+import { useTranslation } from 'react-i18next';
 
 export const RideCreateForm = () => {
+    const { t } = useTranslation();
     const {
         handleSubmit,
         control,
@@ -38,7 +37,7 @@ export const RideCreateForm = () => {
 
     const onSubmit: SubmitHandler<RideFormInputType> = async (data) => {
         if (!data.vehicleId) {
-            notification.showError(ERROR_MESSAGE);
+            notification.showError(t('rideCreate.messageError'));
             return;
         }
 
@@ -49,7 +48,7 @@ export const RideCreateForm = () => {
             arrivalDate: data.deliveryDate,
             vehicleId: data.vehicleId,
         });
-        notification.showSuccess(SUCCESS_MESSAGE);
+        notification.showSuccess(t('rideCreate.messageSuccess'));
         navigate(ROUTES.AVAILABLE_PARCELS.path, { state: response.data.rideId });
     };
 
@@ -71,8 +70,8 @@ export const RideCreateForm = () => {
                                             <Select
                                                 field={field}
                                                 options={deliveryAddress}
-                                                placeholder='Enter address'
-                                                label='Delivery from'
+                                                placeholder={t('rideCreate.placeholder')}
+                                                label={t('rideCreate.deliveryFromLabel')}
                                                 error={errors.deliveryAddress}
                                             />
                                         )}
@@ -86,8 +85,8 @@ export const RideCreateForm = () => {
                                             <Select
                                                 field={field}
                                                 options={shippingAddress}
-                                                placeholder='Enter address'
-                                                label='Shipping to'
+                                                placeholder={t('rideCreate.placeholder')}
+                                                label={t('rideCreate.shippingToLabel')}
                                                 error={errors.shippingAddress}
                                             />
                                         )}
@@ -109,7 +108,7 @@ export const RideCreateForm = () => {
             </BasisBlock>
             <div className={cls.choose_vehicle}>
                 <Text size='body1_font_bold' color='primary'>
-                    Choose vehicle
+                    {t('rideCreate.chooseVehicle')}
                 </Text>
                 <AddNew />
             </div>
@@ -122,7 +121,7 @@ export const RideCreateForm = () => {
                 className={cls.btn}
             >
                 <Text size='body2_font_bold' color='white'>
-                    Publish ride
+                    {t('rideCreate.btnSubmit')}
                 </Text>
             </Button>
         </form>

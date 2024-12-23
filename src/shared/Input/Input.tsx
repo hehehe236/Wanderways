@@ -7,6 +7,7 @@ import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInp
 import { useLocation } from 'react-router-dom';
 import { UserCredentialsFormType } from '@/shared/UserCredentialsForm/UserCredentialsForm.tsx';
 import { UserProfileFormType } from '@/shared/UserProfileForm/UserProfileForm.tsx';
+import { useTranslation } from 'react-i18next';
 
 export type InputType = {
     name:
@@ -25,6 +26,7 @@ export type InputType = {
 
 export const Input = (props: InputType) => {
     const { name, type, label, icon, placeholder, error, register } = props;
+    const { t } = useTranslation();
     const inputRef = useRef<HTMLInputElement>(null);
     const currentUrl = useLocation().pathname;
 
@@ -70,7 +72,7 @@ export const Input = (props: InputType) => {
             )}
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.message}
+                    {t(`messages.${error.message}`)}
                 </Text>
             )}
         </div>

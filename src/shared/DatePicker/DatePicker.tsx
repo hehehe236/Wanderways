@@ -9,6 +9,7 @@ import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { IconClock } from '@/shared/svg/IconClock.tsx';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
+import { useTranslation } from 'react-i18next';
 
 export type DatePickerProps = {
     error: Merge<FieldError, FieldErrorsImpl<{ deliveryDate: Date }>> | undefined;
@@ -18,6 +19,7 @@ export type DatePickerProps = {
 };
 
 export const DatePicker = ({ field, error }: DatePickerProps) => {
+    const { t } = useTranslation();
     const datePickerRef = useRef<DatePickerLib>(null);
 
     const handleClickPlaceholder = () => {
@@ -27,7 +29,7 @@ export const DatePicker = ({ field, error }: DatePickerProps) => {
     return (
         <div className={cls.datePickerWrapper}>
             <Text size='headline3_bold' color='primary' className={cls.label}>
-                Delivery time
+                {t('parcelCreate.timeLabel')}
             </Text>
             <DatePickerLib
                 showTimeSelect
@@ -42,12 +44,12 @@ export const DatePicker = ({ field, error }: DatePickerProps) => {
             />
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.message}
+                    {t(`messages.${error.message}`)}
                 </Text>
             )}
             {!field.value && (
                 <div className={cls.placeholder} onClick={handleClickPlaceholder}>
-                    <Placeholder icon={<IconClock />} text='From' />
+                    <Placeholder icon={<IconClock />} text={t('parcelCreate.timePlaceholder')} />
                 </div>
             )}
         </div>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import cls from './Phone.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { FormInputType } from '@/components/ParcelCreateForm/ParcelCreateForm.tsx';
+import { useTranslation } from 'react-i18next';
 
 const filteredCountries = defaultCountries.filter((country) => {
     const { iso2 } = parseCountry(country);
@@ -20,6 +21,7 @@ export type PhoneType = {
 
 export const Phone = (prop: PhoneType) => {
     const { field, error, label } = prop;
+    const { t } = useTranslation();
     const [phone, setPhone] = useState('');
 
     const handleChange = (phone: string) => {
@@ -42,7 +44,7 @@ export const Phone = (prop: PhoneType) => {
             </div>
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.message}
+                    {t(`messages.${error.message}`)}
                 </Text>
             )}
         </div>

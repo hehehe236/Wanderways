@@ -6,41 +6,40 @@ const isVehicleTypeExcluded = (vehicleType: string): boolean => {
 
 export const ValidateSchemaProfileVehicleForm = Yup.object().shape({
     vehicleType: Yup.object({
-        label: Yup.string().required('This field is required'),
-        value: Yup.string().required('This field is required'),
+        label: Yup.string().required('fieldRequired'),
+        value: Yup.string().required('fieldRequired'),
     }).required(),
     // TODO: change validate after select will be ready
     modelName: Yup.string()
         .trim()
-        .test('log-vehicle-type', 'This field is required', function (value) {
+        .test('log-vehicle-type', 'fieldRequired', function (value) {
             const { vehicleType } = this.parent;
 
             if (isVehicleTypeExcluded(vehicleType?.label)) return true;
 
             return Yup.string()
-                .min(3, 'Minimum 3 characters')
-                .max(50, 'Maximum 50 characters')
+                .min(3, 'minCharacters_3')
+                .max(50, 'maxCharacters_50')
                 .required()
                 .isValidSync(value);
         }),
-    modelType: Yup.object().test('log-vehicle-type', 'This field is required', function (value) {
+    modelType: Yup.object().test('log-vehicle-type', 'fieldRequired', function (value) {
         const { vehicleType } = this.parent;
 
         if (isVehicleTypeExcluded(vehicleType?.label)) return true;
 
-        if (value) return true;
-        return this.createError({ message: 'This field is required' });
+        return !!value;
     }),
     idNumber: Yup.string()
         .trim()
-        .test('log-vehicle-type', 'This field is required', function (value) {
+        .test('log-vehicle-type', 'fieldRequired', function (value) {
             const { vehicleType } = this.parent;
 
             if (isVehicleTypeExcluded(vehicleType?.label)) return true;
 
             return Yup.string()
-                .min(3, 'Minimum 3 characters')
-                .max(50, 'Maximum 50 characters')
+                .min(3, 'minCharacters_3')
+                .max(50, 'maxCharacters_50')
                 .required()
                 .isValidSync(value);
         }),

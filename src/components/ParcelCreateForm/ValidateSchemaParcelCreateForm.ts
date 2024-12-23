@@ -14,37 +14,37 @@ const isPhoneValid = (phone: string | undefined) => {
 
 export const ValidateSchemaParcelCreateForm = Yup.object().shape({
     selectType: Yup.object({
-        label: Yup.string().required('This field is required'),
-        value: Yup.string().required('This field is required'),
+        label: Yup.string().required('fieldRequired'),
+        value: Yup.string().required('fieldRequired'),
     }),
-    detailsParcel: Yup.string().trim().max(512, 'Maximum 512 characters'),
+    detailsParcel: Yup.string().trim().max(512, 'maxCharacters_512'),
     deliveryAddress: Yup.object({
-        label: Yup.string().required('This field is required'),
-        value: Yup.string().required('This field is required'),
+        label: Yup.string().required('fieldRequired'),
+        value: Yup.string().required('fieldRequired'),
     }),
     shippingAddress: Yup.object({
-        label: Yup.string().required('This field is required'),
-        value: Yup.string().required('This field is required'),
+        label: Yup.string().required('fieldRequired'),
+        value: Yup.string().required('fieldRequired'),
     }),
     recipientName: Yup.string()
         .trim()
-        .min(3, 'Minimum 3 characters')
-        .max(50, 'Maximum 50 characters')
-        .required('This field is required'),
+        .min(3, 'minCharacters_3')
+        .max(50, 'maxCharacters_50')
+        .required('fieldRequired'),
     recipientLastName: Yup.string()
         .trim()
-        .test('is-valid-min-length', 'Minimum 3 characters', function (value) {
+        .test('is-valid-min-length', 'minCharacters_3', function (value) {
             if (!value) return true;
             return value.length >= 3;
         })
-        .test('is-valid-max-length', 'Maximum 50 characters', function (value) {
+        .test('is-valid-max-length', 'maxCharacters_50', function (value) {
             if (!value) return true;
             return value.length <= 50;
         }),
-    recipientEmail: Yup.string().email('Invalid email'),
-    recipientPhone: Yup.string().test('is-valid-phone', 'Invalid format phone', (value) => {
+    recipientEmail: Yup.string().email('formatEmail'),
+    recipientPhone: Yup.string().test('is-valid-phone', 'formatPhone', (value) => {
         if (value === '+380') return true;
         return isPhoneValid(value);
     }),
-    deliveryDate: Yup.date().required('This field is required'),
+    deliveryDate: Yup.date().required('fieldRequired'),
 });

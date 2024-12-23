@@ -28,10 +28,10 @@ import { DatePicker } from '@/shared/DatePicker/DatePicker.tsx';
 import notification from '@/utils/NotificationManager.ts';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 import { ROUTES } from '@/utils/routes.ts';
-
-const ERROR_MESSAGE = 'Should choose a phone or email';
+import { useTranslation } from 'react-i18next';
 
 export const ParcelCreateForm = () => {
+    const { t } = useTranslation();
     const [isOpenModal, setIsOpenModal] = useState(false);
     const {
         register,
@@ -48,7 +48,7 @@ export const ParcelCreateForm = () => {
 
     const onSubmit: SubmitHandler<ParcelFormInputType> = async (data) => {
         if (data.recipientPhone === '+380' && !data.recipientEmail) {
-            notification.showError(ERROR_MESSAGE);
+            notification.showError(t('parcelCreate.messageError'));
             return;
         }
 
@@ -91,10 +91,10 @@ export const ParcelCreateForm = () => {
                                                 placeholder={
                                                     <Placeholder
                                                         icon={<IconSelectType />}
-                                                        text='Select type'
+                                                        text={t('parcelCreate.typePlaceholder')}
                                                     />
                                                 }
-                                                label='Parcel type'
+                                                label={t('parcelCreate.typeLabel')}
                                                 error={errors.selectType}
                                             />
                                         )}
@@ -104,8 +104,8 @@ export const ParcelCreateForm = () => {
                                     <TextArea
                                         id='detailsParcel'
                                         register={register('detailsParcel')}
-                                        label='Details'
-                                        placeholder='Anything driver should know about...'
+                                        label={t('parcelCreate.detailsLabel')}
+                                        placeholder={t('parcelCreate.detailsPlaceholder')}
                                         error={errors.detailsParcel}
                                     />
                                 </li>
@@ -134,8 +134,10 @@ export const ParcelCreateForm = () => {
                                                 <Select
                                                     field={field}
                                                     options={deliveryAddress}
-                                                    placeholder='Enter address'
-                                                    label='Delivery from'
+                                                    placeholder={t(
+                                                        'parcelCreate.deliveryShippingPlaceholder'
+                                                    )}
+                                                    label={t('parcelCreate.deliveryFromLabel')}
                                                     error={errors.deliveryAddress}
                                                 />
                                             )}
@@ -149,8 +151,10 @@ export const ParcelCreateForm = () => {
                                                 <Select
                                                     field={field}
                                                     options={shippingAddress}
-                                                    placeholder='Enter address'
-                                                    label='Shipping to'
+                                                    placeholder={t(
+                                                        'parcelCreate.deliveryShippingPlaceholder'
+                                                    )}
+                                                    label={t('parcelCreate.shippingToLabel')}
                                                     error={errors.shippingAddress}
                                                 />
                                             )}
@@ -167,9 +171,9 @@ export const ParcelCreateForm = () => {
                                     <Input
                                         name='recipientName'
                                         type='text'
-                                        label='Recipient name'
+                                        label={t('parcelCreate.recipientNameLabel')}
                                         icon={<IconProfile />}
-                                        placeholder='Name'
+                                        placeholder={t('parcelCreate.recipientNamePlaceholder')}
                                         error={errors.recipientName}
                                         register={register('recipientName')}
                                     />
@@ -178,9 +182,9 @@ export const ParcelCreateForm = () => {
                                     <Input
                                         name='recipientLastName'
                                         type='text'
-                                        label='Recipient surname'
+                                        label={t('parcelCreate.recipientSurnameLabel')}
                                         icon={<IconProfile />}
-                                        placeholder='Surname'
+                                        placeholder={t('parcelCreate.recipientSurnamePlaceholder')}
                                         error={errors.recipientLastName}
                                         register={register('recipientLastName')}
                                     />
@@ -194,7 +198,7 @@ export const ParcelCreateForm = () => {
                                                 <Phone
                                                     field={field}
                                                     error={errors.recipientPhone}
-                                                    label='Recipient phone'
+                                                    label={t('parcelCreate.recipientPhoneLabel')}
                                                 />
                                             )}
                                         />
@@ -204,9 +208,9 @@ export const ParcelCreateForm = () => {
                                     <Input
                                         name='recipientEmail'
                                         type='email'
-                                        label='Recipient email'
+                                        label={t('parcelCreate.recipientEmailLabel')}
                                         icon={<IconEmail />}
-                                        placeholder='Enter email'
+                                        placeholder={t('parcelCreate.recipientEmailPlaceholder')}
                                         error={errors.recipientEmail}
                                         register={register('recipientEmail')}
                                     />
@@ -223,7 +227,7 @@ export const ParcelCreateForm = () => {
                     className={cls.btn}
                 >
                     <Text size='body2_font_bold' color='white'>
-                        Create parcel
+                        {t('parcelCreate.btnSubmit')}
                     </Text>
                 </Button>
             </form>

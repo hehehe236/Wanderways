@@ -6,6 +6,7 @@ on:
       - 'feature/**'
       - 'bugfix/**'
       - 'refactoring/**'
+      - 'international/**'
       - main
       - 'release/**'
 

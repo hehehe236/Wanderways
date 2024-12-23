@@ -2,6 +2,7 @@ import { FieldError, FieldErrorsImpl, Merge, UseFormRegisterReturn } from 'react
 
 import cls from './TextArea.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
+import { useTranslation } from 'react-i18next';
 
 export type TextAreaType = {
     id: string;
@@ -12,6 +13,7 @@ export type TextAreaType = {
 };
 
 export const TextArea = (props: TextAreaType) => {
+    const { t } = useTranslation();
     const { id, label, placeholder, error, register } = props;
 
     return (
@@ -30,7 +32,7 @@ export const TextArea = (props: TextAreaType) => {
             />
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.message}
+                    {t(`messages.${error.message}`)}
                 </Text>
             )}
         </>

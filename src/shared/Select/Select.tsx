@@ -10,6 +10,7 @@ import {
 } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 import { RideFormInputType } from '@/components/RideCreateForm/RideFormInputType.ts';
 import { ProfileVehicleFormType } from '@/components/ProfileVehicleForm/ProfileVehicleType.ts';
+import { useTranslation } from 'react-i18next';
 
 export type SelectType = {
     options: OptionSelectType[];
@@ -26,6 +27,7 @@ export type SelectType = {
 };
 
 export const Select = (props: SelectType) => {
+    const { t } = useTranslation();
     const { options, placeholder, label, error, field } = props;
     return (
         <>
@@ -45,7 +47,9 @@ export const Select = (props: SelectType) => {
             />
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.value?.message || error.message}
+                    {error.value
+                        ? t(`messages.${error.value?.message}`)
+                        : t(`messages.${error.message}`)}
                 </Text>
             )}
         </>
