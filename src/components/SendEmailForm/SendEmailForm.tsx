@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
 
 import cls from './SendEmailForm.module.css';
 import { Button } from '@/shared/Button/Button.tsx';
@@ -14,6 +15,7 @@ export type SendFeedbackFormType = {
 };
 
 export const SendEmailForm = ({ onSubmit }: { onSubmit: () => void }) => {
+    const { t } = useTranslation();
     const {
         register,
         handleSubmit,
@@ -24,7 +26,7 @@ export const SendEmailForm = ({ onSubmit }: { onSubmit: () => void }) => {
     });
 
     const onSubmitForm: SubmitHandler<SendFeedbackFormType> = () => {
-        notification.showSuccess('The link for resetting the password was sent successfully');
+        notification.showSuccess(t('restorePassword.messageSuccess'));
         onSubmit();
     };
 
@@ -37,9 +39,9 @@ export const SendEmailForm = ({ onSubmit }: { onSubmit: () => void }) => {
             <Input
                 name='email'
                 type='email'
-                label='Email'
+                label={t('restorePassword.label')}
                 icon={<IconEmail />}
-                placeholder='Email'
+                placeholder={t('restorePassword.placeholder')}
                 error={errors.email}
                 register={register('email')}
             />
@@ -52,7 +54,7 @@ export const SendEmailForm = ({ onSubmit }: { onSubmit: () => void }) => {
                 className={cls.btn}
             >
                 <Text size='body2_font_bold' color='white'>
-                    Send email
+                    {t('restorePassword.btnSubmit')}
                 </Text>
             </Button>
         </form>

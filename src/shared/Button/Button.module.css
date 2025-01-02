@@ -53,6 +53,11 @@
     width: 160px;
 }
 
+.request_size {
+    width: 98px;
+    height: 40px;
+}
+
 .background_secondary {
     background-color: var(--secondary);
 }

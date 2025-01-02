@@ -9,6 +9,7 @@ export const buttonVariants = cva(cls.button, {
             tab: cls.tab_size,
             submit: cls.submit_size,
             confirm: cls.confirm_size,
+            request: cls.request_size,
         },
         variant: {
             icon: cls.icon,

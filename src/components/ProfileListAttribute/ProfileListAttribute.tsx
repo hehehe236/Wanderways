@@ -1,9 +1,13 @@
+import { useState } from 'react';
+
 import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
-import profileAttributes from '@/utils/db/profileAttributes.tsx';
 import { ProfileAttribute } from '@/shared/ProfileAttribute/ProfileAttribute.tsx';
 import cls from './ProfileListAttribute.module.css';
+import { getProfileAttributes } from '@/utils/db/profileAttributes.tsx';
 
 export const ProfileListAttribute = () => {
+    const [profileAttributes] = useState(getProfileAttributes());
+
     return (
         <BasisBlock>
             <ul data-testid='profileAttributes'>

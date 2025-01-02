@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import cls from './AvailableParcelCard.module.css';
 import { IconParcelFilled } from '@/shared/svg/IconParcelFilled.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
@@ -9,6 +11,8 @@ import { AvailableParcelRouteDetails } from '@/components/AvailableParcelRouteDe
 export const AvailableParcelCard = ({ parcel }: { parcel: Partial<Parcel> }) => {
     const { arrivalAddress, arrivalDate, departureAddress, departureDate, type, details, cost } =
         parcel;
+
+    const { t } = useTranslation();
 
     return (
         <ul className={cls.container}>
@@ -40,12 +44,12 @@ export const AvailableParcelCard = ({ parcel }: { parcel: Partial<Parcel> }) => 
                         </Text>
                     </div>
                     <Text size='body4_font_bold' color='secondary'>
-                        Price
+                        {t('availableParcels.price')}
                     </Text>
                 </div>
-                <Button variant='submit' background='primary'>
+                <Button size='request' background='primary'>
                     <Text size='body2_font_bold' color='white'>
-                        Request
+                        {t('availableParcels.btnRequest')}
                     </Text>
                 </Button>
             </li>

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/shared/Text/Text.tsx';
 import { Parcel } from '@/store/features/parcel/types.ts';
@@ -8,10 +9,10 @@ import { selectParcelById } from '@/store/features/parcel/parcelSlice.ts';
 import cls from './ParcelDetailsDescription.module.css';
 import useElementWidth from '@/hooks/useElementWidth.ts';
 
-const MESSAGE_DESCRIPTION_MISSING = 'No description available';
 const MAX_COLLAPSED_HEIGHT = 34;
 
 export const ParcelDetailsDescription = () => {
+    const { t } = useTranslation();
     const [isExpanded, setIsExpanded] = useState(false);
     const [isShowMore, setIsShowMore] = useState(false);
     const { state: parcelId } = useLocation();
@@ -37,7 +38,7 @@ export const ParcelDetailsDescription = () => {
     return (
         <div ref={elementRef}>
             <Text size='headline2_bold' color='primary'>
-                Details
+                {t('parcel.details')}
             </Text>
             <div className={cls.wrap_text} ref={containerTextRef}>
                 <Text
@@ -45,16 +46,16 @@ export const ParcelDetailsDescription = () => {
                     color='secondary'
                     className={isExpanded ? cls.expanded : isShowMore ? cls.text : cls.expanded}
                 >
-                    {parcel.details || MESSAGE_DESCRIPTION_MISSING}
+                    {parcel.details || t('parcel.messageDescriptionMissing')}
                 </Text>
                 {!isExpanded && parcel.details && isShowMore && (
                     <button onClick={handleToggle} className={cls.moreButton}>
-                        <Text size='headline2_bold'>More</Text>
+                        <Text size='headline2_bold'>{t('parcel.more')}</Text>
                     </button>
                 )}
                 {isExpanded && (
                     <button onClick={handleToggle} className={cls.moreButton}>
-                        <Text size='headline2_bold'>Less</Text>
+                        <Text size='headline2_bold'>{t('parcel.less')}</Text>
                     </button>
                 )}
             </div>

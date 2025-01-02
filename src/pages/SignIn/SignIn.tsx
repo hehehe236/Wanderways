@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import cls from './SignIn.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
@@ -9,6 +10,7 @@ import { SocialAuthIcons } from '@/shared/SocialAuthIcons/SocialAuthIcons.tsx';
 import { ROUTES } from '@/utils/routes.ts';
 
 const SignIn = () => {
+    const { t } = useTranslation();
     const [signIn, { isLoading }] = useSigninMutation();
     return (
         <main className={cls.container}>
@@ -27,14 +29,14 @@ const SignIn = () => {
                 className={cls.title}
                 data-testid='title'
             >
-                Sign In to your account
+                {t('signIn.title')}
             </Text>
             <UserCredentialsForm
                 handleUserAction={signIn}
                 isLoading={isLoading}
-                messageSuccess='SignIn is successful'
-                messageError='SignIn error'
-                btnText='Sign in'
+                messageSuccess={t('signIn.messageSuccess')}
+                messageError={t('signIn.messageError')}
+                btnText={t('signIn.btnSubmit')}
                 additionNode={
                     <Link to={ROUTES.RESTORE_PASSWORD.path}>
                         <Text
@@ -43,7 +45,7 @@ const SignIn = () => {
                             variant='right'
                             className={cls.restorePassword}
                         >
-                            Restore password
+                            {t('signIn.conditions')}
                         </Text>
                     </Link>
                 }
@@ -51,11 +53,11 @@ const SignIn = () => {
             <SocialAuthIcons />
             <div className={cls.block_text}>
                 <Text size='body3_font_bold' color='secondary' data-testid='text'>
-                    Don’t have an account?
+                    {t('signIn.subtitle')}
                 </Text>
                 <Link to={ROUTES.SIGNUP.path} data-testid='linkRedirect'>
                     <Text size='body2_font_bold' color='blue'>
-                        Sign Up
+                        {t('signIn.link')}
                     </Text>
                 </Link>
             </div>

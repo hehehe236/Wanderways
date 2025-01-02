@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export type HomeSwitcher = 'Parcels' | 'Rides';
-export type RideSwitcher = 'From Senders' | 'My Requests';
+export type HomeSwitcher = 'Parcels' | 'Rides' | 'Посилки' | 'Поїздки';
+export type RideSwitcher = 'From Senders' | 'My Requests' | 'Від відправників' | 'Мої запити';
 
 export type InitialStateOption = {
     homeSwitcher: HomeSwitcher;

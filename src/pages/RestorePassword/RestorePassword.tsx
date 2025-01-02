@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
 import cls from './RestorePassword.module.css';
@@ -8,6 +9,7 @@ import { IconLockBig } from '@/shared/svg/IconLockBig.tsx';
 import { SendEmailForm } from '@/components/SendEmailForm/SendEmailForm.tsx';
 
 const RestorePassword = () => {
+    const { t } = useTranslation();
     const [countdown, setCountdown] = useState<number>(0);
     const [isCounting, setIsCounting] = useState<boolean>(true);
 
@@ -37,7 +39,7 @@ const RestorePassword = () => {
         <main className={cls.container}>
             <ArrowBack />
             <div className={cls.container_icon}>
-                <IconTitlePageBlock icon={<IconLockBig />} title='Restore password' />
+                <IconTitlePageBlock icon={<IconLockBig />} title={t('restorePassword.title')} />
             </div>
             <Text
                 size='body3_font_bold'
@@ -46,19 +48,21 @@ const RestorePassword = () => {
                 variant='center'
                 data-testid='subtitle'
             >
-                Enter an email associated with your account to get a link to reset your password
+                {t('restorePassword.subtitle')}
             </Text>
             <SendEmailForm onSubmit={handleFormSubmit} />
             <div className={cls.block_text} data-testid='additionalText'>
                 <Text size='body3_font_bold' color='secondary' data-testid='text'>
-                    Didn’t receive an email?
+                    {t('restorePassword.receivedEmail')}
                 </Text>
                 <Text
                     size='body2_font_bold'
                     color={isCounting ? 'secondary' : 'blue'}
                     data-testid='textResend'
                 >
-                    {isCounting ? `Resend (${countdown})` : 'Resend'}
+                    {isCounting
+                        ? `${t('restorePassword.btnResend')} (${countdown})`
+                        : `${t('restorePassword.btnResend')}`}
                 </Text>
             </div>
         </main>

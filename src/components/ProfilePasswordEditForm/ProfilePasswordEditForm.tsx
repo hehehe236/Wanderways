@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
 
 import { InputPassword } from '@/shared/InputPassword/InputPassword.tsx';
 import cls from '@/components/ProfilePasswordEditForm/ProfilePasswordEditForm.module.css';
@@ -16,6 +17,7 @@ export type ProfilePasswordEditFormType = {
 };
 
 export const ProfilePasswordEditForm = () => {
+    const { t } = useTranslation();
     const {
         register,
         handleSubmit,
@@ -44,8 +46,8 @@ export const ProfilePasswordEditForm = () => {
                 <li data-testid='currentPassword'>
                     <InputPassword
                         name='currentPassword'
-                        label='Current password'
-                        placeholder='Current password'
+                        label={t('profilePassword.currentPassword')}
+                        placeholder={t('profilePassword.currentPassword')}
                         error={errors.currentPassword}
                         register={register('currentPassword')}
                     />
@@ -53,8 +55,8 @@ export const ProfilePasswordEditForm = () => {
                 <li data-testid='newPassword'>
                     <InputPassword
                         name='newPassword'
-                        label='New password'
-                        placeholder='New password'
+                        label={t('profilePassword.newPassword')}
+                        placeholder={t('profilePassword.newPassword')}
                         error={errors.newPassword}
                         register={register('newPassword')}
                     />
@@ -62,8 +64,8 @@ export const ProfilePasswordEditForm = () => {
                 <li data-testid='confirmNewPassword'>
                     <InputPassword
                         name='confirmNewPassword'
-                        label='Confirm new password'
-                        placeholder='Confirm new password'
+                        label={t('profilePassword.confirmPassword')}
+                        placeholder={t('profilePassword.confirmPassword')}
                         error={errors.confirmNewPassword}
                         register={register('confirmNewPassword')}
                     />
@@ -77,7 +79,7 @@ export const ProfilePasswordEditForm = () => {
                 className={cls.btn}
             >
                 <Text size='body2_font_bold' color='white'>
-                    Save changes
+                    {t('btnSubmit')}
                 </Text>
             </Button>
         </form>

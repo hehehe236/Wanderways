@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import cls from '@/pages/AvailableDrivers/AvailableDrivers.module.css';
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
@@ -11,6 +12,7 @@ import { AvailableParcelCard } from '@/components/AvailableParcelCard/AvailableP
 import { Parcel } from '@/components/AvailableParcelCard/types.ts';
 
 const AvailableParcels = () => {
+    const { t } = useTranslation();
     const { state: rideId } = useLocation();
     const { data: availableParcels, isLoading } = useGetAvailableParcelsQuery({});
 
@@ -21,7 +23,7 @@ const AvailableParcels = () => {
             <ArrowBack />
             <AvailableDriversCount
                 countDrivers={availableParcels.length}
-                title='Available parcels'
+                title={t('availableParcels.title')}
             />
             <AvailableDriversRoute parcelId={0} rideId={rideId} />
             <ul className={cls.container_list} data-testid='availableParcelsList'>

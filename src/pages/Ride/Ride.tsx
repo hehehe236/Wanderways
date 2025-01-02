@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import cls from '@/pages/Ride/Ride.module.css';
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
@@ -20,6 +21,7 @@ import { ParcelStatus } from '@/utils/ParcelStatus.ts';
 import { RideRequests } from '@/components/RideRequests/RideRequests.tsx';
 
 const Ride = () => {
+    const { t } = useTranslation();
     const parcelStatusNew: ParcelStatus = 'New';
     const { id } = useParams();
     const { isLoading: isLoadingGeneralInfo } = useGetRideByIdQuery(id, { skip: !id });
@@ -72,7 +74,7 @@ const Ride = () => {
                 {ride.acceptedParcelList?.length !== 0 && (
                     <li>
                         <Text size='headline1_bold' variant='left' color='primary'>
-                            Accepted parcels
+                            {t('ride.acceptedParcels')}
                         </Text>
                     </li>
                 )}

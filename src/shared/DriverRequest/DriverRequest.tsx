@@ -5,8 +5,10 @@ import cls from './DriverRequest.module.css';
 import { AddressDelivery } from '@/shared/AddressDelivery/AddressDelivery.tsx';
 import { Button } from '@/shared/Button/Button.tsx';
 import { IconClose } from '@/shared/svg/IconClose.tsx';
+import { useTranslation } from 'react-i18next';
 
 export const DriverRequest = (props: ParcelRequestDriver) => {
+    const { t } = useTranslation();
     const { name, lastName, departureAddress, arrivalAddress } = props;
 
     return (
@@ -38,7 +40,7 @@ export const DriverRequest = (props: ParcelRequestDriver) => {
                 </Button>
                 <Button background='secondary' className={cls.btn_approve}>
                     <Text size='body2_font_bold' variant='center' color='blue'>
-                        Approve
+                        {t('parcel.btnApprove')}
                     </Text>
                 </Button>
             </div>

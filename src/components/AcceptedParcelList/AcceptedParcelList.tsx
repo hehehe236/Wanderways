@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 import cls from './AcceptedParcelList.module.css';
-import { useLocation } from 'react-router-dom';
 import { Ride } from '@/store/features/ride/types.ts';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import { ParcelCard } from '@/shared/ParcelCard/ParcelCard.tsx';
@@ -10,6 +11,7 @@ import { Text } from '@/shared/Text/Text.tsx';
 import notification from '@/utils/NotificationManager.ts';
 
 export const AcceptedParcelList = () => {
+    const { t } = useTranslation();
     const { state: rideId } = useLocation();
     const ride: Ride | undefined = useSelector((state: { ride: Ride[] }) =>
         selectRideById(state, rideId)
@@ -54,7 +56,7 @@ export const AcceptedParcelList = () => {
                                         onClick={handleClickConfirmDelivery}
                                     >
                                         <Text size='body2_font_bold' color='white'>
-                                            Confirm delivery
+                                            {t('ride.btnConfirmDelivery')}
                                         </Text>
                                     </Button>
                                 }

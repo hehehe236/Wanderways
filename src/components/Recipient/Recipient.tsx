@@ -7,8 +7,10 @@ import { IconArrow2Down } from '@/shared/svg/IconArrow2Down.tsx';
 import { IconArrow2Right } from '@/shared/svg/IconArrow2Right.tsx';
 import { ContactInfo } from '@/shared/ContactInfo/ContactInfo.tsx';
 import { Recipient as RecipientType } from '@/store/features/ride/types.ts';
+import { useTranslation } from 'react-i18next';
 
 export const Recipient = (props: RecipientType) => {
+    const { t } = useTranslation();
     const { name, lastName, phoneNumber } = props;
     const [isOpenRecipient, setIsOpenRecipient] = useState(false);
 
@@ -22,7 +24,7 @@ export const Recipient = (props: RecipientType) => {
                 data-testid='recipient'
             >
                 <Text size='headline2_bold' color='primary'>
-                    Recipient
+                    {t('parcel.recipient')}
                 </Text>
                 <Button type='button' variant='icon' className={cls.button}>
                     {isOpenRecipient ? <IconArrow2Down /> : <IconArrow2Right />}

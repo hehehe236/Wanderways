@@ -8,8 +8,10 @@ import { Button } from '@/shared/Button/Button.tsx';
 import { useLocation } from 'react-router-dom';
 import { Parcel } from '@/store/features/parcel/types.ts';
 import { selectParcelById } from '@/store/features/parcel/parcelSlice.ts';
+import { useTranslation } from 'react-i18next';
 
 export const Carrier = () => {
+    const { t } = useTranslation();
     const { state: parcelId } = useLocation();
     const parcel: Parcel | undefined = useSelector((state: { parcel: Parcel[] }) =>
         selectParcelById(state, parcelId)
@@ -27,7 +29,7 @@ export const Carrier = () => {
                     {`${parcel.driver?.name} ${parcel.driver?.lastName}`}
                 </Text>
                 <div>
-                    <span className={cls.phone}>Driver | </span>
+                    <span className={cls.phone}>{t('parcel.driver')} | </span>
                     <span className={cls.phone}>{parcel.driver?.phoneNumber}</span>
                 </div>
             </div>

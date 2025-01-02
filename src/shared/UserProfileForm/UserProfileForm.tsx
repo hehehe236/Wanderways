@@ -2,6 +2,8 @@ import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import cls from './UserProfileForm.module.css';
 import { Input } from '@/shared/Input/Input.tsx';
@@ -14,7 +16,6 @@ import { IconProfile } from '@/shared/svg/IconProfile.tsx';
 import { Phone } from '@/shared/Phone/Phone.tsx';
 import { AddYourCar } from '@/components/AddYourCar/AddYourCar.tsx';
 import { InputCheckBox } from '@/shared/InputCheckBox/InputCheckBox.tsx';
-import { useSelector } from 'react-redux';
 import { selectProfileGeneral } from '@/store/features/profile/profileSlice.ts';
 
 export type UserProfileFormProps = {
@@ -38,6 +39,7 @@ export type UserProfileFormType = {
 
 export const UserProfileForm = (props: UserProfileFormProps) => {
     const { handleUserAction, isLoading, messageSuccess, messageError, btnText } = props;
+    const { t } = useTranslation();
     const { name, surname, phone } = useSelector(selectProfileGeneral);
 
     const {
@@ -81,8 +83,8 @@ export const UserProfileForm = (props: UserProfileFormProps) => {
                         <Input
                             name='name'
                             type='text'
-                            label='Name'
-                            placeholder='Enter name'
+                            label={t('userProfileForm.nameLabel')}
+                            placeholder={t('userProfileForm.namePlaceholder')}
                             icon={<IconProfile />}
                             error={errors.name}
                             register={register('name')}
@@ -92,8 +94,8 @@ export const UserProfileForm = (props: UserProfileFormProps) => {
                         <Input
                             name='surname'
                             type='text'
-                            label='Surname'
-                            placeholder='Enter surname'
+                            label={t('userProfileForm.surnameLabel')}
+                            placeholder={t('userProfileForm.surnamePlaceholder')}
                             icon={<IconProfile />}
                             error={errors.surname}
                             register={register('surname')}
@@ -108,14 +110,14 @@ export const UserProfileForm = (props: UserProfileFormProps) => {
                                     <Phone
                                         field={field}
                                         error={errors.phone}
-                                        label='Phone number'
+                                        label={t('userProfileForm.phoneLabel')}
                                     />
                                 )}
                             />
                         </div>
                     </li>
                     <li>
-                        <InputCheckBox register={register} text='Want to be a driver?' />
+                        <InputCheckBox register={register} text={t('checkbox.label')} />
                     </li>
                 </ul>
                 {selectedWantToBeDriver && <AddYourCar />}

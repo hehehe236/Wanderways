@@ -1,5 +1,6 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import cls from '@/pages/Parcel/Parcel.module.css';
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
@@ -20,6 +21,7 @@ import { ParcelStatus } from '@/utils/ParcelStatus.ts';
 import { ParcelRequests } from '@/components/ParcelRequests/ParcelRequests.tsx';
 
 const Parcel = () => {
+    const { t } = useTranslation();
     const parcelStatusNew: ParcelStatus = 'New';
     const { id } = useParams();
     const { state: parcelId } = useLocation();
@@ -55,7 +57,7 @@ const Parcel = () => {
                                 <div className={cls.text_btn}>
                                     <IconFindDriver />
                                     <Text size='body2_font_bold' color='white'>
-                                        Find driver
+                                        {t('parcel.btnFindDriver')}
                                     </Text>
                                 </div>
                             </Button>

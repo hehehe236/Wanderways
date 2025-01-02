@@ -29,7 +29,7 @@ const Home = () => {
                 handleClick={handleClick}
                 switcherType={homeSwitcher}
             />
-            {homeSwitcher === 'Parcels' ? <ParcelList /> : <RideList />}
+            {homeSwitcher === t('home.switcher.leftTitle') ? <ParcelList /> : <RideList />}
         </main>
     );
 };

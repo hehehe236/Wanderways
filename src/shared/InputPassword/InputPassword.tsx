@@ -1,7 +1,9 @@
+import { ReactElement, useRef, useState } from 'react';
+import { FieldError, FieldErrorsImpl, Merge, UseFormRegisterReturn } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+
 import cls from './InputPassword.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
-import { FieldError, FieldErrorsImpl, Merge, UseFormRegisterReturn } from 'react-hook-form';
-import { ReactElement, useRef, useState } from 'react';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { ParcelFormInputType } from '@/components/ParcelCreateForm/ParcelFormInputType.ts';
 import { Button } from '@/shared/Button/Button.tsx';
@@ -24,6 +26,7 @@ export type InputType = {
 
 export const InputPassword = (props: InputType) => {
     const { name, label, icon, placeholder, error, register } = props;
+    const { t } = useTranslation();
     const [isOpenEye, setIsOpenEye] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -73,7 +76,7 @@ export const InputPassword = (props: InputType) => {
             </Button>
             {error && (
                 <Text size='body4_font_bold' color='red' className={cls.error}>
-                    {error.message}
+                    {t(`messages.${error.message}`)}
                 </Text>
             )}
         </div>

@@ -1,10 +1,12 @@
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from 'react';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 import { ProfileVehicleFormType } from './ProfileVehicleType.ts';
 import { Select } from '@/shared/Select/Select.tsx';
-import { vehicleType } from '@/utils/db/vehicleType.ts';
+import { vehicleTypeEn, vehicleTypeUk } from '@/utils/db/vehicleType.ts';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { IconCar } from '@/shared/svg/IconCar.tsx';
 import cls from './ProfileVehicleForm.module.css';
@@ -12,13 +14,15 @@ import { ValidateSchemaProfileVehicleForm } from './ValidateSchemaProfileVehicle
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Input } from '@/shared/Input/Input.tsx';
-import { modelType } from '@/utils/db/modelType.ts';
+import { modelTypeEn, modelTypeUk } from '@/utils/db/modelType.ts';
 import { IconPlate } from '@/shared/svg/IconPlate.tsx';
 import { useCreateVehicleMutation } from '@/store/services/vehicleService.ts';
 import { Loader } from '@/shared/Loader/Loader.tsx';
 import notification from '@/utils/NotificationManager.ts';
 
 export const ProfileVehicleForm = () => {
+    const { t } = useTranslation();
+    const lang: string = i18next.language;
     const {
         register,
         handleSubmit,
@@ -35,10 +39,7 @@ export const ProfileVehicleForm = () => {
     const selectedVehicleType = watch('vehicleType');
 
     useEffect(() => {
-        if (
-            selectedVehicleType?.label === 'Electric scooter' ||
-            selectedVehicleType?.label === 'Bicycle'
-        )
+        if (selectedVehicleType?.value === '3' || selectedVehicleType?.value === '4')
             setIsVisibleInput(false);
         else setIsVisibleInput(true);
     }, [selectedVehicleType]);
@@ -54,7 +55,9 @@ export const ProfileVehicleForm = () => {
             ModelType: data.modelType?.label || '',
         });
         if (response.data)
-            notification.showSuccess(`${data.vehicleType.label} create successfully`);
+            notification.showSuccess(
+                `${data.vehicleType.label} ${t('profileVehicle.messageSuccess')}`
+            );
     };
 
     if (isLoading) return <Loader />;
@@ -69,14 +72,14 @@ export const ProfileVehicleForm = () => {
                         render={({ field }) => (
                             <Select
                                 field={field}
-                                options={vehicleType}
+                                options={lang === 'en' ? vehicleTypeEn : vehicleTypeUk}
                                 placeholder={
                                     <Placeholder
                                         icon={<IconCar addStyle={cls.icon} />}
-                                        text='Select vehicle type'
+                                        text={t('profileVehicle.placeholderVehicle')}
                                     />
                                 }
-                                label='Vehicle type'
+                                label={t('profileVehicle.labelVehicle')}
                                 error={errors.vehicleType}
                             />
                         )}
@@ -87,8 +90,8 @@ export const ProfileVehicleForm = () => {
                         <Input
                             name='modelName'
                             type='text'
-                            label='Model name'
-                            placeholder='Enter model name'
+                            label={t('profileVehicle.labelModelName')}
+                            placeholder={t('profileVehicle.placeholderModelName')}
                             icon={<IconCar addStyle={cls.icon} />}
                             error={errors.modelName}
                             register={register('modelName')}
@@ -103,14 +106,14 @@ export const ProfileVehicleForm = () => {
                             render={({ field }) => (
                                 <Select
                                     field={field}
-                                    options={modelType}
+                                    options={lang === 'en' ? modelTypeEn : modelTypeUk}
                                     placeholder={
                                         <Placeholder
                                             icon={<IconCar addStyle={cls.icon} />}
-                                            text='Select model type'
+                                            text={t('profileVehicle.placeholderModel')}
                                         />
                                     }
-                                    label='Model type'
+                                    label={t('profileVehicle.labelModel')}
                                     error={errors.modelType}
                                 />
                             )}
@@ -122,8 +125,8 @@ export const ProfileVehicleForm = () => {
                         <Input
                             name='idNumber'
                             type='text'
-                            label='ID number'
-                            placeholder='Wilson'
+                            label={t('profileVehicle.labelIdNumber')}
+                            placeholder={t('profileVehicle.placeholderIdNumber')}
                             icon={<IconPlate addStyle={cls.icon} />}
                             error={errors.idNumber}
                             register={register('idNumber')}
@@ -139,7 +142,7 @@ export const ProfileVehicleForm = () => {
                 className={cls.btn}
             >
                 <Text size='body2_font_bold' color='white'>
-                    Add Vehicle
+                    {t('profileVehicle.btnAddVehicle')}
                 </Text>
             </Button>
         </form>

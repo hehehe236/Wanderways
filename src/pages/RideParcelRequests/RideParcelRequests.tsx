@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import { ArrowBack } from '@/shared/ArrowBack/ArrowBack.tsx';
 import cls from './RideParcelRequests.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 import { ParcelDeliveryRequests } from '@/components/ParcelDeliveryRequests/ParcelDeliveryRequests.tsx';
-import { useParams } from 'react-router-dom';
 import { Ride as RideType } from '@/store/features/ride/types.ts';
-import { useSelector } from 'react-redux';
 import { selectRideById } from '@/store/features/ride/rideSlice.ts';
 import {
     RideSwitcher,
@@ -15,6 +17,7 @@ import {
 import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 
 const RideParcelRequests = () => {
+    const { t } = useTranslation();
     const { id } = useParams();
     const ride: RideType | undefined = useSelector((state: { ride: RideType[] }) =>
         selectRideById(state, Number(id))
@@ -34,7 +37,7 @@ const RideParcelRequests = () => {
                     <div className={cls.item}>
                         <div className={cls.container_text}>
                             <Text size='headline1_bold' variant='left' data-testid='titleRequest'>
-                                Requested parcels
+                                {t('ride.requestedParcels')}
                             </Text>
                             <div className={cls.container_number}>
                                 <Text
@@ -51,8 +54,8 @@ const RideParcelRequests = () => {
                 </li>
                 <li>
                     <Switcher
-                        leftTitle='From Senders'
-                        rightTitle='My Requests'
+                        leftTitle={t('ride.leftTitle')}
+                        rightTitle={t('ride.rightTitle')}
                         handleClick={handleClick}
                         switcherType={rideSwitcher}
                     />

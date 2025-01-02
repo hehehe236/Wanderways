@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/shared/Text/Text.tsx';
 import cls from './NewPassword.module.css';
@@ -15,6 +16,7 @@ export type SendNewPasswordFormType = {
 };
 
 const NewPassword = () => {
+    const { t } = useTranslation();
     const {
         register,
         handleSubmit,
@@ -25,13 +27,13 @@ const NewPassword = () => {
     });
 
     const onSubmit: SubmitHandler<SendNewPasswordFormType> = () => {
-        notification.showSuccess('The new password changed successfully');
+        notification.showSuccess(t('newPassword.messageSuccess'));
     };
 
     return (
         <main className={cls.container}>
             <Text size='headline1_bold' className={cls.title} data-testid='title'>
-                Set new password
+                {t('newPassword.title')}
             </Text>
             <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -42,9 +44,9 @@ const NewPassword = () => {
                     <li>
                         <InputPassword
                             name='password'
-                            label='New password'
+                            label={t('newPassword.label')}
                             icon={<IconLockClose />}
-                            placeholder='Password'
+                            placeholder={t('newPassword.placeholder')}
                             error={errors.password}
                             register={register('password')}
                         />
@@ -52,9 +54,9 @@ const NewPassword = () => {
                     <li>
                         <InputPassword
                             name='confirmNewPassword'
-                            label='Confirm new password'
+                            label={t('newPassword.confirmLabel')}
                             icon={<IconLockClose />}
-                            placeholder='Password'
+                            placeholder={t('newPassword.placeholder')}
                             error={errors.confirmNewPassword}
                             register={register('confirmNewPassword')}
                         />
@@ -69,7 +71,7 @@ const NewPassword = () => {
                     className={cls.btn}
                 >
                     <Text size='body2_font_bold' color='white'>
-                        Save changes
+                        {t('newPassword.btnSubmit')}
                     </Text>
                 </Button>
             </form>

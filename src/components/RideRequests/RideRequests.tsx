@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import cls from './RideRequests.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
@@ -16,6 +17,7 @@ import { useAppDispatch } from '@/hooks/useAppDispatch.ts';
 import { Switcher } from '@/shared/Switcher/Switcher.tsx';
 
 export const RideRequests = () => {
+    const { t } = useTranslation();
     const { id } = useParams();
     const ride: RideType | undefined = useSelector((state: { ride: RideType[] }) =>
         selectRideById(state, Number(id))
@@ -33,7 +35,7 @@ export const RideRequests = () => {
                 <div className={cls.container}>
                     <div className={cls.container_text}>
                         <Text size='headline1_bold' variant='left' data-testid='titleRequest'>
-                            Requested parcels
+                            {t('ride.requestedParcels')}
                         </Text>
                         <div className={cls.container_number}>
                             <Text size='body3_font_bold' color='white' data-testid='countRequest'>
@@ -46,8 +48,8 @@ export const RideRequests = () => {
             </li>
             <li>
                 <Switcher
-                    leftTitle='From Senders'
-                    rightTitle='My Requests'
+                    leftTitle={t('ride.leftTitle')}
+                    rightTitle={t('ride.rightTitle')}
                     handleClick={handleClick}
                     switcherType={rideSwitcher}
                 />
@@ -59,7 +61,7 @@ export const RideRequests = () => {
                 <Link to='requested' data-testid='btnViewAll'>
                     <Button type='button' size='submit' background='secondary' variant='submit'>
                         <Text size='body2_font_bold' color='blue'>
-                            View all
+                            {t('ride.viewAll')}
                         </Text>
                     </Button>
                 </Link>

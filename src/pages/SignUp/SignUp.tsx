@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import cls from './SignUp.module.css';
 import { Text } from '@/shared/Text/Text.tsx';
@@ -9,6 +10,7 @@ import { SocialAuthIcons } from '@/shared/SocialAuthIcons/SocialAuthIcons.tsx';
 import { ROUTES } from '@/utils/routes.ts';
 
 const SignUp = () => {
+    const { t } = useTranslation();
     const [signUp, { isLoading }] = useSignupMutation();
     return (
         <main className={cls.container}>
@@ -27,22 +29,22 @@ const SignUp = () => {
                 className={cls.title}
                 data-testid='title'
             >
-                Create an account
+                {t('signUp.title')}
             </Text>
             <UserCredentialsForm
                 handleUserAction={signUp}
                 isLoading={isLoading}
-                messageSuccess='SignUp is successful'
-                messageError='SignUp error'
-                btnText='Sign Up'
+                messageSuccess={t('signUp.messageSuccess')}
+                messageError={t('signUp.messageError')}
+                btnText={t('signUp.btnSubmit')}
                 additionNode={
                     <div className={cls.block_text}>
                         <Text size='body4_font_bold' color='secondary' data-testid='textConditions'>
-                            By signing up you agree with out
+                            {t('signUp.conditions')}
                         </Text>
                         <Link to='#' data-testid='linkConditions'>
                             <Text size='body4_font_bold' color='blue'>
-                                Terms & Conditions
+                                {t('signUp.terms')}
                             </Text>
                         </Link>
                     </div>
@@ -51,11 +53,11 @@ const SignUp = () => {
             <SocialAuthIcons />
             <div className={cls.block_text}>
                 <Text size='body3_font_bold' color='secondary' data-testid='text'>
-                    Already have an account?
+                    {t('signUp.subtitle')}
                 </Text>
                 <Link to={ROUTES.SIGNIN.path} data-testid='linkRedirect'>
                     <Text size='body2_font_bold' color='blue'>
-                        Sign In
+                        {t('signUp.link')}
                     </Text>
                 </Link>
             </div>

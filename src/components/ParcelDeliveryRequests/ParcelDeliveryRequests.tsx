@@ -15,10 +15,10 @@ import { IconTitlePageBlock } from '@/shared/IconTitlePageBlock/IconTitlePageBlo
 import { IconWarning } from '@/shared/svg/IconWarning.tsx';
 import { DualButtonGroup } from '@/shared/DualButtonGroup/DualButtonGroup.tsx';
 import notification from '@/utils/NotificationManager.ts';
-
-const MODAL_TITLE_CANCEL = 'Are you sure you want to cancel request?';
+import { useTranslation } from 'react-i18next';
 
 export const ParcelDeliveryRequests = () => {
+    const { t } = useTranslation();
     const { id } = useParams();
     const { pathname } = useLocation();
     const isRequested = pathname.endsWith('requested');
@@ -46,7 +46,7 @@ export const ParcelDeliveryRequests = () => {
 
     const handleOpenModal = () => setIsModalOpen(true);
 
-    const handleClickApprove = () => notification.showSuccess('Request approved successfully');
+    const handleClickApprove = () => notification.showSuccess(t('ride.messageSuccess'));
 
     const handleClickBack = () => setIsModalOpen(false);
 
@@ -84,7 +84,7 @@ export const ParcelDeliveryRequests = () => {
                                         >
                                             <IconClose addStyle={cls.icon_close} />
                                         </Button>
-                                        {rideSwitcher === 'From Senders' && (
+                                        {rideSwitcher === t('ride.leftTitle') && (
                                             <Button
                                                 background='primary'
                                                 size='confirm'
@@ -92,7 +92,7 @@ export const ParcelDeliveryRequests = () => {
                                                 onClick={handleClickApprove}
                                             >
                                                 <Text size='body2_font_bold' color='white'>
-                                                    Approve
+                                                    {t('ride.btnApprove')}
                                                 </Text>
                                             </Button>
                                         )}
@@ -106,12 +106,12 @@ export const ParcelDeliveryRequests = () => {
             {isModalOpen && (
                 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <div className={cls.container_modal}>
-                        <IconTitlePageBlock icon={<IconWarning />} title={MODAL_TITLE_CANCEL} />
+                        <IconTitlePageBlock icon={<IconWarning />} title={t('ride.modalTitle')} />
                         <DualButtonGroup
                             backgroundLeft='secondary'
                             backgroundRight='red'
-                            textLeft='Back'
-                            textRight='Yes'
+                            textLeft={t('ride.btnModalCancel')}
+                            textRight={t('ride.btnModalConfirm')}
                             textSize='body2_font_bold'
                             textColorLeft='blue'
                             textColorRight='white'

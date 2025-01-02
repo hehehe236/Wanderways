@@ -1,17 +1,20 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
 import cls from './SendFeedbackForm.module.css';
 import { Button } from '@/shared/Button/Button.tsx';
 import { Text } from '@/shared/Text/Text.tsx';
 import { ValidateSchemaSendFeedbackForm } from './ValidateSchemaSendFeedbackForm.ts';
 import { TextArea } from '@/shared/TextArea/TextArea.tsx';
-import { useNavigate } from 'react-router-dom';
 
 export type SendFeedbackFormType = {
     feedback: string;
 };
 
 export const SendFeedbackForm = () => {
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const {
         register,
@@ -29,8 +32,8 @@ export const SendFeedbackForm = () => {
         <form onSubmit={handleSubmit(onSubmit)} className={cls.form} data-testid='sendFeedbackForm'>
             <TextArea
                 id='feedback'
-                label='Your feedback'
-                placeholder='Tell us about your experience...'
+                label={t('sendFeedback.label')}
+                placeholder={t('sendFeedback.placeholder')}
                 error={errors.feedback}
                 register={register('feedback')}
             />
@@ -43,7 +46,7 @@ export const SendFeedbackForm = () => {
                 className={cls.btn}
             >
                 <Text size='body2_font_bold' color='white'>
-                    Submit
+                    {t('sendFeedback.btnSubmit')}
                 </Text>
             </Button>
         </form>

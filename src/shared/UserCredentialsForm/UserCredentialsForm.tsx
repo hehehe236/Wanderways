@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import cls from './UserCredentialsForm.module.css';
 import { Input } from '@/shared/Input/Input.tsx';
@@ -39,6 +40,7 @@ export type UserCredentialsFormType = {
 };
 
 export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
+    const { t } = useTranslation();
     const { handleUserAction, isLoading, messageError, additionNode, btnText } = props;
     const email = useSelector(selectProfileEmail);
     const dispatch = useDispatch();
@@ -80,9 +82,9 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
                         <Input
                             name='email'
                             type='email'
-                            label='Email'
+                            label={t('userCredentialsForm.emailLabel')}
                             icon={<IconEmail />}
-                            placeholder='Email'
+                            placeholder={t('userCredentialsForm.emailPlaceholder')}
                             error={errors.email}
                             register={register('email')}
                         />
@@ -90,8 +92,8 @@ export const UserCredentialsForm = (props: UserCredentialsFormProps) => {
                     <li>
                         <InputPassword
                             name='password'
-                            label='Password'
-                            placeholder='Password'
+                            label={t('userCredentialsForm.passwordLabel')}
+                            placeholder={t('userCredentialsForm.passwordPlaceholder')}
                             error={errors.password}
                             icon={<IconLockClose />}
                             register={register('password')}

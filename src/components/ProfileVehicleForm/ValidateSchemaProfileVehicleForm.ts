@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 const isVehicleTypeExcluded = (vehicleType: string): boolean => {
-    return vehicleType === 'Electric scooter' || vehicleType === 'Bicycle';
+    return vehicleType === '3' || vehicleType === '4';
 };
 
 export const ValidateSchemaProfileVehicleForm = Yup.object().shape({
@@ -15,7 +15,7 @@ export const ValidateSchemaProfileVehicleForm = Yup.object().shape({
         .test('log-vehicle-type', 'fieldRequired', function (value) {
             const { vehicleType } = this.parent;
 
-            if (isVehicleTypeExcluded(vehicleType?.label)) return true;
+            if (isVehicleTypeExcluded(vehicleType?.value)) return true;
 
             return Yup.string()
                 .min(3, 'minCharacters_3')
@@ -26,7 +26,7 @@ export const ValidateSchemaProfileVehicleForm = Yup.object().shape({
     modelType: Yup.object().test('log-vehicle-type', 'fieldRequired', function (value) {
         const { vehicleType } = this.parent;
 
-        if (isVehicleTypeExcluded(vehicleType?.label)) return true;
+        if (isVehicleTypeExcluded(vehicleType?.value)) return true;
 
         return !!value;
     }),
@@ -35,7 +35,7 @@ export const ValidateSchemaProfileVehicleForm = Yup.object().shape({
         .test('log-vehicle-type', 'fieldRequired', function (value) {
             const { vehicleType } = this.parent;
 
-            if (isVehicleTypeExcluded(vehicleType?.label)) return true;
+            if (isVehicleTypeExcluded(vehicleType?.value)) return true;
 
             return Yup.string()
                 .min(3, 'minCharacters_3')

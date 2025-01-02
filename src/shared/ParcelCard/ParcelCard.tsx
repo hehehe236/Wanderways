@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
 import cls from './ParcelCard.module.css';
@@ -40,7 +41,7 @@ export const ParcelCard = (props: ParcelCardProps) => {
         sender,
         actionNode,
     } = props;
-
+    const { t } = useTranslation();
     return (
         <BasisBlock>
             <ul className={cls.container} data-testid='parcelCard'>
@@ -90,7 +91,7 @@ export const ParcelCard = (props: ParcelCardProps) => {
                             </Text>
                         </div>
                         <Text size='body4_font_bold' color='secondary' data-testid='price'>
-                            Price
+                            {t('ride.price')}
                         </Text>
                     </div>
                     {actionNode}

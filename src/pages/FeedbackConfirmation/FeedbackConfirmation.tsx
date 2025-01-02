@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import cls from './FeedbackConfirmation.module.css';
 import { IconTitlePageBlock } from '@/shared/IconTitlePageBlock/IconTitlePageBlock.tsx';
 import { IconCheckmark } from '@/shared/svg/IconCheckmark.tsx';
@@ -6,10 +8,14 @@ import { Text } from '@/shared/Text/Text.tsx';
 import { ROUTES } from '@/utils/routes.ts';
 
 const FeedbackConfirmation = () => {
+    const { t } = useTranslation();
     return (
         <main className={cls.container}>
             <div className={cls.iconTitleWrapper}>
-                <IconTitlePageBlock icon={<IconCheckmark />} title='Thanks for the feedback!' />
+                <IconTitlePageBlock
+                    icon={<IconCheckmark />}
+                    title={t('feedbackConfirmation.title')}
+                />
             </div>
             <ul className={cls.btn_block}>
                 <li>
@@ -19,7 +25,7 @@ const FeedbackConfirmation = () => {
                         data-testid='btnSignIn'
                     >
                         <Text size='body2_font_bold' color='white'>
-                            Sign In
+                            {t('feedbackConfirmation.btnSignIn')}
                         </Text>
                     </Link>
                 </li>
@@ -30,7 +36,7 @@ const FeedbackConfirmation = () => {
                         data-testid='btnSignUp'
                     >
                         <Text size='body2_font_bold' color='blue'>
-                            Sign Up
+                            {t('feedbackConfirmation.btnSignUp')}
                         </Text>
                     </Link>
                 </li>

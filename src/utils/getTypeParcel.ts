@@ -1,10 +1,12 @@
+import { t } from 'i18next';
+
 export const getTypeParcel = (typeCount: number): string => {
     switch (typeCount) {
         case 0:
-            return 'No parcels';
+            return t('ride.noParcels');
         case 1:
-            return '1 parcel';
+            return t('ride.oneParcel');
         default:
-            return `${typeCount} parcels`;
+            return `${typeCount} ${t('ride.moreParcels')}`;
     }
 };
