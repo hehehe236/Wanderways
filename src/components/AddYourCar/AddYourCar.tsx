@@ -6,6 +6,7 @@ import { BasisBlock } from '@/shared/BasisBlock/BasisBlock.tsx';
 import { AddNew } from '@/shared/AddNew/AddNew.tsx';
 import cls from './AddYourCar.module.css';
 import { IconVehicle } from '@/shared/svg/IconVehicle.tsx';
+import { ROUTES } from '@/utils/routes.ts';
 
 export const AddYourCar = () => {
     const { t } = useTranslation();
@@ -15,7 +16,7 @@ export const AddYourCar = () => {
                 {t('aboutYourself.addCar')}
             </Text>
             <BasisBlock>
-                <Link to='#' className={cls.container}>
+                <Link to={ROUTES.NEW_VEHICLE.path} className={cls.container}>
                     <div className={cls.container_icon_car}>
                         <IconVehicle />
                     </div>

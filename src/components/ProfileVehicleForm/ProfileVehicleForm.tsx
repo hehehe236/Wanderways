@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ProfileVehicleFormType } from './ProfileVehicleType.ts';
 import { Select } from '@/shared/Select/Select.tsx';
-import { vehicleTypeEn, vehicleTypeUk } from '@/utils/db/vehicleType.ts';
+import { vehicleTypeEn, vehicleTypeUk } from '@/utils/db/vehicleType.tsx';
 import { Placeholder } from '@/shared/Placeholder/Placeholder.tsx';
 import { IconCar } from '@/shared/svg/IconCar.tsx';
 import cls from './ProfileVehicleForm.module.css';
@@ -54,10 +54,8 @@ export const ProfileVehicleForm = () => {
             ModelName: data.modelName || '',
             ModelType: data.modelType?.label || '',
         });
-        if (response.data)
-            notification.showSuccess(
-                `${data.vehicleType.label} ${t('profileVehicle.messageSuccess')}`
-            );
+
+        if (response.data) notification.showSuccess(`${t('profileVehicle.messageSuccess')}`);
     };
 
     if (isLoading) return <Loader />;

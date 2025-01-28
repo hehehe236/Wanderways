@@ -5,10 +5,7 @@ const isVehicleTypeExcluded = (vehicleType: string): boolean => {
 };
 
 export const ValidateSchemaProfileVehicleForm = Yup.object().shape({
-    vehicleType: Yup.object({
-        label: Yup.string().required('fieldRequired'),
-        value: Yup.string().required('fieldRequired'),
-    }).required(),
+    vehicleType: Yup.object().required('fieldRequired'),
     // TODO: change validate after select will be ready
     modelName: Yup.string()
         .trim()

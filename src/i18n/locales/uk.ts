@@ -159,7 +159,7 @@ const uk = {
         labelIdNumber: 'ID номер',
         placeholderIdNumber: 'Wilson',
         btnAddVehicle: 'Додати транспортний засіб',
-        messageSuccess: 'Успішно додано',
+        messageSuccess: 'Транспорт успішно додано',
     },
     parcel: {
         btnFindDriver: 'Знайти водія',

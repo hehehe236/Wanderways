@@ -24,7 +24,7 @@ export const Header = () => {
                     </Text>
                 </Button>
             </Link>
-            <Link to='profile' data-testid='headerAvatar'>
+            <Link to='/profile' data-testid='headerAvatar'>
                 <button type='button' className={cls.container_avatar}>
                     <img src={profilePicture || Avatar} alt='avatar' className={cls.img} />
                 </button>

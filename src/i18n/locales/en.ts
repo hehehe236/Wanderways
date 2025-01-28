@@ -159,7 +159,7 @@ const en = {
         labelIdNumber: 'ID number',
         placeholderIdNumber: 'Wilson',
         btnAddVehicle: 'Add vehicle',
-        messageSuccess: 'create successfully',
+        messageSuccess: 'Vehicle create successfully',
     },
     parcel: {
         btnFindDriver: 'Find driver',
