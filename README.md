@@ -17,6 +17,15 @@ A modern B2C/P2P delivery platform built with React, Redux, and Vite. Wanderways
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="public/screenshots/1.png" alt="screenshot" width="250"/>
+  <img src="public/screenshots/2.png" alt=screenshot" width="250"/>
+</p>
+
+---
+
 ## Tech Stack
 
 -   **React 18** – UI library
