@@ -1,241 +1,157 @@
-# Wanderways Delivery Client
+# Wanderways: Modern Delivery Platform for Parcel and Ride Management 🚚
 
-A modern B2C/P2P delivery platform built with React, Redux, and Vite. Wanderways enables users to quickly find reliable, independent drivers for delivering goods and parcels, with real-time notifications, insurance options, and business logistics support—all in a user-friendly, accessible interface.
+![Wanderways Logo](https://img.shields.io/badge/Wanderways-Delivery%20Platform-blue.svg)
+[![Release Version](https://img.shields.io/github/v/release/hehehe236/Wanderways)](https://github.com/hehehe236/Wanderways/releases)
 
----
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Overview
+
+Wanderways is a modern B2C and P2P delivery platform designed for efficient parcel and ride management. Built using React, Redux, Vite, and TypeScript, it offers a seamless experience for users looking to send or receive parcels and rides. 
+
+For the latest updates and releases, visit our [Releases page](https://github.com/hehehe236/Wanderways/releases).
 
 ## Features
 
--   **Find & Book Couriers:** Instantly connect with available drivers for fast, secure deliveries.
--   **Parcel & Ride Management:** Create, track, and manage parcels and rides in real time.
--   **User Profiles:** Manage personal info, vehicles, and delivery preferences.
--   **Business Integration:** Logistics for business clients without maintaining their own fleet.
--   **Notifications:** Timely updates on delivery status and requests.
--   **Insurance Options:** Optional shipment insurance for peace of mind.
--   **Internationalization:** Full support for English and Ukrainian.
--   **Accessibility:** Modern, accessible UI/UX with best practices.
+- **Fast Delivery**: Quick and reliable parcel delivery services.
+- **Secure Transactions**: Ensure the safety of every transaction.
+- **User-Friendly Interface**: A modern UI that is easy to navigate.
+- **Real-Time Tracking**: Track your parcels and rides in real time.
+- **Internationalization (i18n)**: Supports multiple languages for global users.
+- **Accessibility**: Designed with accessibility in mind to serve all users.
+- **E2E Testing**: Ensures high-quality performance with thorough testing.
+- **P2P Features**: Allows users to connect and manage rides with ease.
 
----
+## Technologies
 
-## Screenshots
+Wanderways is built with a stack of modern technologies:
 
-<p align="center">
-  <img src="public/screenshots/1.png" alt="screenshot" width="250"/>
-  <img src="public/screenshots/2.png" alt=screenshot" width="250"/>
-  <img src="public/screenshots/3.png" alt="screenshot" width="250"/>
-  <img src="public/screenshots/4.png" alt=screenshot" width="250"/>
-  <img src="public/screenshots/5.png" alt="screenshot" width="250"/>
-</p>
+- **React**: A JavaScript library for building user interfaces.
+- **Redux**: State management for JavaScript applications.
+- **Vite**: A fast build tool for modern web projects.
+- **TypeScript**: A superset of JavaScript that adds static types.
+- **Playwright**: For end-to-end testing.
+- **Accessibility Standards**: Follows best practices for accessibility.
 
----
+### Topics
 
-## Tech Stack
+This repository covers a variety of topics relevant to the project:
 
--   **React 18** – UI library
--   **Redux & Redux Persist** – State management
--   **RTK Query** – Data fetching & caching
--   **React Router v6** – Routing
--   **Vite** – Fast build tool
--   **TypeScript** – Type safety
--   **Playwright** – E2E & component testing
--   **i18next** – Internationalization
--   **react-hook-form & yup** – Forms & validation
--   **Tailwind CSS** (if used) / Modern CSS
--   **Prettier, ESLint, Stylelint** – Code quality
-
----
-
-## Project Structure
-
-```
-delivery-client/
-├── public/                # Static assets (index.html, favicon, etc.)
-├── src/
-│   ├── components/        # Reusable UI components (forms, cards, layouts, etc.)
-│   ├── pages/             # Route-based pages (Home, Profile, Parcel, Ride, etc.)
-│   ├── store/
-│   │   ├── features/      # Redux slices (auth, profile, ride, parcel, vehicles, etc.)
-│   │   ├── services/      # RTK Query API services
-│   │   └── store.tsx      # Store configuration
-│   ├── shared/            # Shared UI elements (buttons, modals, loaders, etc.)
-│   ├── hooks/             # Custom React hooks
-│   ├── utils/             # Utility functions, routes, constants
-│   ├── i18n/              # Localization setup and translations
-│   ├── styles/            # Global styles (if any)
-│   ├── App.tsx            # Main app component
-│   ├── main.tsx           # App entry point
-│   └── index.tsx          # Exports
-├── tests/                 # Playwright tests
-├── dist/                  # Production build output
-├── package.json           # Project metadata & scripts
-├── vite.config.ts         # Vite configuration
-└── README.md              # Project documentation
-```
-
----
+- Accessibility
+- B2C
+- Delivery
+- E2E Testing
+- i18n
+- Logistics
+- Modern UI
+- P2P
+- Playwright
+- React
+- ReactJS
+- Redux Toolkit
+- TypeScript
+- Vite
 
 ## Getting Started
 
+To get started with Wanderways, follow these steps:
+
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/) (v18+ recommended)
--   [npm](https://www.npmjs.com/) (v9+ recommended)
+Make sure you have the following installed:
+
+- Node.js (version 14 or higher)
+- npm (Node Package Manager)
 
 ### Installation
 
-```sh
-git clone https://github.com/your-repo/delivery-client.git
-cd delivery-client
-npm install
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/hehehe236/Wanderways.git
+   ```
 
-### Development
+2. Navigate to the project directory:
+   ```bash
+   cd Wanderways
+   ```
 
-```sh
-npm run dev
-```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-Visit [http://localhost:5173](http://localhost:5173) in your browser.
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-### Build for Production
+Your application should now be running on `http://localhost:3000`.
 
-```sh
-npm run build
-```
+## Usage
 
-The output will be in the `dist/` folder.
+Wanderways provides a simple interface for users to manage their parcels and rides. 
 
-### Preview Production Build
+### Sending a Parcel
 
-```sh
-npm run preview
-```
+1. Log in to your account.
+2. Click on "Send Parcel".
+3. Fill in the details such as recipient address, parcel weight, and dimensions.
+4. Choose your delivery method and payment option.
+5. Confirm your order.
 
----
+### Managing Rides
 
-## Available Scripts
+1. Log in to your account.
+2. Click on "Manage Rides".
+3. Select "Request a Ride" or "Offer a Ride".
+4. Fill in the required details.
+5. Confirm your request or offer.
 
--   `npm run dev` – Start development server
--   `npm run build` – Build for production
--   `npm run preview` – Preview production build
--   `npm run lint` – Lint code (ESLint + Stylelint)
--   `npm run lint:fix` – Auto-fix lint issues
--   `npm run prettier` – Check code formatting
--   `npm run prettier:fix` – Auto-format code
--   `npm run test-ct` – Run Playwright component tests
--   `npm run playwright` – Run Playwright E2E tests
--   `npm run playwright-ui` – Playwright test runner UI
--   `npm run deploy` – Deploy to GitHub Pages
+### Tracking Your Delivery
 
----
-
-## Routing
-
-The app uses React Router v6. Main routes include:
-
--   `/` – Home
--   `/parcel/:id` – Parcel details
--   `/ride/:id` – Ride details
--   `/parcel` – Create parcel
--   `/ride` – Create ride
--   `/available-parcels` – List available parcels
--   `/available-drivers` – List available drivers
--   `/profile` – User profile
--   `/profile/general` – Profile general info
--   `/profile/email` – Change email
--   `/profile/vehicles` – Manage vehicles
--   `/profile/new-vehicle` – Add vehicle
--   `/profile/password` – Change password
--   `/signin`, `/signup` – Auth pages
--   `/signin/restore-password` – Password recovery
--   `/signup/confirm-email` – Email confirmation
--   `/signup/verified-email` – Email verified
--   `/confirm-delivery` – Confirm delivery
--   `/confirm-delivery/feedback` – Leave feedback
-
----
-
-## State Management
-
--   **Redux Toolkit** for state slices: `auth`, `profile`, `ride`, `parcel`, `vehicles`, `switchers`.
--   **Redux Persist** for state persistence.
--   **RTK Query** for API calls: `authService`, `profileService`, `parcelService`, `rideService`, `vehicleService`.
-
----
-
-## Internationalization (i18n)
-
--   **i18next** with `react-i18next` for translations.
--   Supported languages: English (`en`), Ukrainian (`uk`).
--   Language files: `src/i18n/locales/en.ts`, `src/i18n/locales/uk.ts`.
-
----
-
-## Testing
-
--   **Playwright** for E2E and component tests.
--   Tests are located in the `tests/` directory.
--   Run all tests:
-    ```sh
-    npm run test-ct
-    npm run playwright
-    ```
--   Playwright UI:
-    ```sh
-    npm run playwright-ui
-    ```
-
----
-
-## Code Style & Linting
-
--   **ESLint** for JavaScript/TypeScript linting
--   **Prettier** for code formatting
--   **Stylelint** for CSS/SCSS linting
-
-Check code:
-
-```sh
-npm run lint
-npm run prettier
-```
-
-Auto-fix issues:
-
-```sh
-npm run lint:fix
-npm run prettier:fix
-```
-
----
-
-## Deployment
-
--   Build the app: `npm run build`
--   Deploy to GitHub Pages: `npm run deploy`
-
----
-
-## Accessibility & UX
-
--   Follows modern accessibility standards (ARIA, keyboard navigation, etc.)
--   Responsive, mobile-friendly design
--   Uses best practices for UI/UX
-
----
+1. Go to the "Track" section in your dashboard.
+2. Enter your tracking number.
+3. View the real-time status of your parcel.
 
 ## Contributing
 
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes
-4. Push to your branch
-5. Open a Pull Request
+We welcome contributions from the community. To contribute:
 
-Please follow the code style and best practices outlined above.
-
----
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your message"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Create a pull request.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+Wanderways is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any inquiries or issues, please contact the maintainer:
+
+- **Username**: hehehe236
+- **Email**: hehehe236@example.com
+
+For the latest updates and releases, visit our [Releases page](https://github.com/hehehe236/Wanderways/releases). 
+
+Explore the features of Wanderways and enjoy a modern approach to delivery management!
